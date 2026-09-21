@@ -10,8 +10,8 @@
  * 3. authorGalleryUrl: 指向创作者个人原创画廊（Gallery）开源仓库与站点的友好外链。
  */
 window.CABINET_CONFIG = {
-  // 外部挂载 CDN 节点 (Cloudflare Pages / R2，结尾不带斜杠)
-  assetBaseUrl: '', // 例如: 'https://gallerycore.pages.dev'
+  // 纯网页分支 (website) 外部瓦片切片挂载点（通过 CDN 直拉 main 分支切片数据）
+  assetBaseUrl: 'https://cdn.jsdelivr.net/gh/OpenQGIS/Cabinet@main',
 
   // 云端在线完整展厅 (对外链接)
   coreLiveUrl: 'https://gallerycore.pages.dev',

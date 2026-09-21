@@ -33,6 +33,9 @@ pic/
 *.psd
 *.ai
 
+# Tile Pyramids (Hosted on main branch or CDN)
+tiles/
+
 # Logs & Temporary Files
 *.log
 *.tmp
