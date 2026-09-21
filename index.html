@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="portal-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CABINET · 珍奇柜 · 空间制图与测绘藏录</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="data/themes.js"></script>
+  <script src="data/manifest.js"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/theme.js"></script>
+  <script src="vendor/openseadragon.min.js"></script>
+</head>
+<body data-page="portal">
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-badge"></div>
+        <div class="brand-text">
+          <h1 class="brand-title">CABINET · 珍奇柜</h1>
+          <span class="brand-subtitle">空间制图 · 卫星遥感 · 寰宇图志</span>
+        </div>
+      </div>
+
+      <div class="header-meta">
+        <!-- External link to Personal Gallery -->
+        <a href="https://github.com/OpenQGIS/gallery" target="_blank" rel="noopener noreferrer" class="nav-switch-link" title="访问创作者原创个人画廊 (Gallery)">
+          <span>创作者个人画廊 (Gallery)</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <div class="divider"></div>
+        <div class="stat-pill">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span id="collectionCount">8</span> 幅策展馆藏
+        </div>
+        <div class="divider"></div>
+        <button class="icon-btn theme-toggle-btn" id="btnToggleTheme" title="切换暗色 / 浅色模式" aria-label="切换主题">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Right Floating Screen Snap Dot Navigation (顶点吸附三圆点悬浮定位) -->
+  <aside class="portal-page-nav" aria-label="页面顶点导航">
+    <button class="page-nav-dot active" data-target="heroSection" title="首页门面" aria-label="首页门面"></button>
+    <button class="page-nav-dot" data-target="exploreSection" title="专题分类" aria-label="专题分类"></button>
+    <button class="page-nav-dot" data-target="randomSection" title="随机视窗" aria-label="随机视窗"></button>
+  </aside>
+
+  <!-- Section 1: Hero Dual Gateways (首屏 1:1 双门面) -->
+  <main class="portal-hero-container" id="heroSection">
+    <div class="portal-wrapper">
+      <!-- Left Gate: Verygoogmaps 全球卫星遥感 -->
+      <div class="portal-card left-portal" role="link" tabindex="0" data-sub="Verygoogmaps" title="进入 Verygoogmaps 全球卫星遥感专区">
+        <div class="portal-bg-wrap">
+          <img class="portal-bg-img" src="thumbs/hoayr9uwwaa_m2u_6e0d336d.webp" alt="Verygoogmaps 全球遥感" loading="eager" />
+        </div>
+        <div class="portal-scrim"></div>
+        <div class="portal-card-content">
+          <div class="portal-tag-group">
+            <span class="portal-tag-pill accent">卫星遥感 · 空间测绘</span>
+            <span class="portal-count-badge" id="portalGisCount">4 幅馆藏</span>
+          </div>
+          <h2 class="portal-headline">全球遥感 · Verygoogmaps</h2>
+          <p class="portal-subtext">高精度多光谱地表纹理 · 极端自然地理色彩 · 空间分辨率艺术</p>
+          <div class="portal-enter-btn">
+            <span>探索遥感专题</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Gate: 标准地图系列 权威测绘 -->
+      <div class="portal-card right-portal" role="link" tabindex="0" data-sub="标准地图" title="进入标准地图权威测绘专区">
+        <div class="portal-bg-wrap">
+          <img class="portal-bg-img" src="thumbs/8_3c808d73.webp" alt="标准地图要素" loading="eager" />
+        </div>
+        <div class="portal-scrim"></div>
+        <div class="portal-card-content">
+          <div class="portal-tag-group">
+            <span class="portal-tag-pill primary">权威测绘 · 寰宇图志</span>
+            <span class="portal-count-badge" id="portalOriginalCount">4 幅馆藏</span>
+          </div>
+          <h2 class="portal-headline">标准地图 · 空间要素</h2>
+          <p class="portal-subtext">省级交通网络骨架 · 界线边境实测标准 · 欧洲地中海地形水系</p>
+          <div class="portal-enter-btn">
+            <span>探索标准地图</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Down Scroll Hint Button -->
+    <button class="portal-scroll-hint" id="scrollHint" title="向下漫游专题分类 (Space / PageDown)" aria-label="向下滚动">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 10l5 5 5-5"/></svg>
+    </button>
+  </main>
+
+  <!-- Section 2: Down-scroll Topic Taxonomy Explorer (第二屏 · 专题分类) -->
+  <section class="portal-section" id="exploreSection">
+    <div class="section-header">
+      <div class="section-title-wrap">
+        <h3 class="section-title">专题分类 · 藏录探索</h3>
+        <span class="section-desc">全球卫星遥感与国家标准地图要素 · 精选代表作视界</span>
+      </div>
+    </div>
+
+    <div class="taxonomy-clusters">
+      <!-- Cluster 1: 全球卫星遥感专题 -->
+      <div class="taxonomy-cluster">
+        <div class="cluster-head">
+          <div class="cluster-title-group">
+            <span class="cluster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            <h4 class="cluster-title">全球卫星遥感专题 (Verygoogmaps)</h4>
+          </div>
+          <div role="link" tabindex="0" class="cluster-link" data-sub="Verygoogmaps" title="筛选全部遥感作品">
+            <span>浏览全部 (4)</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </div>
+        <div class="taxonomy-chip-list">
+          <div class="taxonomy-card-chip" data-category="gis" data-sub="Verygoogmaps" data-artwork-id="heqacogw8ae_dtn_463ef9b0" tabindex="0" title="点击微缩图看代表作 · 点击卡片筛选 Verygoogmaps">
+            <div class="chip-thumb-wrap" title="全屏深览代表作 · HEqAcOgW8AE_Dtn">
+              <img src="thumbs/heqacogw8ae_dtn_463ef9b0.webp" alt="Verygoogmaps 代表图" class="chip-thumb-img" loading="lazy" />
+            </div>
+            <div class="chip-info">
+              <div class="chip-title-row">
+                <span class="chip-name">极地与荒漠肌理</span>
+                <span class="chip-count">4 幅</span>
+              </div>
+              <span class="chip-desc">全球高精遥感 · 极端地表色彩</span>
+            </div>
+          </div>
+          <div class="taxonomy-card-chip" data-category="gis" data-sub="Verygoogmaps" data-artwork-id="hoayr9uwwaa_m2u_6e0d336d" tabindex="0" title="点击微缩图看代表作 · 点击卡片筛选 Verygoogmaps">
+            <div class="chip-thumb-wrap" title="全屏深览代表作 · HOaYr9uWwAA-m2u">
+              <img src="thumbs/hoayr9uwwaa_m2u_6e0d336d.webp" alt="山川水文 代表图" class="chip-thumb-img" loading="lazy" />
+            </div>
+            <div class="chip-info">
+              <div class="chip-title-row">
+                <span class="chip-name">陆表地貌与水系</span>
+                <span class="chip-count">4 幅</span>
+              </div>
+              <span class="chip-desc">高原峡谷构造与水网侵蚀形态</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cluster 2: 标准地图权威要素专题 -->
+      <div class="taxonomy-cluster">
+        <div class="cluster-head">
+          <div class="cluster-title-group">
+            <span class="cluster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg></span>
+            <h4 class="cluster-title">国家与世界标准地图专题</h4>
+          </div>
+          <div role="link" tabindex="0" class="cluster-link" data-sub="标准地图" title="筛选全部标准地图">
+            <span>浏览全部 (4)</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </div>
+        <div class="taxonomy-chip-list">
+          <div class="taxonomy-card-chip" data-category="gis" data-sub="标准地图 · China · 安徽" data-artwork-id="artwork_d699417c" tabindex="0" title="点击微缩图看代表作 · 点击卡片筛选 安徽要素图">
+            <div class="chip-thumb-wrap" title="全屏深览代表作 · 安徽省-公路交通要素图">
+              <img src="thumbs/artwork_d699417c.webp" alt="安徽交通要素图 代表图" class="chip-thumb-img" loading="lazy" />
+            </div>
+            <div class="chip-info">
+              <div class="chip-title-row">
+                <span class="chip-name">标准地图 · 安徽</span>
+                <span class="chip-count">1 幅</span>
+              </div>
+              <span class="chip-desc">省域高精公路交通骨干要素</span>
+            </div>
+          </div>
+          <div class="taxonomy-card-chip" data-category="gis" data-sub="标准地图 · China · 黑龙江" data-artwork-id="8_3c808d73" tabindex="0" title="点击微缩图看代表作 · 点击卡片筛选 黑龙江地图">
+            <div class="chip-thumb-wrap" title="全屏深览代表作 · 黑龙江省标准地图-基础要素版8开">
+              <img src="thumbs/8_3c808d73.webp" alt="黑龙江基础要素 代表图" class="chip-thumb-img" loading="lazy" />
+            </div>
+            <div class="chip-info">
+              <div class="chip-title-row">
+                <span class="chip-name">标准地图 · 黑龙江</span>
+                <span class="chip-count">2 幅</span>
+              </div>
+              <span class="chip-desc">基础要素版与抚远边境实测</span>
+            </div>
+          </div>
+          <div class="taxonomy-card-chip" data-category="gis" data-sub="标准地图 · Italy" data-artwork-id="094_095_b18da34a" tabindex="0" title="点击微缩图看代表作 · 点击卡片筛选 意大利地图">
+            <div class="chip-thumb-wrap" title="全屏深览代表作 · 094-095 意大利">
+              <img src="thumbs/094_095_b18da34a.webp" alt="意大利标准地图 代表图" class="chip-thumb-img" loading="lazy" />
+            </div>
+            <div class="chip-info">
+              <div class="chip-title-row">
+                <span class="chip-name">标准地图 · 意大利</span>
+                <span class="chip-count">1 幅</span>
+              </div>
+              <span class="chip-desc">欧洲地形水系与行政区划图</span>
+            </div>
+          </div>
+          <div class="taxonomy-card-chip" data-category="gis" data-sub="标准地图" data-artwork-id="artwork_f41f9c9a" tabindex="0" title="点击微缩图看代表作 · 点击卡片筛选 抚远县地图">
+            <div class="chip-thumb-wrap" title="全屏深览代表作 · 黑龙江抚远县地图">
+              <img src="thumbs/artwork_f41f9c9a.webp" alt="抚远县地图 代表图" class="chip-thumb-img" loading="lazy" />
+            </div>
+            <div class="chip-info">
+              <div class="chip-title-row">
+                <span class="chip-name">县级实测 · 抚远</span>
+                <span class="chip-count">1 幅</span>
+              </div>
+              <span class="chip-desc">中国东极抚远水系界线详测</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dimension Quick Filters -->
+    <div class="dim-tag-row">
+      <span class="dim-tag-label">画幅构图:</span>
+      <button class="filter-chip active" data-dim="all">全部</button>
+      <button class="filter-chip" data-dim="wide">横幅</button>
+      <button class="filter-chip" data-dim="tall">条幅</button>
+    </div>
+  </section>
+
+  <!-- Section 3: Random Curated Discovery Window (第三屏 · 随机视窗展台) -->
+  <section class="portal-section" id="randomSection">
+    <div class="random-section-header">
+      <div class="random-title-row">
+        <h3 class="section-title">全景展台</h3>
+        <span class="random-badge" id="randomPoolBadge">全库 8 幅</span>
+      </div>
+      <div class="section-actions">
+        <button class="btn-open-stream" id="btnOpenStreamTop" title="打开全屏瀑布流阅览">
+          <span>进入全屏瀑布流</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Framed Showcase Window Container -->
+    <div class="random-window-stage" id="randomWindowStage" title="点击进入全屏瀑布流">
+      <!-- 4 Live Preview Background Cards (Clickable) -->
+      <div class="random-preview-track" id="randomPreviewTrack">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Center Floating Glassmorphic CTA Banner -->
+      <div class="random-window-scrim">
+        <div class="random-window-cta">
+          <div class="random-cta-badge">
+            <span class="pulse-dot"></span>
+            <span>珍奇柜精选视窗</span>
+          </div>
+          <h4 class="random-cta-title">全屏空间测绘瀑布流</h4>
+          <p class="random-cta-desc">8 幅卫星遥感与国家标准地图 · 支持全量即时洗牌与分类筛选</p>
+          <button class="btn-enter-stream-banner" id="btnOpenStreamBanner" tabindex="-1">
+            <span>立即进入瀑布流</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Random Masonry Stream Modal (全屏随机瀑布流模态窗口) -->
+  <div class="stream-modal" id="streamModal" aria-hidden="true" role="dialog" aria-label="全屏随机瀑布流">
+    <div class="stream-header">
+      <div class="stream-header-left">
+        <button class="stream-exit-btn" id="btnCloseStream" title="退出全屏瀑布流 (Esc)">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span class="stream-exit-text">退出全屏</span>
+        </button>
+        <div class="stream-title-group">
+          <h3 class="stream-title">全屏空间测绘瀑布流</h3>
+          <span class="stream-badge" id="streamItemCountBadge">8 幅</span>
+        </div>
+      </div>
+
+      <div class="stream-header-center">
+        <div class="stream-filter-tabs">
+          <button class="stream-filter-chip active" data-stream-source="all">全部展品 (<span id="streamAllCount">8</span>)</button>
+          <button class="stream-filter-chip" data-stream-source="gis">全球遥感 (<span id="streamGisCount">4</span>)</button>
+          <button class="stream-filter-chip" data-stream-source="original">标准地图 (<span id="streamOriginalCount">4</span>)</button>
+        </div>
+      </div>
+
+      <div class="stream-header-right">
+        <button class="btn-shuffle" id="btnStreamShuffle" title="打乱洗牌换一批">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          <span>换一批</span>
+        </button>
+        <button class="nav-btn" id="btnCloseStreamCross" title="关闭 (Esc)">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Masonry Stream Body -->
+    <div class="stream-body" id="streamBody">
+      <div class="masonry-grid" id="streamGalleryGrid">
+        <!-- Cards dynamically rendered by app.js (0 gap, 0 border-radius) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Deep Zoom Viewer Modal (原生 OpenSeadragon 视口) -->
+  <div class="viewer-modal" id="viewerModal" aria-hidden="true" role="dialog" aria-label="Deep Zoom 展品阅览">
+    <div class="viewer-backdrop" id="viewerBackdrop"></div>
+    <div class="viewer-container">
+      <header class="viewer-header">
+        <div class="viewer-header-left">
+          <button class="nav-btn" id="btnCloseViewer" title="退出阅览 (Esc)">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          <div class="viewer-title-group">
+            <span class="viewer-badge">DEEP ZOOM 4K</span>
+            <h2 class="viewer-title" id="viewerTitle">作品名称</h2>
+            <span class="viewer-dims" id="viewerDims">0 × 0 px</span>
+          </div>
+        </div>
+
+        <div class="viewer-header-right">
+          <button class="nav-btn" id="btnPrevArtwork" title="上一幅 (←)">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="nav-btn" id="btnNextArtwork" title="下一幅 (→)">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <div class="divider"></div>
+          <button class="nav-btn info-btn" id="btnToggleInfo" title="展品档案与主色板 (I)">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Left & Right Edge Navigation Paddles (左右视口边缘切换) -->
+      <button class="viewer-edge-nav edge-prev" id="btnEdgePrev" title="上一幅 (←)" aria-label="上一幅">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="viewer-edge-nav edge-next" id="btnEdgeNext" title="下一幅 (→)" aria-label="下一幅">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+
+      <div class="viewer-body">
+        <div class="osd-stage" id="osdStage">
+          <!-- OpenSeadragon Canvas injects here -->
+        </div>
+
+        <!-- Floating Viewer Toolbar -->
+        <div class="viewer-floating-toolbar">
+          <div class="tool-zoom-badge" id="toolZoomBadge" title="当前视野相对原始物理像素缩放比">100%</div>
+          <button class="tool-btn tool-btn-text" id="toolActualSize" title="1:1 原始物理像素点对点显示 (快捷键 1)">1:1</button>
+          <div class="tool-divider"></div>
+          <button class="tool-btn" id="toolZoomIn" title="放大 (+)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></button>
+          <button class="tool-btn" id="toolZoomOut" title="缩小 (-)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></button>
+          <button class="tool-btn" id="toolReset" title="适应屏幕 (Home)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button>
+          <button class="tool-btn" id="toolRotate" title="顺时针旋转 90°"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg></button>
+          <button class="tool-btn" id="toolFullscreen" title="全屏视界 (F)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
+        </div>
+      </div>
+
+      <aside class="viewer-drawer" id="viewerDrawer">
+        <div class="drawer-header">
+          <h3>展品档案与详情</h3>
+          <button class="drawer-close-btn" id="btnDrawerClose" title="关闭面板">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <div class="drawer-content">
+          <div class="meta-item">
+            <label>作品名称</label>
+            <div class="value strong" id="metaTitle">-</div>
+          </div>
+          <div class="meta-item">
+            <label>分类归属</label>
+            <div class="value" id="metaCategory">-</div>
+          </div>
+          <div class="meta-item" id="metaAuthorBox">
+            <label>作者 / 出处</label>
+            <div class="value highlight" id="metaAuthor">-</div>
+          </div>
+          <div class="meta-item" id="metaColorPaletteBox">
+            <label>主色板 · 提取色系 (点击复制 HEX)</label>
+            <div class="meta-swatches" id="metaColorSwatches">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+          <div class="meta-item" id="metaDescBox">
+            <label>作品说明</label>
+            <div class="value meta-desc-text" id="metaDescription">-</div>
+          </div>
+          <div class="meta-item">
+            <label>源文件</label>
+            <div class="value font-mono" id="metaFilename">-</div>
+          </div>
+          <div class="meta-item">
+            <label>原始分辨率</label>
+            <div class="value font-mono" id="metaResolution">-</div>
+          </div>
+          <div class="meta-item">
+            <label>构图纵横比</label>
+            <div class="value" id="metaAspect">-</div>
+          </div>
+          <div class="meta-item">
+            <label>超高清层级</label>
+            <div class="value font-mono" id="metaLevels">-</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

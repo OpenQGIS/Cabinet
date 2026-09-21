@@ -1,0 +1,39 @@
+# Dependencies & Build Artifacts
+node_modules/
+dist/
+__pycache__/
+*.pyc
+
+# Local Config & Secrets
+.env
+.env.local
+
+# OS Metadata
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Editor & IDE Directories
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Large Raw Image Sources (Security & Asset Protection)
+pic/
+*.tif
+*.tiff
+*.raw
+*.psd
+*.ai
+
+# Logs & Temporary Files
+*.log
+*.tmp
+*.bak
