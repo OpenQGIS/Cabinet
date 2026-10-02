@@ -331,6 +331,50 @@
           <!-- OpenSeadragon Canvas injects here -->
         </div>
 
+        <!-- 鹰眼图展开状态容器 (左下角吸附，纯净无常驻冗余文字，全靠悬停弹窗) -->
+        <div class="navigator-wrapper is-collapsed" id="navWrapper">
+          <!-- 鼠标悬停时浮现的提示弹窗 -->
+          <div class="nav-hover-tooltip" id="navHoverTooltip">
+            <div class="nav-tip-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+              <span data-i18n="navOverviewTitle">鹰眼图</span>
+              <kbd class="kbd-badge">O</kbd>
+            </div>
+            <div class="nav-tip-divider"></div>
+            <div class="nav-tip-action" data-i18n="navTipDragZoom">
+              按住 <strong>拖拽画框</strong> 缩放 · <strong>单击</strong> 平移
+            </div>
+          </div>
+
+          <div class="navigator-stage" id="navStageContainer">
+            <!-- 悬停右上角轻量关闭按钮 -->
+            <button class="nav-floating-close" id="btnCloseNav" title="收起鹰眼图 (快捷键: O)" aria-label="收起鹰眼图">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <!-- OpenSeadragon 鹰眼挂载点 -->
+            <div id="osdNavigator"></div>
+            <!-- 鼠标画框交互透明蒙层 -->
+            <div class="nav-draw-overlay" id="navDrawOverlay">
+              <!-- 临时虚线反色绘制框 -->
+              <div class="nav-draw-box" id="navDrawBox"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 关闭鹰眼图后的液态玻璃胶囊唤起浮标 -->
+        <div class="nav-launcher-wrapper" id="navLauncher">
+          <div class="launcher-tooltip" id="launcherTooltip">
+            <span data-i18n="navTipKeyOpenPrefix">按</span>
+            <kbd class="kbd-badge">O</kbd>
+            <span data-i18n="navTipKeyOpenSuffix">键再次打开鹰眼图</span>
+          </div>
+          <button class="nav-launcher-btn" id="btnOpenNav" title="点击或按 O 键打开鹰眼图" aria-label="打开鹰眼图">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            <span data-i18n="navOverviewTitle">鹰眼图</span>
+            <kbd class="kbd-badge">O</kbd>
+          </button>
+        </div>
+
         <!-- Floating Viewer Toolbar -->
         <div class="viewer-floating-toolbar">
           <div class="tool-zoom-badge" id="toolZoomBadge" title="当前视野相对原始物理像素缩放比">100%</div>

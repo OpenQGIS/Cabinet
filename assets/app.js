@@ -846,9 +846,65 @@
   }
 
   /* -------------------------------------------------------------
-     3. Deep Zoom Viewer Modal & Info Drawer
+     3. Deep Zoom Viewer Modal, Info Drawer & High-Precision Navigator
      ------------------------------------------------------------- */
+  let isNavCollapsed = window.innerWidth <= 768;
+
+  function toggleNavigator(collapse) {
+    const navW = document.getElementById('navWrapper');
+    const navL = document.getElementById('navLauncher');
+    if (!navW || !navL) return;
+
+    if (collapse === undefined) {
+      isNavCollapsed = !isNavCollapsed;
+    } else {
+      isNavCollapsed = !!collapse;
+    }
+
+    if (isNavCollapsed) {
+      navW.classList.add('is-collapsed');
+      navL.classList.add('is-visible');
+    } else {
+      navW.classList.remove('is-collapsed');
+      navL.classList.remove('is-visible');
+    }
+    setTimeout(checkToolbarCollision, 50);
+  }
+
+  function checkToolbarCollision() {
+    const tb = document.querySelector('.viewer-floating-toolbar');
+    const navW = document.getElementById('navWrapper');
+    const navL = document.getElementById('navLauncher');
+    if (!tb || !navW || !navL) return;
+
+    const tbRect = tb.getBoundingClientRect();
+    const activeNav = !navW.classList.contains('is-collapsed') ? navW : navL;
+    const navRect = activeNav.getBoundingClientRect();
+
+    const isOverlapX = (navRect.right + 20 > tbRect.left);
+    if (isOverlapX) {
+      navW.classList.add('dodge-toolbar');
+      navL.classList.add('dodge-toolbar');
+    } else if (window.innerWidth > 1080) {
+      navW.classList.remove('dodge-toolbar');
+      navL.classList.remove('dodge-toolbar');
+    }
+  }
+
   function bindViewerModalEvents() {
+    // Mobile tactile feedback
+    const toolBtns = document.querySelectorAll('.viewer-floating-toolbar .tool-btn, .viewer-float-toolbar .tool-btn');
+    toolBtns.forEach(btn => {
+      btn.addEventListener('touchstart', () => {
+        btn.classList.add('is-touch-down');
+        if (typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function') {
+          try { navigator.vibrate(10); } catch(e) {}
+        }
+      }, { passive: true });
+      const release = () => btn.classList.remove('is-touch-down');
+      btn.addEventListener('touchend', release, { passive: true });
+      btn.addEventListener('touchcancel', release, { passive: true });
+    });
     const modalEl = document.getElementById('viewerModal');
     if (!modalEl || modalEl.dataset.bound) return;
     modalEl.dataset.bound = 'true';
@@ -866,6 +922,16 @@
     const toolReset = document.getElementById('toolReset');
     const toolRotate = document.getElementById('toolRotate');
     const toolFullscreen = document.getElementById('toolFullscreen');
+
+    const btnCloseNav = document.getElementById('btnCloseNav');
+    const btnOpenNav = document.getElementById('btnOpenNav');
+    if (btnCloseNav) {
+      btnCloseNav.addEventListener('click', () => toggleNavigator(true));
+    }
+    if (btnOpenNav) {
+      btnOpenNav.addEventListener('click', () => toggleNavigator(false));
+    }
+    window.addEventListener('resize', checkToolbarCollision);
 
     backdropEl.addEventListener('click', closeViewer);
     closeBtn.addEventListener('click', closeViewer);
@@ -1063,6 +1129,12 @@
         case 'i':
         case 'I':
           if (toggleInfoBtn) toggleInfoBtn.click();
+          break;
+        case 'o':
+        case 'O':
+        case 'm':
+        case 'M':
+          toggleNavigator();
           break;
       }
     });
@@ -1290,6 +1362,7 @@
       });
     }
 
+    toggleNavigator(window.innerWidth <= 768);
     loadOpenSeadragon(item);
   }
 
@@ -1452,15 +1525,22 @@
     };
 
     // Calculate exact navigator dimensions matching artwork aspect ratio (100% full-bleed, 0 white edges)
-    const maxNavDim = 200;
+    const isMobile = window.innerWidth <= 768;
+    const maxNavDim = isMobile ? 150 : 220;
     let navWidth, navHeight;
     const ar = item.aspectRatio || (item.width / item.height);
     if (ar >= 1) {
       navWidth = maxNavDim;
-      navHeight = Math.max(65, Math.round(maxNavDim / ar));
+      navHeight = Math.max(isMobile ? 55 : 70, Math.round(maxNavDim / ar));
     } else {
       navHeight = maxNavDim;
-      navWidth = Math.max(65, Math.round(maxNavDim * ar));
+      navWidth = Math.max(isMobile ? 55 : 70, Math.round(maxNavDim * ar));
+    }
+
+    const navStageContainer = document.getElementById('navStageContainer');
+    if (navStageContainer) {
+      navStageContainer.style.width = navWidth + 'px';
+      navStageContainer.style.height = navHeight + 'px';
     }
 
     osdViewer = OpenSeadragon({
@@ -1469,14 +1549,15 @@
       tileSources: tileSource,
       showNavigationControl: false,
       showNavigator: true,
-      navigatorPosition: 'BOTTOM_RIGHT',
+      navigatorId: 'osdNavigator',
+      navigatorPosition: 'BOTTOM_LEFT',
       navigatorAutoResize: false,
       navigatorMaintainSizeRatio: false,
       navigatorWidth: navWidth,
       navigatorHeight: navHeight,
       navigatorBackground: 'transparent',
       navigatorBorderColor: '#80cc28',
-      navigatorDisplayRegionColor: 'rgba(128, 204, 40, 0.35)',
+      navigatorDisplayRegionColor: 'rgba(128, 204, 40, 0.28)',
       navigatorDisplayOnLogicalClick: true,
       animationTime: 0.45,
       springStiffness: 9.0,
@@ -1501,43 +1582,39 @@
     });
 
     function updateZoomBadge() {
-      if (window.AtlasMorphicons && window.AtlasMorphicons.reset && osdViewer && osdViewer.viewport) {
-        const curZ = osdViewer.viewport.getZoom();
-        const homeZ = osdViewer.viewport.getHomeZoom();
-        if (Math.abs(curZ - homeZ) / homeZ < 0.04) {
+      if (!osdViewer || !osdViewer.viewport) return;
+      const curZ = osdViewer.viewport.getZoom();
+      const homeZ = osdViewer.viewport.getHomeZoom();
+      const isFull = Math.abs(curZ - homeZ) / homeZ < 0.04;
+
+      if (window.AtlasMorphicons && window.AtlasMorphicons.reset) {
+        if (isFull) {
           window.AtlasMorphicons.reset.toFit();
         } else {
           window.AtlasMorphicons.reset.toZoomed();
         }
       }
+
+      // 全图完整显示时自动隐藏鹰眼图选区框，聚焦细节时才平滑淡出呈现
+      const displayRegion = document.querySelector('#osdNavigator .displayregion');
+      if (displayRegion) {
+        displayRegion.classList.toggle('is-full-view', isFull);
+      }
+
       const badge = document.getElementById('toolZoomBadge');
-      if (!badge || !osdViewer || !osdViewer.viewport) return;
+      if (!badge) return;
       try {
         const actualZoom = osdViewer.viewport.imageToViewportZoom(1);
         if (actualZoom <= 0) return;
-        const currentZoom = osdViewer.viewport.getZoom();
-        const percent = Math.round((currentZoom / actualZoom) * 100);
+        const percent = Math.round((curZ / actualZoom) * 100);
         badge.textContent = percent + '%';
-      } catch (err) {
-        // silently ignore if viewport not ready
-      }
+      } catch (err) {}
     }
 
     osdViewer.addHandler('open', function () {
       updateZoomBadge();
-      if (osdViewer && osdViewer.navigator) {
-        osdViewer.navigator.setWidth(navWidth);
-        osdViewer.navigator.setHeight(navHeight);
-        if (osdViewer.navigator.element) {
-          osdViewer.navigator.element.style.width = navWidth + 'px';
-          osdViewer.navigator.element.style.height = navHeight + 'px';
-          osdViewer.navigator.element.style.border = '2px solid var(--accent)';
-          osdViewer.navigator.element.style.borderRadius = 'var(--radius-sm)';
-          osdViewer.navigator.element.style.overflow = 'hidden';
-          osdViewer.navigator.element.style.background = 'transparent';
-          osdViewer.navigator.element.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.45)';
-        }
-      }
+      setupNavigatorInteractions(item, navWidth, navHeight);
+      checkToolbarCollision();
     });
 
     osdViewer.addHandler('zoom', updateZoomBadge);
@@ -1545,6 +1622,140 @@
 
     const stageEl = document.getElementById('osdStage');
     if (stageEl) stageEl.style.backgroundColor = stageBg;
+  }
+
+  function setupNavigatorInteractions(item, navWidth, navHeight) {
+    const overlay = document.getElementById('navDrawOverlay');
+    const box = document.getElementById('navDrawBox');
+    if (!overlay || !box) return;
+
+    // 清理旧监听器 (通过节点克隆替换)
+    const newOverlay = overlay.cloneNode(true);
+    overlay.parentNode.replaceChild(newOverlay, overlay);
+    const newBox = newOverlay.querySelector('#navDrawBox');
+
+    let isDrawing = false;
+    let startX = 0, startY = 0;
+    let currentX = 0, currentY = 0;
+
+    newOverlay.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      isDrawing = true;
+      const rect = newOverlay.getBoundingClientRect();
+      startX = e.clientX - rect.left;
+      startY = e.clientY - rect.top;
+      currentX = startX;
+      currentY = startY;
+
+      newBox.style.left = startX + 'px';
+      newBox.style.top = startY + 'px';
+      newBox.style.width = '0px';
+      newBox.style.height = '0px';
+      newBox.style.display = 'none';
+
+      newOverlay.setPointerCapture(e.pointerId);
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    newOverlay.addEventListener('pointermove', (e) => {
+      if (!isDrawing) return;
+      const rect = newOverlay.getBoundingClientRect();
+      currentX = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+      currentY = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
+
+      const left = Math.min(startX, currentX);
+      const top = Math.min(startY, currentY);
+      const width = Math.abs(currentX - startX);
+      const height = Math.abs(currentY - startY);
+
+      if (width > 4 || height > 4) {
+        newBox.style.display = 'block';
+        newBox.style.left = left + 'px';
+        newBox.style.top = top + 'px';
+        newBox.style.width = width + 'px';
+        newBox.style.height = height + 'px';
+      }
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    newOverlay.addEventListener('pointerup', (e) => {
+      if (!isDrawing) return;
+      isDrawing = false;
+      try {
+        newOverlay.releasePointerCapture(e.pointerId);
+      } catch (err) {}
+
+      const rect = newOverlay.getBoundingClientRect();
+      const left = Math.min(startX, currentX);
+      const top = Math.min(startY, currentY);
+      const width = Math.abs(currentX - startX);
+      const height = Math.abs(currentY - startY);
+
+      if (width > 6 && height > 6) {
+        newBox.style.transition = 'opacity 0.2s ease';
+        newBox.style.opacity = '0';
+        setTimeout(() => {
+          newBox.style.display = 'none';
+          newBox.style.opacity = '1';
+          newBox.style.transition = '';
+        }, 200);
+
+        if (osdViewer && osdViewer.viewport) {
+          let targetBounds = null;
+          if (osdViewer.navigator && osdViewer.navigator.viewport) {
+            try {
+              const p1 = osdViewer.navigator.viewport.pointFromPixel(new OpenSeadragon.Point(left, top));
+              const p2 = osdViewer.navigator.viewport.pointFromPixel(new OpenSeadragon.Point(left + width, top + height));
+              const minX = Math.min(p1.x, p2.x);
+              const minY = Math.min(p1.y, p2.y);
+              const w = Math.abs(p2.x - p1.x);
+              const h = Math.abs(p2.y - p1.y);
+              if (w > 0.001 && h > 0.001 && isFinite(minX) && isFinite(minY)) {
+                targetBounds = new OpenSeadragon.Rect(minX, minY, w, h);
+              }
+            } catch (err) {}
+          }
+          if (!targetBounds) {
+            const artAr = item.aspectRatio || (item.width / item.height);
+            const normX = left / navWidth;
+            const normY = (top / navHeight) * (1 / artAr);
+            const normW = width / navWidth;
+            const normH = (height / navHeight) * (1 / artAr);
+            targetBounds = new OpenSeadragon.Rect(normX, normY, normW, normH);
+          }
+          osdViewer.viewport.fitBounds(targetBounds, false);
+          osdViewer.viewport.applyConstraints();
+        }
+      } else {
+        // 单击操作：快速平移中心到点击位置
+        newBox.style.display = 'none';
+        if (osdViewer && osdViewer.viewport) {
+          let clickPt = null;
+          if (osdViewer.navigator && osdViewer.navigator.viewport) {
+            try {
+              clickPt = osdViewer.navigator.viewport.pointFromPixel(new OpenSeadragon.Point(currentX, currentY));
+            } catch (e) {}
+          }
+          if (!clickPt || !isFinite(clickPt.x) || !isFinite(clickPt.y)) {
+            const artAr = item.aspectRatio || (item.width / item.height);
+            const normX = currentX / navWidth;
+            const normY = (currentY / navHeight) * (1 / artAr);
+            clickPt = new OpenSeadragon.Point(normX, normY);
+          }
+          osdViewer.viewport.panTo(clickPt, false);
+          osdViewer.viewport.applyConstraints();
+        }
+      }
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    newOverlay.addEventListener('pointercancel', () => {
+      isDrawing = false;
+      newBox.style.display = 'none';
+    });
   }
 
   function closeViewer() {
@@ -1565,6 +1776,9 @@
 
     const badge = document.getElementById('toolZoomBadge');
     if (badge) badge.textContent = '100%';
+
+    const navBox = document.getElementById('navDrawBox');
+    if (navBox) navBox.style.display = 'none';
 
     if (osdViewer) {
       osdViewer.destroy();
@@ -1721,6 +1935,15 @@
             svgRotate.style.transition = 'none';
             svgRotate.style.transform = 'rotate(0deg)';
           }
+        },
+        ambientWakeup() {
+          if (!svgRotate || isRotateBusy) return;
+          svgRotate.style.transition = 'transform 0.16s cubic-bezier(0.2, 0.8, 0.4, 1)';
+          svgRotate.style.transform = `rotate(${rotateAngle + 12}deg)`;
+          setTimeout(() => {
+            svgRotate.style.transition = 'transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            svgRotate.style.transform = `rotate(${rotateAngle}deg)`;
+          }, 160);
         }
       };
     }
