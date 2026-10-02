@@ -1879,6 +1879,130 @@ body[data-page="portal"] {
   flex-direction: column;
   z-index: 1;
 }
+
+/* -------------------------------------------------------------
+   Top-Left Floating Artwork & Brand Badge (地图左上角头像图标与图名+QMapFlow)
+   ------------------------------------------------------------- */
+.viewer-artwork-badge {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px 8px 10px;
+  background: rgba(15, 18, 24, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  pointer-events: auto;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  max-width: calc(100vw - 40px);
+}
+
+.viewer-artwork-badge:hover {
+  background: rgba(22, 27, 36, 0.90);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.viewer-artwork-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  display: block;
+}
+
+.viewer-artwork-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+}
+
+.viewer-artwork-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f8fafc;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+  line-height: 1.25;
+}
+
+.viewer-artwork-qmapflow {
+  display: flex;
+  align-items: center;
+  height: 15px;
+  line-height: 1;
+}
+
+.viewer-artwork-qmapflow svg,
+.viewer-qmapflow-img {
+  height: 15px;
+  width: auto;
+  display: block;
+}
+
+:root[data-theme="light"] .viewer-artwork-badge {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.10),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="light"] .viewer-artwork-badge:hover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="light"] .viewer-artwork-title {
+  color: #0f172a;
+}
+
+@media (max-width: 768px) {
+  .viewer-artwork-badge {
+    top: 14px;
+    left: 14px;
+    padding: 6px 12px 6px 8px;
+    gap: 10px;
+    border-radius: 10px;
+    max-width: calc(100vw - 28px);
+  }
+  .viewer-artwork-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+  }
+  .viewer-artwork-title {
+    font-size: 0.86rem;
+    max-width: 180px;
+  }
+  .viewer-artwork-qmapflow {
+    height: 13px;
+  }
+  .viewer-artwork-qmapflow svg,
+  .viewer-qmapflow-img {
+    height: 13px;
+  }
+}
+
 .viewer-topbar,
 .viewer-header {
   height: 56px;
@@ -2019,27 +2143,59 @@ body[data-page="portal"] {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(19, 23, 30, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
-  padding: 5px;
-  border-radius: var(--radius-md);
+  background: rgba(14, 18, 24, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 8px;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   gap: 4px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  box-shadow: 
+    0px 0.6px 0.6px -1.25px rgba(0, 0, 0, 0.28),
+    0px 2.3px 2.3px -2.5px rgba(0, 0, 0, 0.25),
+    0px 10px 10px -3.75px rgba(0, 0, 0, 0.2),
+    0px 20px 35px -5px rgba(0, 0, 0, 0.55);
   z-index: 20;
-  transition: all var(--transition-fast);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.viewer-float-toolbar:hover,
+.viewer-floating-toolbar:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 
+    0px 0.8px 1px -1px rgba(0, 0, 0, 0.32),
+    0px 3px 4px -2px rgba(0, 0, 0, 0.28),
+    0px 14px 18px -4px rgba(0, 0, 0, 0.24),
+    0px 26px 48px -6px rgba(0, 0, 0, 0.65);
 }
 
 :root[data-theme="light"] .viewer-float-toolbar,
 :root[data-theme="light"] .viewer-floating-toolbar {
-  background: rgba(255, 255, 255, 0.86);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.09);
-  box-shadow: 0 10px 30px rgba(15, 20, 28, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0px 0.6px 0.6px -1.25px rgba(0, 0, 0, 0.08),
+    0px 2.3px 2.3px -2.5px rgba(0, 0, 0, 0.06),
+    0px 10px 10px -3.75px rgba(0, 0, 0, 0.05),
+    0px 16px 32px -4px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="light"] .viewer-float-toolbar:hover,
+:root[data-theme="light"] .viewer-floating-toolbar:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 
+    0px 0.8px 1px -1px rgba(0, 0, 0, 0.10),
+    0px 3px 4px -2px rgba(0, 0, 0, 0.08),
+    0px 12px 16px -3px rgba(0, 0, 0, 0.08),
+    0px 22px 42px -5px rgba(0, 0, 0, 0.18);
 }
 
 .tool-btn {
@@ -2048,12 +2204,27 @@ body[data-page="portal"] {
   color: var(--text-secondary);
   width: 38px;
   height: 38px;
-  border-radius: var(--radius-sm);
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  position: relative;
+  will-change: transform;
+  transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tool-btn .icon,
+.tool-btn .tool-btn-text,
+.tool-btn span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.08s ease-out;
 }
 
 .tool-btn:hover {
@@ -2073,7 +2244,8 @@ body[data-page="portal"] {
 }
 
 .tool-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.90) !important;
+  transition: transform 0.08s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tool-zoom-badge {
@@ -2474,4 +2646,69 @@ body[data-page="portal"] {
 .viewer-modal.fullscreen-mode.controls-visible .viewer-edge-nav:hover {
   opacity: 1 !important;
   transform: translateY(-50%) scale(1.15) !important;
+}
+
+/* 移动端/触屏设备自然支持双指捏合缩放与双击放大，隐藏工具栏放大(+)与缩小(-)冗余按钮，释放屏幕空间 */
+@media (max-width: 768px) {
+  #toolZoomIn,
+  #toolZoomOut {
+    display: none !important;
+  }
+}
+
+
+
+/* =============================================================
+   Morphicons Integration & 3-Layer Toolbar Architecture
+   ============================================================= */
+
+/* 1. Ensure icon layer supports 3D preserve and full centering */
+.tb-icon-layer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 2. Tool buttons: absolute transparent background, no circular discs */
+.viewer-floating-toolbar .tool-btn,
+.viewer-float-toolbar .tool-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.viewer-floating-toolbar .tool-btn:hover,
+.viewer-float-toolbar .tool-btn:hover {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+:root[data-theme="light"] .viewer-floating-toolbar .tool-btn,
+:root[data-theme="light"] .viewer-float-toolbar .tool-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+:root[data-theme="light"] .viewer-floating-toolbar .tool-btn:hover,
+:root[data-theme="light"] .viewer-float-toolbar .tool-btn:hover {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 3. Smooth rotation dynamics for #toolRotate */
+#toolRotateSvg {
+  transform-origin: 50% 50%;
+  will-change: transform;
+  transform-style: preserve-3d;
+  pointer-events: none;
 }

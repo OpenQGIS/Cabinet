@@ -21,11 +21,33 @@
   let portalRandomSelection = [];
   let streamSourceFilter = 'all';
 
+  let preViewerScrollY = 0;
+
   const pageMode = document.body.dataset.page || 'gallery';
 
   const SVG_EXIT_FULLSCREEN = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>';
   const SVG_FULLSCREEN = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>';
   const SVG_ZOOM = '<svg class="icon mini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+
+  const QMAPFLOW_BASE_SVG = '<svg width="100%" height="100%" viewBox="0 0 154.11621 25.478886" version="1.1" style="display:inline-block;vertical-align:middle;" xmlns="http://www.w3.org/2000/svg">' +
+    '<rect style="fill:#80cc28;fill-opacity:1;fill-rule:evenodd;stroke-width:1.48054;stroke-linecap:round;stroke-linejoin:round" width="79.043427" height="42.77319" x="292.11685" y="-135.73831" transform="matrix(0.26458333,0,0,0.26458333,-6.5528481,42.781699)" />' +
+    '<g transform="translate(-28.045834,-134.14375)"><g transform="matrix(0.26458333,0,0,0.26458333,21.492986,176.92545)">' +
+    '<path d="m 471.01947,-115.27477 c -1.45733,0 -2.68667,1.22933 -2.68667,2.68667 v 11.44533 c 0,1.454666 1.22934,2.683996 2.68667,2.683996 h 11.444 c 1.45733,0 2.68667,-1.22933 2.68667,-2.683996 v -11.44533 c 0,-1.45734 -1.22934,-2.68667 -2.68667,-2.68667 z m 11.444,25.138666 h -11.444 c -6.06933,0 -11.008,-4.93867 -11.008,-11.006666 v -11.44533 c 0,-6.07067 4.93867,-11.00934 11.008,-11.00934 h 11.444 c 6.06933,0 11.008,4.93867 11.008,11.00934 v 11.44533 c 0,6.067996 -4.93867,11.006666 -11.008,11.006666" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '<path d="m 148.51553,-138.56637 h -6.548 c -2.55067,0 -4.89333,0.952 -6.752,2.53467 -1.86,-1.58267 -4.20267,-2.53467 -6.752,-2.53467 h -6.54933 c -6.01734,0 -10.91467,5.26667 -10.91467,11.74267 v 35.950656 c 0,0.82667 0.67067,1.49734 1.49733,1.49734 h 5.328 c 0.82667,0 1.49734,-0.67067 1.49734,-1.49734 V -126.8237 c 0,-1.85334 1.18666,-3.42 2.592,-3.42 h 6.54933 c 1.404,0 2.59067,1.56666 2.59067,3.42 v 35.950656 c 0,0.82667 0.67066,1.49734 1.49733,1.49734 h 5.328 c 0.82667,0 1.49733,-0.67067 1.49733,-1.49734 V -126.8237 c 0,-1.85334 1.18667,-3.42 2.59067,-3.42 h 6.548 c 1.40667,0 2.59333,1.56666 2.59333,3.42 v 35.950656 c 0,0.82667 0.67067,1.49734 1.49734,1.49734 h 5.32666 c 0.828,0 1.49867,-0.67067 1.49867,-1.49734 V -126.8237 c 0,-6.476 -4.89733,-11.74267 -10.916,-11.74267" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '<path d="m 270.17707,-107.44597 c 0,4.956 -4.03067,8.986666 -8.98667,8.986666 h -13.81333 c -4.95333,0 -8.984,-4.030666 -8.984,-8.986666 v -6.904 -6.90667 c 0,-4.956 4.03067,-8.98666 8.984,-8.98666 h 13.81333 c 4.956,0 8.98667,4.03066 8.98667,8.98666 z m -8.98667,-31.12 h -13.81333 c -9.54267,0 -17.30667,7.76533 -17.30667,17.30933 v 6.90667 6.904 34.799996 h 8.32267 v -20.03467 c 2.62267,1.60267 5.692,2.544 8.984,2.544 h 13.81333 c 9.54267,0 17.30934,-7.76533 17.30934,-17.309326 v -13.81067 c 0,-9.544 -7.76667,-17.30933 -17.30934,-17.30933" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '<path d="m 200.35086,-138.56637 h -13.81067 c -9.544,0 -17.30933,7.76667 -17.30933,17.30933 v 13.81067 c 0,9.543996 7.76533,17.309326 17.30933,17.309326 h 13.81067 c 1.57067,0 3.08533,-0.22666 4.53067,-0.624 v -8.968 c -1.336,0.78667 -2.87067,1.27067 -4.53067,1.27067 h -13.81067 c -4.956,0 -8.98666,-4.031996 -8.98666,-8.987996 v -13.81067 c 0,-4.95466 4.03066,-8.98666 8.98666,-8.98666 h 13.81067 c 4.956,0 8.98667,4.032 8.98667,8.98666 v 6.90667 6.904 c 0,0.25067 -0.0533,0.48533 -0.0733,0.73067 v 14.073326 c 0.024,-0.0147 0.0507,-0.024 0.0733,-0.0387 v 2.41467 h 8.32266 v -17.179996 -6.904 -6.90667 c 0,-9.54266 -7.76533,-17.30933 -17.30933,-17.30933" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '<path d="m 403.6536,-144.18224 h 10.98267 v -8.32267 H 403.6536 c -8.58933,0 -15.57733,7.20934 -15.57733,16.068 v 47.811996 h 8.32266 v -25.219996 h 18.23734 v -8.32133 h -18.23734 v -14.27067 c 0,-4.27066 3.25334,-7.74533 7.25467,-7.74533" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '<path d="m 450.50787,-90.136644 h -7.96933 c -9.03067,0 -16.37867,-6.008 -16.37867,-13.391996 v -49.552 h 8.32267 v 49.552 c 0,2.39733 3.308,5.069326 8.056,5.069326 h 7.96933 z" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '<path d="m 568.63933,-142.86784 -0.552,5.17467 11.76667,1.25866 -42.456,32.19067 c -0.26667,0.20267 -0.64934,0.012 -0.64934,-0.32267 v -9.04666 c 0,-3.672 -4.17466,-5.784 -7.132,-3.60934 l -16.45066,12.09067 c -0.268,0.19733 -0.64534,0.005 -0.64534,-0.32667 v -18.49066 c 0,-1.01734 -0.82533,-1.84134 -1.84266,-1.84134 h -4.63734 c -1.01733,0 -1.84266,0.824 -1.84266,1.84134 v 28.091996 c 0,3.17066 3.60533,4.996 6.16,3.11733 l 18.068,-13.278666 v 11.233336 c 0,3.19733 3.65866,5.01466 6.20666,3.08266 l 50.31867,-38.154656 -1.31067,11.09333 5.16534,0.608 2.636,-22.27333 z" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '<path d="M 88.750667,-91.703174 H 53.436001 c -7.834666,0 -14.185333,-6.35067 -14.185333,-14.183996 v -32.04533 c 0,-7.83467 6.352,-14.18667 14.186667,-14.18667 h 32.473332 c 7.836,0 14.186663,6.352 14.186663,14.18667 v 33.33733 c 0,1.35867 -0.663997,2.63333 -1.779997,3.412 -1.116,0.78 -2.537333,0.964 -3.817333,0.49333 l -23.997333,-8.82 2.873334,-7.81066 18.398666,6.76133 v -27.37333 c 0,-3.23867 -2.625333,-5.864 -5.864,-5.864 H 53.436001 c -3.238666,0 -5.862666,2.624 -5.862666,5.86266 v 32.04667 c 0,3.23733 2.624,5.86133 5.862666,5.86133 H 70.198667 L 88.992,-93.047174 c 0.725334,0.26933 0.532,1.344 -0.241333,1.344" style="fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" />' +
+    '</g>' +
+    '<text xml:space="preserve" style="font-style:normal;font-weight:600;font-size:12.7032px;line-height:10.4398px;font-family:\'MiSans\',-apple-system,sans-serif;text-align:center;letter-spacing:-0.8px;text-anchor:middle;fill:#ffffff;fill-opacity:1;" x="108.68931" y="151.41119"><tspan x="108.68931" y="151.41119">__PRECISION__</tspan></text>' +
+    '</g></svg>';
+
+  function getQMapFlowSvg(precision = 100) {
+    const cleanVal = String(precision).replace(/%/g, '').trim() || '100';
+    return QMAPFLOW_BASE_SVG.replace('__PRECISION__', cleanVal);
+  }
 
   // Initialize
   async function init() {
@@ -771,6 +793,8 @@
   function createCard(item, localIdx, isPortal = false) {
     const card = document.createElement('article');
     card.className = 'gallery-card' + (isPortal ? ' portal-seamless-card' : '');
+    card.id = 'artCard_' + item.id;
+    card.dataset.id = item.id;
     card.tabIndex = 0;
     card.style.setProperty('--aspect-ratio', item.aspectRatio);
 
@@ -864,7 +888,27 @@
     if (drawerCloseBtn && drawerEl) {
       drawerCloseBtn.addEventListener('click', () => {
         drawerEl.classList.remove('open');
-        if (toggleInfoBtn) toggleInfoBtn.classList.remove('active');
+        if (toggleInfoBtn) toggleInfoBtn.classList.remove('active'); if (window.AtlasMorphicons && window.AtlasMorphicons.info) window.AtlasMorphicons.info.set(false);
+      });
+    }
+
+    const toolToggleLang = document.getElementById('toolToggleLang');
+    if (toolToggleLang) {
+      toolToggleLang.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.AtlasI18n && typeof window.AtlasI18n.toggle === 'function') {
+          window.AtlasI18n.toggle();
+        }
+      });
+    }
+
+    const toolToggleTheme = document.getElementById('toolToggleTheme');
+    if (toolToggleTheme) {
+      toolToggleTheme.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.GalleryTheme && typeof window.GalleryTheme.toggleTheme === 'function') {
+          window.GalleryTheme.toggleTheme();
+        }
       });
     }
 
@@ -906,8 +950,14 @@
     if (toolRotate) {
       toolRotate.addEventListener('click', () => {
         if (osdViewer) {
-          const curr = osdViewer.viewport.getRotation();
-          osdViewer.viewport.setRotation((curr + 90) % 360);
+          if (window.AtlasMorphicons && window.AtlasMorphicons.rotate) {
+            window.AtlasMorphicons.rotate.rotateNext((nextAngle) => {
+              osdViewer.viewport.setRotation(nextAngle);
+            });
+          } else {
+            const curr = osdViewer.viewport.getRotation();
+            osdViewer.viewport.setRotation((curr + 90) % 360);
+          }
         }
       });
     }
@@ -931,19 +981,27 @@
       modalEl.classList.toggle('fullscreen-mode', isFs);
       if (isFs) {
         if (toolFullscreen) {
-          toolFullscreen.innerHTML = SVG_EXIT_FULLSCREEN;
-          toolFullscreen.title = '退出沉浸全屏 (F / Esc)';
+          if (window.AtlasMorphicons && window.AtlasMorphicons.fullscreen) {
+            window.AtlasMorphicons.fullscreen.set(true);
+          } else {
+            toolFullscreen.innerHTML = SVG_EXIT_FULLSCREEN;
+          }
+          toolFullscreen.title = '退出全屏 (F / Esc)';
         }
         // Close drawer if open to maintain immersion
         if (drawerEl) drawerEl.classList.remove('open');
-        if (toggleInfoBtn) toggleInfoBtn.classList.remove('active');
+        if (toggleInfoBtn) toggleInfoBtn.classList.remove('active'); if (window.AtlasMorphicons && window.AtlasMorphicons.info) window.AtlasMorphicons.info.set(false);
         // Hide controls immediately on enter
         modalEl.classList.remove('controls-visible');
         clearTimeout(fsIdleTimer);
       } else {
         if (toolFullscreen) {
-          toolFullscreen.innerHTML = SVG_FULLSCREEN;
-          toolFullscreen.title = '全屏视界 (F)';
+          if (window.AtlasMorphicons && window.AtlasMorphicons.fullscreen) {
+            window.AtlasMorphicons.fullscreen.set(false);
+          } else {
+            toolFullscreen.innerHTML = SVG_FULLSCREEN;
+          }
+          toolFullscreen.title = '视口全屏 (F)';
         }
         modalEl.classList.remove('controls-visible');
         clearTimeout(fsIdleTimer);
@@ -1016,6 +1074,80 @@
         if (stage) stage.style.backgroundColor = isDark ? '#07080b' : '#e5e8ed';
       }
     });
+
+    // 初始化底部工具栏鼠标磁吸跟随特效
+    initMagneticDock();
+  }
+
+  /* -------------------------------------------------------------
+     Magnetic Cursor Follow Dock (底部悬浮工具栏磁吸微动物理特效)
+     参考 Framer Motion / Apple Dock 物理微动吸附与弹簧回弹算法
+     ------------------------------------------------------------- */
+  function initMagneticDock() {
+    const dock = document.querySelector('.viewer-floating-toolbar');
+    if (!dock || dock.dataset.magneticBound) return;
+    dock.dataset.magneticBound = 'true';
+
+    // 触屏设备（移动端/平板）自然支持直接触控，跳过鼠标磁吸微动以确保零开销
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    const buttons = dock.querySelectorAll('.tool-btn');
+    buttons.forEach(btn => {
+      let rafId = null;
+      let targetX = 0, targetY = 0;
+      let currentX = 0, currentY = 0;
+      let isHovered = false;
+      const innerTarget = btn.querySelector('.icon, .tool-btn-text, span') || btn.firstElementChild;
+
+      function renderFrame() {
+        // 高性能 Spring-Lerp 弹性阻尼算法（刚度与阻尼系数平衡在 0.18）
+        currentX += (targetX - currentX) * 0.18;
+        currentY += (targetY - currentY) * 0.18;
+
+        if (!isHovered && Math.abs(currentX) < 0.05 && Math.abs(currentY) < 0.05) {
+          currentX = 0;
+          currentY = 0;
+          btn.style.transform = '';
+          if (innerTarget) innerTarget.style.transform = '';
+          rafId = null;
+          return;
+        }
+
+        // 按钮主体微位移 (0.35x 磁吸位移)
+        btn.style.transform = 'translate3d(' + (currentX * 0.35).toFixed(2) + 'px, ' + (currentY * 0.35).toFixed(2) + 'px, 0)';
+        // 内部图标微视差深景深跟随 (0.22x 附加位移，产生 3D 浮雕深度感知)
+        if (innerTarget) {
+          innerTarget.style.transform = 'translate3d(' + (currentX * 0.22).toFixed(2) + 'px, ' + (currentY * 0.22).toFixed(2) + 'px, 0)';
+        }
+
+        rafId = requestAnimationFrame(renderFrame);
+      }
+
+      btn.addEventListener('mouseenter', () => {
+        isHovered = true;
+        if (!rafId) rafId = requestAnimationFrame(renderFrame);
+      });
+
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+        // 限制最大位移阈值 (±9px)，确保克制不浮夸、精细优雅
+        const maxPull = 9;
+        targetX = Math.max(-maxPull, Math.min(maxPull, dx * 0.48));
+        targetY = Math.max(-maxPull, Math.min(maxPull, dy * 0.48));
+        if (!rafId) rafId = requestAnimationFrame(renderFrame);
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        isHovered = false;
+        targetX = 0;
+        targetY = 0;
+        if (!rafId) rafId = requestAnimationFrame(renderFrame);
+      });
+    });
   }
 
   function openViewerByItem(item) {
@@ -1034,15 +1166,61 @@
     showArtwork(currentFilteredItems[currentViewerIndex]);
   }
 
+  /**
+   * 格式化日期为仅显示年月 (YYYY.MM 或 YYYY)
+   * 兼容 2024.07, 2024.7, 2024-07-15, 2024/07/15, 2024年7月, 2024 等多种格式
+   */
+  function formatYearMonth(rawDate) {
+    if (!rawDate) return '';
+    const str = String(rawDate).trim();
+    const match = str.match(/^(\d{4})[-/.年](\d{1,2})/);
+    if (match) {
+      const year = match[1];
+      const month = String(parseInt(match[2], 10)).padStart(2, '0');
+      return year + '.' + month;
+    }
+    const matchYear = str.match(/^(\d{4})$/);
+    if (matchYear) {
+      return matchYear[1];
+    }
+    const timestamp = Date.parse(str);
+    if (!isNaN(timestamp)) {
+      const d = new Date(timestamp);
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      return year + '.' + month;
+    }
+    return str;
+  }
+
   function showArtwork(item) {
     const modalEl = document.getElementById('viewerModal');
     if (!modalEl) return;
 
+    if (!modalEl.classList.contains('open')) {
+      preViewerScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    }
+
+    modalEl.classList.add('open');
+    modalEl.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const activeItem = item;
+
     const vTitle = document.getElementById('viewerTitle');
+    const qmfEl = document.getElementById('viewerQmapFlow');
+    if (qmfEl) {
+      let precision = '100';
+      if (item && item.workflow && item.workflow.QGIS) {
+        precision = String(item.workflow.QGIS).replace(/%/g, '').trim();
+      }
+      qmfEl.innerHTML = getQMapFlowSvg(precision);
+    }
     const vDims = document.getElementById('viewerDims');
     const mTitle = document.getElementById('metaTitle');
     const mCat = document.getElementById('metaCategory');
     const mAuthor = document.getElementById('metaAuthor');
+    const mDate = document.getElementById('metaDate');
+    const mDateBox = document.getElementById('metaDateBox');
     const mDesc = document.getElementById('metaDescription');
     const mDescBox = document.getElementById('metaDescBox');
     const mFile = document.getElementById('metaFilename');
@@ -1057,6 +1235,12 @@
     if (mTitle) mTitle.textContent = item.title;
     if (mCat) mCat.textContent = item.categoryName + (item.subCategory ? ' · ' + item.subCategory : '');
     if (mAuthor) mAuthor.textContent = item.author || (item.category === 'original' ? '原创作者' : '网络精选');
+
+    // 日期仅显示年月
+    const rawDate = item.date || item.year;
+    const formattedDate = formatYearMonth(rawDate);
+    if (mDate) mDate.textContent = formattedDate || '-';
+    if (mDateBox) mDateBox.style.display = formattedDate ? 'block' : 'none';
 
     if (mDesc) {
       if (item.description && item.description.trim()) {
@@ -1076,8 +1260,9 @@
     if (mSwatches) {
       mSwatches.innerHTML = '<span style="font-size:0.75rem;color:var(--text-muted);font-family:var(--font-mono);">提取色彩中...</span>';
       if (mPaletteBox) mPaletteBox.style.display = 'flex';
-      extractDominantColors(item.thumb, 5, function (colors) {
+      extractDominantColors(item, 5, function (colors) {
         if (!modalEl.classList.contains('open')) return;
+        if (currentViewerIndex >= 0 && currentFilteredItems[currentViewerIndex] && currentFilteredItems[currentViewerIndex].id !== activeItem.id) return;
         mSwatches.innerHTML = '';
         if (!colors || colors.length === 0) {
           if (mPaletteBox) mPaletteBox.style.display = 'none';
@@ -1105,14 +1290,22 @@
       });
     }
 
-    modalEl.classList.add('open');
-    modalEl.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-
     loadOpenSeadragon(item);
   }
 
-  function extractDominantColors(imgSrc, maxColors, callback) {
+  function extractDominantColors(target, maxColors, callback) {
+    maxColors = maxColors || 5;
+
+    // 优先采用 Markdown Frontmatter 标定的专属色板 (item.colors || item.color)
+    if (target && typeof target === 'object') {
+      const explicit = target.colors || target.color;
+      if (Array.isArray(explicit) && explicit.length > 0) {
+        callback(explicit.slice(0, maxColors));
+        return;
+      }
+    }
+
+    const imgSrc = (typeof target === 'string') ? target : (target && target.thumb);
     if (!imgSrc) {
       callback([]);
       return;
@@ -1308,6 +1501,15 @@
     });
 
     function updateZoomBadge() {
+      if (window.AtlasMorphicons && window.AtlasMorphicons.reset && osdViewer && osdViewer.viewport) {
+        const curZ = osdViewer.viewport.getZoom();
+        const homeZ = osdViewer.viewport.getHomeZoom();
+        if (Math.abs(curZ - homeZ) / homeZ < 0.04) {
+          window.AtlasMorphicons.reset.toFit();
+        } else {
+          window.AtlasMorphicons.reset.toZoomed();
+        }
+      }
       const badge = document.getElementById('toolZoomBadge');
       if (!badge || !osdViewer || !osdViewer.viewport) return;
       try {
@@ -1359,7 +1561,7 @@
     const drawerEl = document.getElementById('viewerDrawer');
     const toggleInfoBtn = document.getElementById('btnToggleInfo');
     if (drawerEl) drawerEl.classList.remove('open');
-    if (toggleInfoBtn) toggleInfoBtn.classList.remove('active');
+    if (toggleInfoBtn) toggleInfoBtn.classList.remove('active'); if (window.AtlasMorphicons && window.AtlasMorphicons.info) window.AtlasMorphicons.info.set(false);
 
     const badge = document.getElementById('toolZoomBadge');
     if (badge) badge.textContent = '100%';
@@ -1372,6 +1574,18 @@
     if (document.fullscreenElement) {
       document.exitFullscreen().catch(() => {});
     }
+
+    // 精确还原至进入深览前的视口滚动位置，优先精准对准当前作品卡片
+    const currentItem = (currentFilteredItems && currentFilteredItems[currentViewerIndex]) || null;
+    const targetCard = currentItem ? (document.getElementById('artCard_' + currentItem.id) || document.querySelector('.gallery-card[data-id="' + currentItem.id + '"]')) : null;
+
+    requestAnimationFrame(() => {
+      if (targetCard) {
+        targetCard.scrollIntoView({ block: 'center', behavior: 'auto' });
+      } else if (typeof preViewerScrollY === 'number' && preViewerScrollY >= 0) {
+        window.scrollTo({ top: preViewerScrollY, behavior: 'auto' });
+      }
+    });
   }
 
   /* -------------------------------------------------------------
@@ -1398,5 +1612,207 @@
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
+  }
+})();
+
+
+/* =============================================================
+   Morphicons Integration Controller for OpenQGIS Atlas
+   Manages morphing for:
+     Scene A: #toolReset (ResetFit <-> ResetZoomed)
+     Scene B: #toolRotate (RotateCw step rotation with spring dynamics)
+     Scene C: #toolFullscreen (Maximize <-> Minimize)
+     Scene D: #btnToggleInfo (Info <-> X)
+     Scene E: #btnLangDropdown & #viewerBtnLangDropdown (Languages <-> Globe)
+     Scene F: #btnShareOptLink (Link <-> Check)
+   ============================================================= */
+
+(function () {
+  'use strict';
+
+  let morphReset = null;
+  let morphRotate = null;
+  let morphFullscreen = null;
+  let morphInfo = null;
+  let morphHeaderLang = null;
+  let morphViewerLang = null;
+  let morphShareLink = null;
+
+  let rotateAngle = 0;
+  let isRotateBusy = false;
+
+  function initAtlasMorphicons() {
+    if (!window.Morphicons || !window.LucideIcons) {
+      console.warn('Morphicons or LucideIcons bundle not found');
+      return;
+    }
+
+    const { createMorph } = window.Morphicons;
+    const {
+      ResetFit, ResetZoomed,
+      RotateCw,
+      Maximize, Minimize,
+      CircleHelp, X,
+      Languages, Globe,
+      Link, Check
+    } = window.LucideIcons;
+
+    // A: toolReset
+    const pReset = document.getElementById('pathResetMorph');
+    if (pReset) {
+      const m = createMorph(pReset, ResetFit);
+      let isZoomed = false;
+      morphReset = {
+        toFit() {
+          if (!isZoomed) return;
+          isZoomed = false;
+          m.morphTo(ResetFit, 'snappy');
+        },
+        toZoomed() {
+          if (isZoomed) return;
+          isZoomed = true;
+          m.morphTo(ResetZoomed, 'snappy');
+        },
+        toggle() {
+          isZoomed = !isZoomed;
+          m.morphTo(isZoomed ? ResetZoomed : ResetFit, 'snappy');
+        }
+      };
+    }
+
+    // B: toolRotate (Scheme 3: Pure-torque spring dynamics, scale strictly 1.0)
+    const pRotate = document.getElementById('pathRotateMorph');
+    const svgRotate = document.getElementById('toolRotateSvg');
+    if (pRotate && svgRotate) {
+      const m = createMorph(pRotate, RotateCw);
+      morphRotate = {
+        rotateNext(onComplete) {
+          if (isRotateBusy) return;
+          isRotateBusy = true;
+          const targetAngle = rotateAngle + 90;
+
+          // Stage 1 (0ms): Reverse recoil -22 deg (scale strictly 1.0)
+          svgRotate.style.transition = 'transform 0.14s cubic-bezier(0.4, 0, 0.2, 1)';
+          svgRotate.style.transform = `rotate(${rotateAngle - 22}deg)`;
+
+          // Stage 2 (140ms): Forward torque sprint, overshoot +14 deg
+          setTimeout(() => {
+            svgRotate.style.transition = 'transform 0.28s cubic-bezier(0.22, 1, 0.36, 1)';
+            svgRotate.style.transform = `rotate(${targetAngle + 14}deg)`;
+          }, 140);
+
+          // Stage 3 (420ms): Spring damping settling at targetAngle
+          setTimeout(() => {
+            svgRotate.style.transition = 'transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            svgRotate.style.transform = `rotate(${targetAngle}deg)`;
+          }, 420);
+
+          // Lock final angle (580ms)
+          setTimeout(() => {
+            rotateAngle = targetAngle;
+            isRotateBusy = false;
+            if (typeof onComplete === 'function') onComplete(rotateAngle % 360);
+          }, 580);
+        },
+        reset() {
+          rotateAngle = 0;
+          isRotateBusy = false;
+          if (svgRotate) {
+            svgRotate.style.transition = 'none';
+            svgRotate.style.transform = 'rotate(0deg)';
+          }
+        }
+      };
+    }
+
+    // C: toolFullscreen
+    const pFullscreen = document.getElementById('pathFullscreenMorph');
+    if (pFullscreen) {
+      const m = createMorph(pFullscreen, Maximize);
+      let isFs = false;
+      morphFullscreen = {
+        set(fsState) {
+          if (isFs === fsState) return;
+          isFs = fsState;
+          m.morphTo(isFs ? Minimize : Maximize, 'snappy');
+        }
+      };
+    }
+
+    // D: btnToggleInfo
+    // Info icon path: circle with line/dot -> morphs to X
+    const pInfo = document.getElementById('pathInfoMorph');
+    if (pInfo) {
+      const InfoIcon = {
+        d: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 16v-4M12 8h.01'
+      };
+      const m = createMorph(pInfo, InfoIcon);
+      let isOpen = false;
+      morphInfo = {
+        set(openState) {
+          if (isOpen === openState) return;
+          isOpen = openState;
+          m.morphTo(isOpen ? X : InfoIcon, 'snappy');
+        }
+      };
+    }
+
+    // E: Language Dropdowns (Languages <-> Globe)
+    const pHeaderLang = document.getElementById('pathHeaderLangMorph');
+    if (pHeaderLang) {
+      const m = createMorph(pHeaderLang, Languages);
+      let isOpen = false;
+      morphHeaderLang = {
+        set(openState) {
+          if (isOpen === openState) return;
+          isOpen = openState;
+          m.morphTo(isOpen ? Globe : Languages, 'snappy');
+        }
+      };
+    }
+
+    const pViewerLang = document.getElementById('pathViewerLangMorph');
+    if (pViewerLang) {
+      const m = createMorph(pViewerLang, Languages);
+      let isOpen = false;
+      morphViewerLang = {
+        set(openState) {
+          if (isOpen === openState) return;
+          isOpen = openState;
+          m.morphTo(isOpen ? Globe : Languages, 'snappy');
+        }
+      };
+    }
+
+    // F: btnShareOptLink (Link <-> Check)
+    const pShareLink = document.getElementById('pathShareLinkMorph');
+    if (pShareLink) {
+      const m = createMorph(pShareLink, Link);
+      morphShareLink = {
+        triggerSuccess(duration = 1800) {
+          m.morphTo(Check, 'snappy');
+          setTimeout(() => {
+            m.morphTo(Link, 'snappy');
+          }, duration);
+        }
+      };
+    }
+
+    window.AtlasMorphicons = {
+      reset: morphReset,
+      rotate: morphRotate,
+      fullscreen: morphFullscreen,
+      info: morphInfo,
+      headerLang: morphHeaderLang,
+      viewerLang: morphViewerLang,
+      shareLink: morphShareLink
+    };
+  }
+
+  // Hook into DOM lifecycle
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAtlasMorphicons);
+  } else {
+    initAtlasMorphicons();
   }
 })();
