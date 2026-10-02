@@ -2656,3 +2656,59 @@ body[data-page="portal"] {
   }
 }
 
+
+
+/* =============================================================
+   Morphicons Integration & 3-Layer Toolbar Architecture
+   ============================================================= */
+
+/* 1. Ensure icon layer supports 3D preserve and full centering */
+.tb-icon-layer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 2. Tool buttons: absolute transparent background, no circular discs */
+.viewer-floating-toolbar .tool-btn,
+.viewer-float-toolbar .tool-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.viewer-floating-toolbar .tool-btn:hover,
+.viewer-float-toolbar .tool-btn:hover {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+:root[data-theme="light"] .viewer-floating-toolbar .tool-btn,
+:root[data-theme="light"] .viewer-float-toolbar .tool-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+:root[data-theme="light"] .viewer-floating-toolbar .tool-btn:hover,
+:root[data-theme="light"] .viewer-float-toolbar .tool-btn:hover {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 3. Smooth rotation dynamics for #toolRotate */
+#toolRotateSvg {
+  transform-origin: 50% 50%;
+  will-change: transform;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
