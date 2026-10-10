@@ -147,6 +147,9 @@ html, body {
   line-height: 1.5;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  overflow-x: hidden;
 }
 
 /* Icons */
@@ -161,7 +164,7 @@ html, body {
   height: 12px;
 }
 
-/* Top Navigation Header (Sticky at top 0) */
+/* Top Navigation Header (Sticky at top 0 with Safe Area support) */
 .site-header {
   position: -webkit-sticky;
   position: sticky;
@@ -172,6 +175,7 @@ html, body {
   background: var(--header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  padding-top: env(safe-area-inset-top, 0px);
   transition: var(--theme-transition);
 }
 .header-inner {
@@ -218,6 +222,7 @@ html, body {
 .site-header .icon-btn {
   width: 30px;
   height: 30px;
+  -webkit-tap-highlight-color: transparent;
 }
 .site-header .divider {
   height: 14px;
@@ -225,6 +230,51 @@ html, body {
 .site-header .nav-switch-link {
   padding: 4px 10px;
   font-size: 0.76rem;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-gallery-label-short {
+  display: none;
+}
+@media (max-width: 640px) {
+  .nav-gallery-label-full {
+    display: none;
+  }
+  .nav-gallery-label-short {
+    display: inline;
+  }
+  .header-inner {
+    padding: 6px 14px;
+    gap: 10px;
+  }
+  .brand-title {
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .header-meta {
+    gap: 6px;
+  }
+  .site-header .nav-switch-link {
+    padding: 3px 8px;
+    font-size: 0.72rem;
+  }
+  .site-header .icon-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+@media (max-width: 380px) {
+  .nav-gallery-label-short {
+    display: none;
+  }
+  .site-header .nav-switch-link {
+    padding: 4px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+  }
 }
 .stat-pill {
   display: inline-flex;
@@ -312,10 +362,18 @@ html, body {
 .subbar-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 2px;
+  justify-content: flex-start;
+  padding: 0 4px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
+}
+@media (min-width: 769px) {
+  .subbar-inner {
+    justify-content: center;
+  }
 }
 .subbar-inner::-webkit-scrollbar {
   display: none;
@@ -350,6 +408,7 @@ html, body {
   transition: all var(--transition-fast);
   white-space: nowrap;
   line-height: 1.35;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .filter-chip:hover {
@@ -1764,16 +1823,40 @@ body[data-page="portal"] {
   .gallery-subbar {
     max-width: calc(100% - 16px);
     margin: 5px auto 10px auto;
-    top: calc(var(--header-height, 42px) + 6px);
+    top: calc(var(--header-height, 42px) + env(safe-area-inset-top, 0px) + 6px);
     padding: 2px 4px;
   }
+  .masonry-grid { --target-row-height: 210px; gap: 2px !important; }
+  .masonry-grid.comfort { --target-row-height: 260px; gap: 2px !important; }
 }
 
 @media (max-width: 540px) {
-  .gallery-main { padding: 12px; }
+  .gallery-main {
+    padding: 8px 10px calc(24px + env(safe-area-inset-bottom, 0px)) 10px;
+  }
   .column-header { padding: 10px 14px; }
   .column-subtitle { display: none; }
-  .masonry-grid { --target-row-height: 180px; gap: 2px !important; }
+  .masonry-grid { --target-row-height: 165px; gap: 2px !important; }
+  .card-scrim-mask {
+    padding: 30px 8px 6px 8px !important;
+  }
+  .card-title {
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 2px !important;
+  }
+  .tag-pill {
+    font-size: 0.62rem !important;
+    padding: 1px 4px !important;
+  }
+  .card-action-hint {
+    font-size: 0.65rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .gallery-main { padding: 6px 6px calc(24px + env(safe-area-inset-bottom, 0px)) 6px; }
+  .masonry-grid { --target-row-height: 145px; gap: 2px !important; }
 }
 
 .gallery-card {
@@ -3294,11 +3377,64 @@ body[data-page="portal"] {
   transform: translateY(-50%) scale(1.15) !important;
 }
 
-/* 移动端/触屏设备自然支持双指捏合缩放与双击放大，隐藏工具栏放大(+)与缩小(-)冗余按钮，释放屏幕空间 */
+/* 移动端/触屏设备自然支持双指捏合缩放与双击放大，全面优化触控视口 */
 @media (max-width: 768px) {
   #toolZoomIn,
   #toolZoomOut {
     display: none !important;
+  }
+
+  .viewer-edge-nav {
+    width: 38px !important;
+    height: 38px !important;
+    opacity: 0.65 !important;
+  }
+  .viewer-edge-nav.edge-prev {
+    left: calc(8px + env(safe-area-inset-left, 0px)) !important;
+  }
+  .viewer-edge-nav.edge-next {
+    right: calc(8px + env(safe-area-inset-right, 0px)) !important;
+  }
+  .viewer-edge-nav .icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .viewer-float-toolbar,
+  .viewer-floating-toolbar {
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    max-width: calc(100vw - 20px) !important;
+    padding: 3px 6px !important;
+    gap: 2px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .viewer-floating-toolbar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .tool-btn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .tool-zoom-badge {
+    font-size: 0.65rem !important;
+    padding: 2px 6px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #toolFullscreen,
+  #toolActualSize {
+    display: none !important;
+  }
+
+  .viewer-drawer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding-top: env(safe-area-inset-top, 0px) !important;
+    padding-bottom: env(safe-area-inset-bottom, 0px) !important;
   }
 }
 
@@ -3362,6 +3498,20 @@ body[data-page="portal"] {
 
 /* Mobile Tactile Physics: Touch-Down Depress, Touch-Up Release */
 @media (hover: none) or (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .gallery-card:active {
+    transform: scale(0.985) !important;
+    transition: transform 0.12s ease !important;
+  }
+  .filter-chip:active {
+    transform: scale(0.94) !important;
+  }
+  .site-header .icon-btn:active,
+  .viewer-edge-nav:active {
+    transform: scale(0.90) !important;
+  }
   .viewer-floating-toolbar .tool-btn,
   .viewer-float-toolbar .tool-btn {
     transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
