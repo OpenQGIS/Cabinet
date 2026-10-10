@@ -163,13 +163,11 @@ html, body {
   letter-spacing: 0.12em;
   color: var(--text-primary);
   transition: color 0.25s ease;
+  line-height: 1;
+  margin: 0;
 }
 .brand-subtitle {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  display: block;
-  text-transform: uppercase;
+  display: none;
 }
 .header-meta {
   display: flex;

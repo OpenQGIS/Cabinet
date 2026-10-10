@@ -9,8 +9,8 @@
 
   const UI_STRINGS = {
     zh: {
-      siteTitle: 'CABINET · 珍奇柜 · 空间制图与测绘藏录',
-      cabinetBrandTitle: 'CABINET · 珍奇柜',
+      siteTitle: 'CABINET · 空间制图与测绘藏录',
+      cabinetBrandTitle: 'CABINET',
       cabinetBrandSubtitle: '空间制图 · 卫星遥感 · 寰宇图志',
       navAuthorGallery: '创作者个人画廊 (Gallery)',
       statCuratedWorks: '幅策展馆藏',
