@@ -26,12 +26,20 @@ ehthumbs_vista.db
 *.sublime-workspace
 
 # Large Raw Image Sources (Security & Asset Protection)
-pic/
-*.tif
-*.tiff
-*.raw
-*.psd
-*.ai
+pic/**/*.tif
+pic/**/*.tiff
+pic/**/*.raw
+pic/**/*.psd
+pic/**/*.ai
+pic/**/*.jfif
+pic/**/*.jpg
+pic/**/*.png
+pic/**/*.txt
+_raw/
+_drafts/
+
+# Allow and track all Markdown sidecar metadata in pic
+!pic/**/*.md
 
 # Tile Pyramids (Hosted on main branch or CDN)
 tiles/

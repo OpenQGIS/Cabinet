@@ -9,22 +9,29 @@
 
   const UI_STRINGS = {
     zh: {
-      siteTitle: '地图录 OpenQGIS制图作品集',
-      brandTitle: '<span class="brand-title-main">地图录</span><span class="brand-title-sub"> · AtlasLog</span>',
-      brandSubtitle: '个人制图实践 · QGIS 能力边界的记录',
+      siteTitle: 'CABINET · 珍奇柜 · 空间制图与测绘藏录',
+      cabinetBrandTitle: 'CABINET · 珍奇柜',
+      cabinetBrandSubtitle: '空间制图 · 卫星遥感 · 寰宇图志',
+      navAuthorGallery: '创作者个人画廊 (Gallery)',
+      statCuratedWorks: '幅策展馆藏',
+      statWorksUnit: '幅成果',
+      filterTopicLabel: '分类专题:',
+      filterAllLabel: '全部',
+      filterWide: '横版',
+      filterTall: '竖版',
+      brandTitle: '<span class="brand-title-main">珍奇柜</span><span class="brand-title-sub"> · Cabinet</span>',
+      brandSubtitle: '空间制图 · 卫星遥感 · 寰宇图志',
       navAbout: '关于',
       navCabinet: '珍奇柜',
       navGallery: '聚合总览',
-      navAboutTitle: '查看《地图录》案名定位与说明',
+      navAboutTitle: '查看《珍奇柜》案名定位与说明',
       navPortalTitle: '浏览 OpenQGIS 空间体系定位大厅',
       navCabinetTitle: '《珍奇柜 · 空间制图藏录》共享精选库',
-      navGalleryTitle: '《Gallery · 典藏画廊》聚合大厅',
-      navThemeToggle: '切换主题模式',
+      navGalleryTitle: '访问创作者原创个人画廊 (Gallery)',
+      navThemeToggle: '切换暗色 / 浅色模式',
       navLangToggle: 'English',
       navLangTitle: 'Switch to English / 切换至英文',
       filterAll: '全部成果',
-      filterWide: '横幅画卷',
-      filterTall: '条屏竖幅',
       actionZoom: '深览',
       actionClose: '退出阅览 (Esc)',
       actionPrev: '上一卷 (←)',
@@ -42,22 +49,6 @@
       actionCopyShare: '复制画卷专属直链',
       metaShareTitle: '画卷直链分享',
       shareToastSuccess: '画卷直链已复制到剪贴板',
-      shareOptLink: '分享网址',
-      shareOptLinkDesc: '复制专属直链到剪贴板',
-      shareOptQr: '分享二维码',
-      shareOptQrDesc: '扫码即刻原图深览',
-      shareOptPoster: '分享竖版海报加二维码',
-      shareOptPosterDesc: '生成 3:4 典藏海报与专属码',
-      shareQrTitle: '扫码深览画卷',
-      shareQrSaveBtn: '保存二维码图片',
-      sharePosterTitle: '3:4 展卷典藏海报',
-      sharePosterDownloadBtn: '下载高清海报 (PNG)',
-      sharePosterGenerating: '正在生成高清典藏海报...',
-      aboutTag: '一图一境 · 静观其详',
-      aboutSubtag: 'OpenQGIS 制图作品集',
-      aboutTitle: '《地图录》· AtlasLog',
-      aboutSubtitle: '个人制图实践，亦是 QGIS 能力边界的记录。',
-      aboutDesc: '这里汇集多年来用 QGIS 亲手制作的地图作品。每一幅既是独立完成的视觉表达，也是对 QGIS 制图能力边界的探索与验证。<br/><br/>作品采用 1:1 4K 物理像素无损深览，探索 QGIS 制图表现力的极致细节与空间形态美学。',
       navOverviewTitle: '鹰眼图',
       navToggleHint: '折叠/展开鹰眼图 (O)',
       navCloseHint: '收起鹰眼图 (快捷键: O)',
@@ -65,76 +56,49 @@
       navTipDragZoom: '按住 <strong>拖拽画框</strong> 缩放 · <strong>单击</strong> 平移',
       navTipKeyOpenPrefix: '按',
       navTipKeyOpenSuffix: '键再次打开鹰眼图',
-      metaDrawerTitle: '作品档案与调色板',
-      metaCategory: '类目归属',
-      metaAuthor: '制作者',
+      metaDrawerTitle: '展品档案与详情',
+      metaArtworkTitle: '作品名称',
+      metaCategory: '分类归属',
+      metaAuthor: '作者 / 出处',
       metaDate: '创作日期',
       metaPhysicalSize: '原生尺寸',
-      metaRatio: '长宽比例',
-      metaPaletteTitle: '主调色板萃取',
+      metaRatio: '构图纵横比',
+      metaPaletteTitle: '主色板 · 提取色系 (点击复制 HEX)',
       metaPaletteExtracting: '提取中...',
       metaPaletteEmpty: '暂无色彩数据',
       metaPaletteCopied: '已复制!',
       metaPaletteHint: '点击复制色彩 ',
-      metaNotesTitle: '工造题记与说明',
-      metaNavInfo: '基本信息',
-      metaNavShare: '专属直链',
-      metaNavPalette: '艺术色板',
-      metaNavNotes: '工造题记',
+      metaNotesTitle: '作品说明',
+      metaSourceFile: '源文件',
+      metaResolution: '原始分辨率',
+      metaPyramidLevels: '超高清层级',
       emptyFilter: '当前筛选条件下暂无收录成果',
-      heroSlogan: '<span class="hero-title-chunk">一图一境</span><span class="hero-title-sep"> · </span><span class="hero-title-chunk">静观其详</span>',
-      heroSubslogan: '<span class="hero-sub-chunk">地图录</span><span class="hero-sub-sep"> · </span><span class="hero-sub-chunk">OpenQGIS 制图作品集</span>',
-      heroDesc: '个人制图实践 · QGIS 能力边界的记录',
-      heroScroll: '向下探索',
-      heroBgArtwork: '背景展卷',
-      badgeNew: 'NEW',
-      badgeNewAria: '近3个月新作',
-      footerCopyright: '<p class="footer-desc">「一图一境 · 静观其详」 每一幅地图既是独立完成的空间形态与视觉表达，也是对地理信息开源制图上限的探索与验证。</p><p class="footer-copy">© 2026 OpenQGIS / AtlasLog. All Rights Reserved. 原创空间制图作品未经许可严禁盗用、商用翻印或二次打包传播。</p>',
-      langSelectTitle: '切换语言 / Switch Language',
-      footerBrandTitle: '<span class="footer-brand-main">地图录</span><span class="footer-brand-sub"> · AtlasLog</span>',
-      footerBrandSlogan: '「一图一境 · 静观其详」',
-      footerBrandDesc: '空间制图实践专卷。每一幅地图既是独立完成的空间形态与视觉表达，也是对开源地理信息与 QGIS 制图能力边界的探索与验证。',
-      footerOpenAboutBtn: '查看案名定位与说明 →',
-      footerCol1Title: '空间制图全系',
-      footerLinkAtlas: '地图录 · AtlasLog',
-      footerBadgeCurrent: '本卷',
-      footerLinkAtlasHint: 'QGIS 独立制图成果与 1:1 4K 深览',
-      footerLinkCabinet: '珍奇柜 · Cabinet',
-      footerLinkCabinetHint: '空间碎片藏录与开源资源精选库',
-      footerLinkGallery: '典藏总馆 · Gallery',
-      footerLinkGalleryHint: '空间地理成果与制图聚合大厅',
-      footerCol2Title: '工造规范与特性',
-      footerFeature1: 'QGIS 极限矢量制图',
-      footerFeature1Hint: '突破桌面 GIS 视觉表达边界',
-      footerFeature2: 'OpenSeadragon 4K WebP 切片',
-      footerFeature2Hint: '1:1 原生微米级深览引擎',
-      footerFeature3: '空间形态学与路网织体',
-      footerFeature3Hint: '几何形态与地理环境深度解构',
-      footerFeature4: '自适应主调色板萃取',
-      footerFeature4Hint: '动态吸色与作品专属色彩基因',
-      footerCol3Title: '社区与版权准则',
-      footerLinkOrgHint: '探索更多开源制图与空间算法项目',
-      footerCopyrightNotice: '所有作品为原创空间制图实践，受国际版权及开源许可保护。未经许可严禁商用、翻印、洗稿或二次打包再分发。',
-      footerEdition: '2026 EDITION',
-      footerCopyrightLine: '© 2026 OpenQGIS / AtlasLog. All Rights Reserved.'
+      langSelectTitle: '切换语言 / Switch Language'
     },
     en: {
-      siteTitle: 'AtlasLog · OpenQGIS Cartography Portfolio',
-      brandTitle: '<span class="brand-title-main">AtlasLog</span>',
-      brandSubtitle: 'Personal Cartography · Recording the Limits of QGIS',
+      siteTitle: 'CABINET · Curated Spatial Cartography & DeepZoom Archive',
+      cabinetBrandTitle: 'CABINET',
+      cabinetBrandSubtitle: 'SPATIAL CARTOGRAPHY · SATELLITE REMOTE SENSING · ATLAS',
+      navAuthorGallery: 'Personal Gallery',
+      statCuratedWorks: 'Curated Works',
+      statWorksUnit: 'Works',
+      filterTopicLabel: 'Categories:',
+      filterAllLabel: 'All',
+      filterWide: 'Landscape',
+      filterTall: 'Portrait',
+      brandTitle: '<span class="brand-title-main">Cabinet</span>',
+      brandSubtitle: 'Spatial Cartography · Remote Sensing · Global Atlas',
       navAbout: 'About',
       navCabinet: 'Cabinet',
       navGallery: 'Gallery',
-      navAboutTitle: 'About AtlasLog & Cartographic Vision',
+      navAboutTitle: 'About Cabinet & Cartographic Vision',
       navPortalTitle: 'Explore OpenQGIS Geospatial Ecosystem Portal',
       navCabinetTitle: 'Cabinet · Curated Geospatial Library',
-      navGalleryTitle: 'Gallery · Central Showcase Portal',
-      navThemeToggle: 'Toggle Theme',
+      navGalleryTitle: 'Visit Author\'s Personal Gallery',
+      navThemeToggle: 'Toggle Dark / Light Theme',
       navLangToggle: '中文',
       navLangTitle: 'Switch to Chinese / 切换至中文',
       filterAll: 'All Works',
-      filterWide: 'Landscape',
-      filterTall: 'Portrait',
       actionZoom: 'Explore',
       actionClose: 'Close Viewer (Esc)',
       actionPrev: 'Previous (←)',
@@ -152,23 +116,6 @@
       actionCopyShare: 'Copy direct artwork link',
       metaShareTitle: 'Direct Share Link',
       shareToastSuccess: 'Artwork direct link copied to clipboard',
-      shareOptLink: 'Share Link',
-      shareOptLinkDesc: 'Copy direct artwork URL',
-      shareOptQr: 'QR Code',
-      shareOptQrDesc: 'Scan to explore in Deep Zoom',
-      shareOptPoster: 'Portrait Poster & QR',
-      shareOptPosterDesc: 'Generate 3:4 poster with QR code',
-      shareQrTitle: 'Scan to Deep Zoom',
-      shareQrSaveBtn: 'Save QR Image',
-      sharePosterTitle: '3:4 Artwork Poster',
-      sharePosterDownloadBtn: 'Download Poster (PNG)',
-      sharePosterGenerating: 'Generating poster...',
-      aboutTag: 'One Map, One Realm · Contemplate the Nuance',
-      aboutSubtag: 'OpenQGIS Cartography Portfolio',
-      aboutTitle: 'AtlasLog',
-      aboutSubtitle: 'Personal cartographic practice, recording the upper limits of QGIS.',
-      aboutDesc: 'A curated collection of maps handcrafted over the years with QGIS. Each piece stands as an independent visual expression and an exploration of the boundaries of QGIS cartography.<br/><br/>Rendered in 1:1 4K physical pixel lossless deep zoom to inspect spatial morphology and fine cartographic details.',
-      aboutClose: 'Close',
       navOverviewTitle: 'Overview',
       navToggleHint: 'Toggle Overview (O)',
       navCloseHint: 'Collapse Overview (Shortcut: O)',
@@ -176,62 +123,100 @@
       navTipDragZoom: 'Drag <strong>box</strong> to zoom · <strong>Click</strong> to pan',
       navTipKeyOpenPrefix: 'Press',
       navTipKeyOpenSuffix: 'to reopen overview',
-      metaDrawerTitle: 'Archive & Palette',
+      metaDrawerTitle: 'Artwork Archive & Details',
+      metaArtworkTitle: 'Artwork Title',
       metaCategory: 'Category',
-      metaAuthor: 'Author',
-      metaDate: 'Date',
+      metaAuthor: 'Author / Source',
+      metaDate: 'Date Created',
       metaPhysicalSize: 'Physical Size',
       metaRatio: 'Aspect Ratio',
-      metaPaletteTitle: 'Dominant Color Palette',
+      metaPaletteTitle: 'Dominant Palette (Click to Copy HEX)',
       metaPaletteExtracting: 'Extracting...',
       metaPaletteEmpty: 'No color data',
       metaPaletteCopied: 'Copied!',
       metaPaletteHint: 'Click to copy color ',
-      metaNotesTitle: 'Notes & Description',
-      metaNavInfo: 'Basic Info',
-      metaNavShare: 'Share Link',
-      metaNavPalette: 'Color Palette',
-      metaNavNotes: 'Notes & Details',
+      metaNotesTitle: 'Artwork Description',
+      metaSourceFile: 'Source File',
+      metaResolution: 'Native Resolution',
+      metaPyramidLevels: 'DeepZoom Pyramid Levels',
       emptyFilter: 'No artworks found under current filter',
-      heroSlogan: '<span class="hero-title-chunk">One Map, One Realm</span><span class="hero-title-sep"> · </span><span class="hero-title-chunk">Contemplate the Nuance</span>',
-      heroSubslogan: '<span class="hero-sub-chunk">AtlasLog</span><span class="hero-sub-sep"> · </span><span class="hero-sub-chunk">OpenQGIS Cartography Portfolio</span>',
-      heroDesc: 'Personal Cartography · Recording the Limits of QGIS',
-      heroScroll: 'Scroll to Explore',
-      heroBgArtwork: 'Featured Map',
-      badgeNew: 'NEW',
-      badgeNewAria: 'Recent Artwork',
-      footerCopyright: '<p class="footer-desc">"One Map, One Realm · Contemplate the Nuance" — Each map stands as an independent spatial form and visual expression, exploring the upper limits of open-source GIS cartography.</p><p class="footer-copy">© 2026 OpenQGIS / AtlasLog. All Rights Reserved. Unauthorized commercial reproduction, reprinting, or repackaged redistribution is strictly prohibited.</p>',
-      langSelectTitle: 'Switch Language / 切换语言',
-      footerBrandTitle: '<span class="footer-brand-main">AtlasLog</span><span class="footer-brand-sub"> · OpenQGIS</span>',
-      footerBrandSlogan: '"One Map, One Realm · Contemplate the Nuance"',
-      footerBrandDesc: 'Dedicated volume of spatial cartography. Each piece stands as an independent spatial form and visual expression, exploring the upper limits of open-source GIS and QGIS cartographic capabilities.',
-      footerOpenAboutBtn: 'About AtlasLog & Vision →',
-      footerCol1Title: 'Geospatial Ecosystem',
-      footerLinkAtlas: 'AtlasLog',
-      footerBadgeCurrent: 'CURRENT',
-      footerLinkAtlasHint: 'QGIS original cartography & 1:1 4K deep zoom',
-      footerLinkCabinet: 'Cabinet',
-      footerLinkCabinetHint: 'Curated spatial fragments & open resources',
-      footerLinkGallery: 'Gallery',
-      footerLinkGalleryHint: 'Central geospatial showcase portal',
-      footerCol2Title: 'Craft & Architecture',
-      footerFeature1: 'QGIS Vector Limits',
-      footerFeature1Hint: 'Pushing boundaries of desktop GIS visualization',
-      footerFeature2: '4K Deep Zoom Tiles',
-      footerFeature2Hint: '1:1 native physical pixel deep viewer',
-      footerFeature3: 'Spatial Morphology',
-      footerFeature3Hint: 'Urban fabric & territorial deconstruction',
-      footerFeature4: 'Adaptive Palette Extraction',
-      footerFeature4Hint: 'Dynamic chromatic DNA per artwork',
-      footerCol3Title: 'Community & Licensing',
-      footerLinkOrgHint: 'Explore open-source cartography & spatial tools',
-      footerCopyrightNotice: 'All works are original spatial cartography protected under international copyright. Unauthorized commercial reuse, reprinting, or repackaged redistribution is strictly prohibited.',
-      footerEdition: '2026 EDITION',
-      footerCopyrightLine: '© 2026 OpenQGIS / AtlasLog. All Rights Reserved.'
+      langSelectTitle: 'Switch Language / 切换语言'
     }
   };
 
   const ARTWORK_TRANSLATIONS = {
+    heqacogw8ae_dtn_463ef9b0: {
+      en: {
+        title: 'Polar Glacier & Desert Textures',
+        categoryName: 'Online GIS Showcase',
+        subCategory: 'Verygoogmaps',
+        description: 'Global high-precision satellite remote sensing cartography from Verygoogmaps, depicting spatial chromatic distributions of extreme natural landforms and surface textures.',
+        author: 'Verygoogmaps'
+      }
+    },
+    hicarxgwmaas7yp_8d90d60e: {
+      en: {
+        title: 'Plateau Canyon & Fluvial Erosion',
+        categoryName: 'Online GIS Showcase',
+        subCategory: 'Verygoogmaps',
+        description: 'High-resolution multispectral satellite imagery revealing intricate interwoven patterns of faulting river networks and plateau erosion topography.',
+        author: 'Verygoogmaps'
+      }
+    },
+    hoayr9uwwaa_m2u_6e0d336d: {
+      en: {
+        title: 'Mountain Hydrology & Landforms',
+        categoryName: 'Online GIS Showcase',
+        subCategory: 'Verygoogmaps',
+        description: 'High-resolution satellite imagery depicting natural geological color gradients across extreme alpine mountain systems.',
+        author: 'Verygoogmaps'
+      }
+    },
+    hrofrs9bmaap6ht_d83bc88b: {
+      en: {
+        title: 'Desert Sediment & Aeolian Morphology',
+        categoryName: 'Online GIS Showcase',
+        subCategory: 'Verygoogmaps',
+        description: 'Multispectral remote sensing visualization capturing microscopic aeolian landforms and sediment drift across arid terrains.',
+        author: 'Verygoogmaps'
+      }
+    },
+    '094_095_b18da34a': {
+      en: {
+        title: '094-095 Italy Standard Map',
+        categoryName: 'National & Regional Maps',
+        subCategory: 'Standard Map · Italy',
+        description: 'Official standard cartography illustrating Mediterranean topography, hydrography, and administrative zoning of Italy.',
+        author: 'Standard Map'
+      }
+    },
+    artwork_d699417c: {
+      en: {
+        title: 'Anhui Province - Highway Transport Elements',
+        categoryName: 'National & Regional Maps',
+        subCategory: 'Standard Map · China · Anhui',
+        description: 'High-precision provincial standard thematic cartography detailing the arterial highway transportation infrastructure of Anhui Province.',
+        author: 'Standard Map'
+      }
+    },
+    artwork_f41f9c9a: {
+      en: {
+        title: 'Fuyuan County Standard Map',
+        categoryName: 'National & Regional Maps',
+        subCategory: 'Standard Map · China · Heilongjiang',
+        description: 'County-level official cartographic survey of Fuyuan County, the easternmost territory of China, detailing frontier river systems and boundary demarcation.',
+        author: 'Standard Map'
+      }
+    },
+    '8_3c808d73': {
+      en: {
+        title: 'Heilongjiang Standard Map - Basic Elements',
+        categoryName: 'National & Regional Maps',
+        subCategory: 'Standard Map · China · Heilongjiang',
+        description: 'Standard provincial geographic base map (8-K folio edition) outlining Heilongjiang administrative boundaries, settlements, and natural hydrography.',
+        author: 'Standard Map'
+      }
+    },
     shanghai: {
       en: {
         title: 'Shanghai · Dark Fabric',
@@ -300,27 +285,51 @@
     }
   };
 
+  const SUBCATEGORY_TRANSLATIONS = {
+    'Verygoogmaps': { zh: 'Verygoogmaps', en: 'Verygoogmaps' },
+    '标准地图 · Italy': { zh: '标准地图 · Italy', en: 'Standard Map · Italy' },
+    '标准地图 · China · 安徽': { zh: '标准地图 · China · 安徽', en: 'Standard Map · China · Anhui' },
+    '标准地图 · China · 黑龙江': { zh: '标准地图 · China · 黑龙江', en: 'Standard Map · China · Heilongjiang' }
+  };
+
+  function translateSubcategory(sub) {
+    if (!sub) return '';
+    if (currentLang === 'zh') return sub;
+    if (SUBCATEGORY_TRANSLATIONS[sub] && SUBCATEGORY_TRANSLATIONS[sub][currentLang]) {
+      return SUBCATEGORY_TRANSLATIONS[sub][currentLang];
+    }
+    return String(sub)
+      .replace(/标准地图/g, 'Standard Map')
+      .replace(/安徽/g, 'Anhui')
+      .replace(/黑龙江/g, 'Heilongjiang');
+  }
+
   // Determine initial language:
   // 1. URL search param (?lang=en or ?lang=zh)
   // 2. localStorage
   // 3. navigator.language (if zh -> zh, otherwise en)
   function detectInitialLanguage() {
-    const params = new URLSearchParams(window.location.search);
-    const urlLang = params.get('lang');
-    if (urlLang && (urlLang === 'zh' || urlLang === 'en')) {
-      return urlLang;
-    }
+    if (typeof window === 'undefined') return 'zh';
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang && (urlLang === 'zh' || urlLang === 'en')) {
+        return urlLang;
+      }
 
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && (saved === 'zh' || saved === 'en')) {
-      return saved;
-    }
+      const saved = typeof localStorage !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
+      if (saved && (saved === 'zh' || saved === 'en')) {
+        return saved;
+      }
 
-    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    if (browserLang.startsWith('zh')) {
+      const browserLang = (typeof navigator !== 'undefined' ? (navigator.language || navigator.userLanguage || '') : '').toLowerCase();
+      if (browserLang.startsWith('zh')) {
+        return 'zh';
+      }
+      return 'en';
+    } catch (e) {
       return 'zh';
     }
-    return 'en';
   }
 
   let currentLang = detectInitialLanguage();
@@ -328,14 +337,20 @@
   function setLanguage(lang) {
     if (lang !== 'zh' && lang !== 'en') return;
     currentLang = lang;
-    localStorage.setItem(STORAGE_KEY, lang);
-    document.documentElement.lang = (lang === 'zh' ? 'zh-CN' : 'en');
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {}
+    if (typeof document !== 'undefined' && document.documentElement) {
+      document.documentElement.lang = (lang === 'zh' ? 'zh-CN' : 'en');
+    }
     
     // Update all elements with data-i18n
     updateDOMTranslations();
 
     // Dispatch custom event for app.js to re-render dynamic content
-    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: currentLang } }));
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: currentLang } }));
+    }
   }
 
   function getLanguage() {
@@ -359,7 +374,7 @@
     return Object.assign({}, item, {
       title: translation.title || item.title,
       categoryName: translation.categoryName || item.categoryName,
-      subCategory: translation.subCategory || item.subCategory,
+      subCategory: translation.subCategory || translateSubcategory(item.subCategory),
       description: translation.description || item.description,
       physicalSize: translation.physicalSize || item.physicalSize,
       tags: translation.tags || item.tags
@@ -367,6 +382,8 @@
   }
 
   function updateDOMTranslations() {
+    if (typeof document === 'undefined') return;
+
     // 1. Title
     document.title = t('siteTitle');
 
@@ -391,12 +408,16 @@
       if (title) el.title = title;
     });
 
-    // 5. Update Lang toggle / dropdown indicators
+    // 5. Update Lang toggle indicators
     const currentLangLabel = document.getElementById('currentLangLabel');
     if (currentLangLabel) {
       currentLangLabel.textContent = currentLang === 'zh' ? '中' : 'EN';
     }
-    const langBtn = document.getElementById('btnLangDropdown') || document.getElementById('btnToggleLang');
+    const headerLangText = document.getElementById('headerLangText');
+    if (headerLangText) {
+      headerLangText.textContent = currentLang === 'zh' ? 'EN' : '中';
+    }
+    const langBtn = document.getElementById('btnLangDropdown') || document.getElementById('btnToggleLang') || document.getElementById('btnHeaderLang');
     if (langBtn) {
       langBtn.title = t('langSelectTitle');
     }
@@ -412,17 +433,32 @@
   ];
 
   // Pre-set document.documentElement.lang before paint
-  document.documentElement.lang = (currentLang === 'zh' ? 'zh-CN' : 'en');
+  if (typeof document !== 'undefined' && document.documentElement) {
+    document.documentElement.lang = (currentLang === 'zh' ? 'zh-CN' : 'en');
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateDOMTranslations);
+    } else {
+      updateDOMTranslations();
+    }
+  }
 
-  window.AtlasI18n = {
+  const atlasI18nObj = {
     detect: detectInitialLanguage,
     getLang: getLanguage,
     setLang: setLanguage,
     toggle: toggleLanguage,
     t: t,
     getItem: getLocalizedItem,
+    translateSub: translateSubcategory,
     updateDOM: updateDOMTranslations,
     languages: SUPPORTED_LANGUAGES,
     STRINGS: UI_STRINGS
   };
+
+  if (typeof window !== 'undefined') {
+    window.AtlasI18n = atlasI18nObj;
+  }
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = atlasI18nObj;
+  }
 })();

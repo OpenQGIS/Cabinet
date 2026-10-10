@@ -20,6 +20,7 @@
   let portalSubFilter = null;
   let portalRandomSelection = [];
   let streamSourceFilter = 'all';
+  let currentActiveFilterKey = 'all';
 
   let preViewerScrollY = 0;
 
@@ -52,6 +53,10 @@
   // Initialize
   async function init() {
     bindAntiTheft();
+    bindGlobalHeaderEvents();
+    if (window.AtlasI18n && typeof window.AtlasI18n.updateDOM === 'function') {
+      window.AtlasI18n.updateDOM();
+    }
 
     if (window.GALLERY_MANIFEST) {
       setupData(window.GALLERY_MANIFEST);
@@ -671,9 +676,13 @@
       ? galleryItems.filter(i => i.category === targetCategory)
       : [...galleryItems];
 
-    // Update Counter
+    // Update Counters
+    const collectionCountEl = document.getElementById('collectionCount');
     const pageItemCountEl = document.getElementById('pageItemCount');
+    const countAllEl = document.getElementById('countAll');
+    if (collectionCountEl) collectionCountEl.textContent = categoryItems.length;
     if (pageItemCountEl) pageItemCountEl.textContent = categoryItems.length;
+    if (countAllEl) countAllEl.textContent = categoryItems.length;
 
     // Generate Dynamic Subcategory Filter Chips
     buildSubcategoryChips(categoryItems);
@@ -720,24 +729,71 @@
     bindViewerModalEvents();
   }
 
+  function bindGlobalHeaderEvents() {
+    const btnHeaderLang = document.getElementById('btnHeaderLang');
+    if (btnHeaderLang) {
+      btnHeaderLang.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.AtlasI18n && typeof window.AtlasI18n.toggle === 'function') {
+          window.AtlasI18n.toggle();
+        }
+      });
+    }
+
+    window.addEventListener('languageChanged', () => {
+      let categoryItems = galleryItems;
+      if (pageMode === 'gis') categoryItems = galleryItems.filter(i => i.category === 'gis');
+      else if (pageMode === 'original') categoryItems = galleryItems.filter(i => i.category === 'original');
+      buildSubcategoryChips(categoryItems);
+
+      renderGrid(currentFilteredItems);
+
+      const modalEl = document.getElementById('viewerModal');
+      if (modalEl && modalEl.classList.contains('open') && currentViewerIndex >= 0 && currentFilteredItems[currentViewerIndex]) {
+        showArtwork(currentFilteredItems[currentViewerIndex], true);
+      }
+    });
+  }
+
   function buildSubcategoryChips(items) {
     const filterGroup = document.getElementById('filterGroup');
     if (!filterGroup) return;
 
+    // Collect distinct sub categories
     const subCats = new Set();
     items.forEach(item => {
-      if (item.subCategory && item.subCategory.trim()) {
+      if (Array.isArray(item.subCategory)) {
+        item.subCategory.forEach(s => { if (s && s.trim()) subCats.add(s.trim()); });
+      } else if (item.subCategory && typeof item.subCategory === 'string' && item.subCategory.trim()) {
         subCats.add(item.subCategory.trim());
       }
     });
 
+    // Remove existing dynamically generated subCategory chips before appending translated ones
+    filterGroup.querySelectorAll('.filter-chip[data-filter^="sub:"]').forEach(chip => chip.remove());
+
     const wideBtn = filterGroup.querySelector('[data-filter="wide"]');
 
     subCats.forEach(sub => {
+      // Calculate count for this subCategory
+      const subCount = items.filter(i => {
+        if (!i.subCategory) return false;
+        if (Array.isArray(i.subCategory)) return i.subCategory.includes(sub);
+        return i.subCategory === sub || i.subCategory.includes(sub);
+      }).length;
+
       const chip = document.createElement('button');
       chip.className = 'filter-chip';
       chip.dataset.filter = 'sub:' + sub;
-      chip.textContent = sub;
+      if (currentActiveFilterKey === 'sub:' + sub) {
+        chip.classList.add('active');
+      }
+
+      const labelText = (window.AtlasI18n && window.AtlasI18n.translateSub)
+        ? window.AtlasI18n.translateSub(sub)
+        : sub;
+
+      chip.innerHTML = escapeHtml(labelText) + ' (' + subCount + ')';
       if (wideBtn) {
         filterGroup.insertBefore(chip, wideBtn);
       } else {
@@ -747,11 +803,18 @@
 
     const allChips = filterGroup.querySelectorAll('.filter-chip');
     allChips.forEach(chip => {
-      chip.addEventListener('click', () => {
+      if (chip.dataset.filter === currentActiveFilterKey) {
+        chip.classList.add('active');
+      } else if (currentActiveFilterKey !== 'all' && chip.dataset.filter === 'all') {
+        chip.classList.remove('active');
+      }
+
+      chip.onclick = () => {
         allChips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
+        currentActiveFilterKey = chip.dataset.filter;
         applyGalleryFilter(chip.dataset.filter, items);
-      });
+      };
     });
   }
 
@@ -760,7 +823,11 @@
       currentFilteredItems = [...baseItems];
     } else if (filterKey.startsWith('sub:')) {
       const sub = filterKey.replace('sub:', '');
-      currentFilteredItems = baseItems.filter(i => i.subCategory === sub);
+      currentFilteredItems = baseItems.filter(i => {
+        if (!i.subCategory) return false;
+        if (Array.isArray(i.subCategory)) return i.subCategory.includes(sub);
+        return i.subCategory === sub || i.subCategory.includes(sub);
+      });
     } else if (filterKey === 'wide') {
       currentFilteredItems = baseItems.filter(i => i.aspectRatio >= 1.2);
     } else if (filterKey === 'tall') {
@@ -780,8 +847,9 @@
     gridEl.innerHTML = '';
 
     if (items.length === 0) {
+      const emptyText = (window.AtlasI18n && window.AtlasI18n.t) ? window.AtlasI18n.t('emptyFilter') : '暂无符合当前筛选条件的画作';
       gridEl.innerHTML = '<div class="column-empty" style="padding: 48px 24px; color: var(--text-muted); font-size: 0.88rem; text-align: center; width: 100%;">' +
-        '暂无符合当前筛选条件的画作</div>';
+        escapeHtml(emptyText) + '</div>';
       return;
     }
 
@@ -790,42 +858,39 @@
     });
   }
 
-  function createCard(item, localIdx, isPortal = false) {
+  function createCard(item, localIdx) {
     const card = document.createElement('article');
-    card.className = 'gallery-card' + (isPortal ? ' portal-seamless-card' : '');
+    card.className = 'gallery-card';
     card.id = 'artCard_' + item.id;
     card.dataset.id = item.id;
     card.tabIndex = 0;
     card.style.setProperty('--aspect-ratio', item.aspectRatio);
 
-    if (isPortal) {
-      // 首页纯图最大化展示：不显示标题、尺寸、分辨率等任何文字遮挡
-      card.innerHTML = 
-        '<div class="card-media">' +
-          '<img class="card-img" src="' + item.thumb + '" alt="' + escapeHtml(item.title) + '" loading="lazy" />' +
-        '</div>';
-    } else {
-      const subCatLabel = item.subCategory ? ('<span class="tag-pill tag-pill-secondary">' + escapeHtml(item.subCategory) + '</span>') : '';
+    const locItem = (window.AtlasI18n && window.AtlasI18n.getItem) ? window.AtlasI18n.getItem(item) : item;
+    const subCatRaw = Array.isArray(locItem.subCategory) ? locItem.subCategory : (locItem.subCategory ? [locItem.subCategory] : []);
+    const subCatTranslated = subCatRaw.map(s => (window.AtlasI18n && window.AtlasI18n.translateSub ? window.AtlasI18n.translateSub(s) : s));
+    const subCatText = subCatTranslated.join(' · ');
+    const subCatLabel = subCatText ? ('<span class="tag-pill tag-pill-secondary">' + escapeHtml(subCatText) + '</span>') : '';
+    const exploreLabel = (window.AtlasI18n && window.AtlasI18n.t) ? window.AtlasI18n.t('actionZoom') : '阅览';
 
-      card.innerHTML = 
-        '<div class="card-media">' +
-          '<img class="card-img" src="' + item.thumb + '" alt="' + escapeHtml(item.title) + '" loading="lazy" />' +
-          '<div class="card-scrim-mask">' +
-            '<div class="card-scrim-content">' +
-              '<h3 class="card-title" title="' + escapeHtml(item.title) + '">' + escapeHtml(item.title) + '</h3>' +
-              '<div class="card-meta-row">' +
-                '<div class="card-tags">' +
-                  subCatLabel +
-                '</div>' +
-                '<div class="card-action-hint">' +
-                  SVG_ZOOM +
-                  ' <span>阅览</span>' +
-                '</div>' +
+    card.innerHTML = 
+      '<div class="card-media">' +
+        '<img class="card-img" src="' + item.thumb + '" alt="' + escapeHtml(locItem.title) + '" loading="lazy" />' +
+        '<div class="card-scrim-mask">' +
+          '<div class="card-scrim-content">' +
+            '<h3 class="card-title" title="' + escapeHtml(locItem.title) + '">' + escapeHtml(locItem.title) + '</h3>' +
+            '<div class="card-meta-row">' +
+              '<div class="card-tags">' +
+                subCatLabel +
+              '</div>' +
+              '<div class="card-action-hint">' +
+                SVG_ZOOM +
+                ' <span>' + escapeHtml(exploreLabel) + '</span>' +
               '</div>' +
             '</div>' +
           '</div>' +
-        '</div>';
-    }
+        '</div>' +
+      '</div>';
 
     const img = card.querySelector('.card-img');
     if (img.complete) {
@@ -1265,22 +1330,26 @@
     return str;
   }
 
-  function showArtwork(item) {
+  function showArtwork(item, metadataOnly = false) {
     const modalEl = document.getElementById('viewerModal');
     if (!modalEl) return;
 
-    if (!modalEl.classList.contains('open')) {
-      preViewerScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (!metadataOnly) {
+      if (!modalEl.classList.contains('open')) {
+        preViewerScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      }
+      modalEl.classList.add('open');
+      modalEl.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
-    modalEl.classList.add('open');
-    modalEl.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
     const activeItem = item;
+    const isEn = (window.AtlasI18n && window.AtlasI18n.getLang() === 'en');
+    const locItem = (window.AtlasI18n && window.AtlasI18n.getItem) ? window.AtlasI18n.getItem(item) : item;
 
     const vTitle = document.getElementById('viewerTitle');
     const qmfEl = document.getElementById('viewerQmapFlow');
-    if (qmfEl) {
+    if (qmfEl && !metadataOnly) {
       let precision = '100';
       if (item && item.workflow && item.workflow.QGIS) {
         precision = String(item.workflow.QGIS).replace(/%/g, '').trim();
@@ -1302,21 +1371,34 @@
     const mPaletteBox = document.getElementById('metaColorPaletteBox');
     const mSwatches = document.getElementById('metaColorSwatches');
 
-    if (vTitle) vTitle.textContent = item.title;
+    if (vTitle) vTitle.textContent = locItem.title;
     if (vDims) vDims.style.display = 'none';
-    if (mTitle) mTitle.textContent = item.title;
-    if (mCat) mCat.textContent = item.categoryName + (item.subCategory ? ' · ' + item.subCategory : '');
-    if (mAuthor) mAuthor.textContent = item.author || (item.category === 'original' ? '原创作者' : '网络精选');
+    if (mTitle) mTitle.textContent = locItem.title;
+
+    const subCatDisplay = Array.isArray(locItem.subCategory)
+      ? locItem.subCategory.map(s => (window.AtlasI18n && window.AtlasI18n.translateSub ? window.AtlasI18n.translateSub(s) : s)).join(' · ')
+      : (window.AtlasI18n && window.AtlasI18n.translateSub ? window.AtlasI18n.translateSub(locItem.subCategory) : locItem.subCategory);
+
+    if (mCat) mCat.textContent = locItem.categoryName + (subCatDisplay ? ' · ' + subCatDisplay : '');
+    if (mAuthor) {
+      if (locItem.author) {
+        mAuthor.textContent = locItem.author;
+      } else {
+        mAuthor.textContent = (locItem.category === 'original')
+          ? (isEn ? 'OpenQGIS Original' : '原创作者')
+          : (isEn ? 'Curated Selection' : '网络精选');
+      }
+    }
 
     // 日期仅显示年月
-    const rawDate = item.date || item.year;
+    const rawDate = locItem.date || locItem.year || item.date || item.year;
     const formattedDate = formatYearMonth(rawDate);
     if (mDate) mDate.textContent = formattedDate || '-';
     if (mDateBox) mDateBox.style.display = formattedDate ? 'block' : 'none';
 
     if (mDesc) {
-      if (item.description && item.description.trim()) {
-        mDesc.textContent = item.description.trim();
+      if (locItem.description && locItem.description.trim()) {
+        mDesc.textContent = locItem.description.trim();
         if (mDescBox) mDescBox.style.display = 'block';
       } else {
         if (mDescBox) mDescBox.style.display = 'none';
@@ -1325,45 +1407,55 @@
 
     if (mFile) mFile.textContent = item.filename;
     if (mRes) mRes.textContent = item.width + ' × ' + item.height;
-    if (mAspect) mAspect.textContent = item.aspectRatio + ':1 (原始画幅比)';
-    if (mLevels) mLevels.textContent = '共 ' + (item.maxLevel + 1) + ' 级超高清多精度金字塔 (Level 0 ~ ' + item.maxLevel + ')';
-
-    // Extract & Populate Dominant Colors Palette
-    if (mSwatches) {
-      mSwatches.innerHTML = '<span style="font-size:0.75rem;color:var(--text-muted);font-family:var(--font-mono);">提取色彩中...</span>';
-      if (mPaletteBox) mPaletteBox.style.display = 'flex';
-      extractDominantColors(item, 5, function (colors) {
-        if (!modalEl.classList.contains('open')) return;
-        if (currentViewerIndex >= 0 && currentFilteredItems[currentViewerIndex] && currentFilteredItems[currentViewerIndex].id !== activeItem.id) return;
-        mSwatches.innerHTML = '';
-        if (!colors || colors.length === 0) {
-          if (mPaletteBox) mPaletteBox.style.display = 'none';
-          return;
-        }
-        if (mPaletteBox) mPaletteBox.style.display = 'flex';
-        colors.forEach(function (hex) {
-          const btn = document.createElement('button');
-          btn.className = 'meta-swatch';
-          btn.title = '点击复制色彩 ' + hex;
-          btn.innerHTML = '<span class="meta-swatch-dot" style="background-color: ' + hex + ';"></span>' +
-                          '<span class="meta-swatch-hex">' + hex + '</span>';
-          btn.addEventListener('click', function () {
-            copyToClipboard(hex);
-            btn.classList.add('copied');
-            const hexSpan = btn.querySelector('.meta-swatch-hex');
-            if (hexSpan) hexSpan.textContent = '已复制!';
-            setTimeout(function () {
-              btn.classList.remove('copied');
-              if (hexSpan) hexSpan.textContent = hex;
-            }, 1400);
-          });
-          mSwatches.appendChild(btn);
-        });
-      });
+    if (mAspect) {
+      mAspect.textContent = isEn
+        ? item.aspectRatio + ':1 (Aspect Ratio)'
+        : item.aspectRatio + ':1 (原始画幅比)';
+    }
+    if (mLevels) {
+      mLevels.textContent = isEn
+        ? (item.maxLevel + 1) + ' DeepZoom Pyramid Levels (Level 0 ~ ' + item.maxLevel + ')'
+        : '共 ' + (item.maxLevel + 1) + ' 级超高清多精度金字塔 (Level 0 ~ ' + item.maxLevel + ')';
     }
 
-    toggleNavigator(window.innerWidth <= 768);
-    loadOpenSeadragon(item);
+    if (!metadataOnly) {
+      // Extract & Populate Dominant Colors Palette
+      if (mSwatches) {
+        mSwatches.innerHTML = '<span style="font-size:0.75rem;color:var(--text-muted);font-family:var(--font-mono);">' + (isEn ? 'Extracting palette...' : '提取色彩中...') + '</span>';
+        if (mPaletteBox) mPaletteBox.style.display = 'flex';
+        extractDominantColors(item, 5, function (colors) {
+          if (!modalEl.classList.contains('open')) return;
+          if (currentViewerIndex >= 0 && currentFilteredItems[currentViewerIndex] && currentFilteredItems[currentViewerIndex].id !== activeItem.id) return;
+          mSwatches.innerHTML = '';
+          if (!colors || colors.length === 0) {
+            if (mPaletteBox) mPaletteBox.style.display = 'none';
+            return;
+          }
+          if (mPaletteBox) mPaletteBox.style.display = 'flex';
+          colors.forEach(function (hex) {
+            const btn = document.createElement('button');
+            btn.className = 'meta-swatch';
+            btn.title = (isEn ? 'Click to copy color ' : '点击复制色彩 ') + hex;
+            btn.innerHTML = '<span class="meta-swatch-dot" style="background-color: ' + hex + ';"></span>' +
+                            '<span class="meta-swatch-hex">' + hex + '</span>';
+            btn.addEventListener('click', function () {
+              copyToClipboard(hex);
+              btn.classList.add('copied');
+              const hexSpan = btn.querySelector('.meta-swatch-hex');
+              if (hexSpan) hexSpan.textContent = isEn ? 'Copied!' : '已复制!';
+              setTimeout(function () {
+                btn.classList.remove('copied');
+                if (hexSpan) hexSpan.textContent = hex;
+              }, 1400);
+            });
+            mSwatches.appendChild(btn);
+          });
+        });
+      }
+
+      toggleNavigator(window.innerWidth <= 768);
+      loadOpenSeadragon(item);
+    }
   }
 
   function extractDominantColors(target, maxColors, callback) {

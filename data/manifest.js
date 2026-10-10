@@ -1,15 +1,22 @@
 window.GALLERY_MANIFEST = [
   {
     "id": "heqacogw8ae_dtn_463ef9b0",
-    "title": "HEqAcOgW8AE_Dtn",
+    "title": "极地冰川与荒漠肌理",
     "filename": "HEqAcOgW8AE_Dtn.jfif",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
     "subCategory": "Verygoogmaps",
+    "region": "全球极端地理",
+    "source": "Verygoogmaps",
+    "scale": "亚米级多光谱反演",
+    "reviewNumber": "",
     "description": "来自 Verygoogmaps 的全球高精卫星遥感影像制图，呈现极端地形与地表纹理的空间色彩分布。",
-    "author": "网络精选",
+    "author": "Verygoogmaps",
+    "status": "done",
     "tags": [
-      "Verygoogmaps"
+      "Verygoogmaps",
+      "遥感影像",
+      "极地肌理"
     ],
     "width": 2200,
     "height": 1540,
@@ -20,6 +27,11 @@ window.GALLERY_MANIFEST = [
     "tileSize": 256,
     "overlap": 0,
     "format": "webp",
+    "download": {
+      "url": "downloads/HEqAcOgW8AE_Dtn.webp",
+      "size": "808.4 KB",
+      "filename": "HEqAcOgW8AE_Dtn.webp"
+    },
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
@@ -36,15 +48,22 @@ window.GALLERY_MANIFEST = [
   },
   {
     "id": "hicarxgwmaas7yp_8d90d60e",
-    "title": "HICarXgWMAAS7yP",
+    "title": "高原峡谷水系侵蚀形态",
     "filename": "HICarXgWMAAS7yP.jfif",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
     "subCategory": "Verygoogmaps",
-    "description": "",
-    "author": "网络精选",
+    "region": "全球自然地理",
+    "source": "Verygoogmaps",
+    "scale": "",
+    "reviewNumber": "",
+    "description": "高精度多光谱卫星遥感影像，展示复杂断裂水系与高原侵蚀地貌的交织肌理。",
+    "author": "Verygoogmaps",
+    "status": "done",
     "tags": [
-      "Verygoogmaps"
+      "Verygoogmaps",
+      "峡谷水系",
+      "地貌侵蚀"
     ],
     "width": 1571,
     "height": 2200,
@@ -55,6 +74,11 @@ window.GALLERY_MANIFEST = [
     "tileSize": 256,
     "overlap": 0,
     "format": "webp",
+    "download": {
+      "url": "downloads/HICarXgWMAAS7yP.webp",
+      "size": "597.9 KB",
+      "filename": "HICarXgWMAAS7yP.webp"
+    },
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
@@ -71,15 +95,22 @@ window.GALLERY_MANIFEST = [
   },
   {
     "id": "hoayr9uwwaa_m2u_6e0d336d",
-    "title": "HOaYr9uWwAA-m2u",
+    "title": "山川水文与陆表地貌",
     "filename": "HOaYr9uWwAA-m2u.jfif",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
     "subCategory": "Verygoogmaps",
-    "description": "",
-    "author": "网络精选",
+    "region": "全球自然地理",
+    "source": "Verygoogmaps",
+    "scale": "",
+    "reviewNumber": "",
+    "description": "多光谱色彩重构的全球高精遥感制图，展现自然物理世界山体水网的宏观几何韵律。",
+    "author": "Verygoogmaps",
+    "status": "done",
     "tags": [
-      "Verygoogmaps"
+      "Verygoogmaps",
+      "山川水文",
+      "地表色彩"
     ],
     "width": 1667,
     "height": 2500,
@@ -90,6 +121,11 @@ window.GALLERY_MANIFEST = [
     "tileSize": 256,
     "overlap": 0,
     "format": "webp",
+    "download": {
+      "url": "downloads/HOaYr9uWwAA-m2u.webp",
+      "size": "942.8 KB",
+      "filename": "HOaYr9uWwAA-m2u.webp"
+    },
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
@@ -106,15 +142,22 @@ window.GALLERY_MANIFEST = [
   },
   {
     "id": "hrofrs9bmaap6ht_d83bc88b",
-    "title": "HRoFRS9bMAAp6ht",
+    "title": "荒漠沉积与风蚀地貌",
     "filename": "HRoFRS9bMAAp6ht.jfif",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
     "subCategory": "Verygoogmaps",
-    "description": "",
-    "author": "网络精选",
+    "region": "全球干旱地貌",
+    "source": "Verygoogmaps",
+    "scale": "",
+    "reviewNumber": "",
+    "description": "高分辨率极端干旱区沉积纹理与风成沙丘地表色彩分布。",
+    "author": "Verygoogmaps",
+    "status": "done",
     "tags": [
-      "Verygoogmaps"
+      "Verygoogmaps",
+      "荒漠沉积",
+      "风蚀微观"
     ],
     "width": 1875,
     "height": 1250,
@@ -125,6 +168,11 @@ window.GALLERY_MANIFEST = [
     "tileSize": 256,
     "overlap": 0,
     "format": "webp",
+    "download": {
+      "url": "downloads/HRoFRS9bMAAp6ht.webp",
+      "size": "544.1 KB",
+      "filename": "HRoFRS9bMAAp6ht.webp"
+    },
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
@@ -140,18 +188,71 @@ window.GALLERY_MANIFEST = [
     }
   },
   {
+    "id": "094_095_b18da34a",
+    "title": "094-095 意大利",
+    "filename": "094-095 意大利.jpg",
+    "category": "gis",
+    "categoryName": "网上GIS图片分享",
+    "subCategory": "标准地图 · Italy",
+    "region": "欧洲·意大利半岛",
+    "source": "寰宇经典图志",
+    "scale": "经典开本双联张",
+    "reviewNumber": "",
+    "description": "欧洲地中海地形水系与亚平宁半岛行政区划经典制图，呈现波河平原与周边山脉构架。",
+    "author": "寰宇经典图志",
+    "status": "done",
+    "tags": [
+      "标准地图",
+      "Italy",
+      "地中海地形"
+    ],
+    "width": 3600,
+    "height": 5050,
+    "aspectRatio": 0.7129,
+    "thumb": "thumbs/094_095_b18da34a.webp",
+    "tileUrl": "tiles/094_095_b18da34a_files/",
+    "maxLevel": 13,
+    "tileSize": 256,
+    "overlap": 0,
+    "format": "webp",
+    "download": {
+      "url": "downloads/094-095 意大利.webp",
+      "size": "4.0 MB",
+      "filename": "094-095 意大利.webp"
+    },
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/094_095_b18da34a_files/",
+        "Format": "webp",
+        "Overlap": "0",
+        "TileSize": "256",
+        "Size": {
+          "Width": 3600,
+          "Height": 5050
+        }
+      }
+    }
+  },
+  {
     "id": "artwork_d699417c",
     "title": "安徽省-公路交通要素图",
     "filename": "安徽省-公路交通要素图.tif",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
     "subCategory": "标准地图 · China · 安徽",
-    "description": "",
-    "author": "网络精选",
+    "region": "中国·安徽",
+    "source": "安徽省测绘地理信息局",
+    "scale": "1:1,000,000",
+    "reviewNumber": "皖S(2023)045号",
+    "description": "全省高精公路交通骨干要素网络，呈现国道、省道与高速公路干线分布及主要枢纽节点。",
+    "author": "安徽省测绘地理信息局",
+    "status": "done",
     "tags": [
       "标准地图",
       "China",
-      "安徽"
+      "安徽",
+      "交通要素"
     ],
     "width": 4301,
     "height": 6285,
@@ -162,6 +263,11 @@ window.GALLERY_MANIFEST = [
     "tileSize": 256,
     "overlap": 0,
     "format": "webp",
+    "download": {
+      "url": "downloads/安徽省-公路交通要素图.webp",
+      "size": "3.2 MB",
+      "filename": "安徽省-公路交通要素图.webp"
+    },
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
@@ -183,12 +289,18 @@ window.GALLERY_MANIFEST = [
     "category": "gis",
     "categoryName": "网上GIS图片分享",
     "subCategory": "标准地图 · China · 黑龙江",
-    "description": "",
-    "author": "网络精选",
+    "region": "中国·黑龙江·抚远",
+    "source": "测绘实测数据",
+    "scale": "县级实测比例尺",
+    "reviewNumber": "",
+    "description": "中国东极抚远水系界线与边界地形实测详图，呈现黑龙江与乌苏里江交汇处地理脉络。",
+    "author": "测绘实测数据",
+    "status": "done",
     "tags": [
       "标准地图",
       "China",
-      "黑龙江"
+      "黑龙江",
+      "抚远"
     ],
     "width": 4086,
     "height": 2932,
@@ -199,6 +311,11 @@ window.GALLERY_MANIFEST = [
     "tileSize": 256,
     "overlap": 0,
     "format": "webp",
+    "download": {
+      "url": "downloads/黑龙江抚远县地图.webp",
+      "size": "2.5 MB",
+      "filename": "黑龙江抚远县地图.webp"
+    },
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
@@ -220,12 +337,18 @@ window.GALLERY_MANIFEST = [
     "category": "gis",
     "categoryName": "网上GIS图片分享",
     "subCategory": "标准地图 · China · 黑龙江",
-    "description": "",
-    "author": "网络精选",
+    "region": "中国·黑龙江",
+    "source": "黑龙江省自然资源厅 / 测绘地理信息局",
+    "scale": "8开标准图幅",
+    "reviewNumber": "黑S(2023)标准版",
+    "description": "黑龙江省标准地图基础要素版，涵盖水系脉络、行政界线与骨干地貌空间要素分布。",
+    "author": "黑龙江省自然资源厅 / 测绘地理信息局",
+    "status": "done",
     "tags": [
       "标准地图",
       "China",
-      "黑龙江"
+      "黑龙江",
+      "基础要素"
     ],
     "width": 3504,
     "height": 4958,
@@ -236,6 +359,11 @@ window.GALLERY_MANIFEST = [
     "tileSize": 256,
     "overlap": 0,
     "format": "webp",
+    "download": {
+      "url": "downloads/黑龙江省标准地图-基础要素版8开.webp",
+      "size": "1.8 MB",
+      "filename": "黑龙江省标准地图-基础要素版8开.webp"
+    },
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
@@ -246,42 +374,6 @@ window.GALLERY_MANIFEST = [
         "Size": {
           "Width": 3504,
           "Height": 4958
-        }
-      }
-    }
-  },
-  {
-    "id": "094_095_b18da34a",
-    "title": "094-095 意大利",
-    "filename": "094-095 意大利.jpg",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "标准地图 · Italy",
-    "description": "",
-    "author": "网络精选",
-    "tags": [
-      "标准地图",
-      "Italy"
-    ],
-    "width": 3600,
-    "height": 5050,
-    "aspectRatio": 0.7129,
-    "thumb": "thumbs/094_095_b18da34a.webp",
-    "tileUrl": "tiles/094_095_b18da34a_files/",
-    "maxLevel": 13,
-    "tileSize": 256,
-    "overlap": 0,
-    "format": "webp",
-    "dzi": {
-      "Image": {
-        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/094_095_b18da34a_files/",
-        "Format": "webp",
-        "Overlap": "0",
-        "TileSize": "256",
-        "Size": {
-          "Width": 3600,
-          "Height": 5050
         }
       }
     }
