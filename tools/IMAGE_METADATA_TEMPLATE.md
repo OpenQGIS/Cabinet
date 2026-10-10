@@ -26,7 +26,7 @@
 | `title` | String | 是 | `安徽省-公路交通要素图`、`极地冰川与荒漠肌理` | 作品正式展品标题，清晰传达测绘主体或遥感主题。 |
 | `category` | String | 是 | 固定填写 `gis`（或 `original`） | 一级分类标识代码。 |
 | `categoryName` | String | 是 | 固定填写 `网上GIS图片分享`（或 `个人原创设计`） | 一级分类展示名称。 |
-| `subCategory` | String | 是 | `标准地图`, `Verygoogmaps`, `标准地图 · China · 安徽` | 顶部芯片过滤器分类标签，决定聚合分类与筛选规则。 |
+| `subCategory` | String | 是 | `标准底图`, `Verygoogmaps` | 顶部芯片过滤器分类标签，决定聚合分类与筛选规则。 |
 | `region` | String | 推荐 | `中国·安徽`, `全球极端地理`, `欧洲·意大利半岛` | 作品所属空间地理单元，遵循从大到小层级。 |
 | `source` | String | 推荐 | `安徽省测绘地理信息局`, `Verygoogmaps` | 权威数据源或制图机构。 |
 | `author` | String | 可选 | `安徽省测绘地理信息局` | 制图人或机构，不填时系统默认使用 `source`。 |

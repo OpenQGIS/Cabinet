@@ -193,7 +193,7 @@
     "filename": "094-095 意大利.jpg",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
-    "subCategory": "标准地图 · Italy",
+    "subCategory": "标准底图",
     "region": "欧洲·意大利半岛",
     "source": "寰宇经典图志",
     "scale": "经典开本双联张",
@@ -202,7 +202,7 @@
     "author": "寰宇经典图志",
     "status": "done",
     "tags": [
-      "标准地图",
+      "标准底图",
       "Italy",
       "地中海地形"
     ],
@@ -240,7 +240,7 @@
     "filename": "安徽省-公路交通要素图.tif",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
-    "subCategory": "标准地图 · China · 安徽",
+    "subCategory": "标准底图",
     "region": "中国·安徽",
     "source": "安徽省测绘地理信息局",
     "scale": "1:1,000,000",
@@ -249,7 +249,7 @@
     "author": "安徽省测绘地理信息局",
     "status": "done",
     "tags": [
-      "标准地图",
+      "标准底图",
       "China",
       "安徽",
       "交通要素"
@@ -288,7 +288,7 @@
     "filename": "黑龙江抚远县地图.jpg",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
-    "subCategory": "标准地图 · China · 黑龙江",
+    "subCategory": "标准底图",
     "region": "中国·黑龙江·抚远",
     "source": "测绘实测数据",
     "scale": "县级实测比例尺",
@@ -297,7 +297,7 @@
     "author": "测绘实测数据",
     "status": "done",
     "tags": [
-      "标准地图",
+      "标准底图",
       "China",
       "黑龙江",
       "抚远"
@@ -336,7 +336,7 @@
     "filename": "黑龙江省标准地图-基础要素版8开.jpg",
     "category": "gis",
     "categoryName": "网上GIS图片分享",
-    "subCategory": "标准地图 · China · 黑龙江",
+    "subCategory": "标准底图",
     "region": "中国·黑龙江",
     "source": "黑龙江省自然资源厅 / 测绘地理信息局",
     "scale": "8开标准图幅",
@@ -345,7 +345,7 @@
     "author": "黑龙江省自然资源厅 / 测绘地理信息局",
     "status": "done",
     "tags": [
-      "标准地图",
+      "标准底图",
       "China",
       "黑龙江",
       "基础要素"

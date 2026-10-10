@@ -3,7 +3,7 @@ id: artwork_unique_id
 title: 地图或遥感影像名称
 category: gis
 categoryName: 网上GIS图片分享
-subCategory: 标准地图
+subCategory: 未分类
 region: 中国·省份/区域
 source: 权威制图机构或遥感平台
 author: 权威制图机构或遥感平台
@@ -35,7 +35,7 @@ download: true
    - categoryName: 必填。对应分类中文名，如 '网上GIS图片分享' 或 '个人原创设计'。
    - subCategory: 必填。画廊顶部筛选 Chip。常用值：
      * 'Verygoogmaps' (卫星遥感专题)
-     * '标准地图' (或 '标准地图 · China · 某省'、'标准地图 · Italy')
+     * '标准底图' (标准底图系列)
    - region: 所属空间区域，如 '中国·安徽'、'全球极端地理'、'欧洲·意大利半岛'。
    - source: 数据来源/制图单位（如 '安徽省测绘地理信息局'、'Verygoogmaps'、'自然资源部'）。
    - author: 作者/制图单位（不填默认采用 source）。

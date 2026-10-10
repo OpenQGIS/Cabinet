@@ -215,7 +215,7 @@ def build_cabinet():
             "filename": img_path.name,
             "category": meta.get("category", "gis"),
             "categoryName": meta.get("categoryName", "网上GIS图片分享"),
-            "subCategory": meta.get("subCategory", "标准地图"),
+            "subCategory": meta.get("subCategory", "标准底图"),
             "region": meta.get("region", ""),
             "source": meta.get("source", ""),
             "scale": meta.get("scale", ""),

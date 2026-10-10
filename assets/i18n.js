@@ -185,36 +185,36 @@
       en: {
         title: '094-095 Italy Standard Map',
         categoryName: 'National & Regional Maps',
-        subCategory: 'Standard Map · Italy',
+        subCategory: 'Standard Base Map',
         description: 'Official standard cartography illustrating Mediterranean topography, hydrography, and administrative zoning of Italy.',
-        author: 'Standard Map'
+        author: 'Official Survey'
       }
     },
     artwork_d699417c: {
       en: {
         title: 'Anhui Province - Highway Transport Elements',
         categoryName: 'National & Regional Maps',
-        subCategory: 'Standard Map · China · Anhui',
+        subCategory: 'Standard Base Map',
         description: 'High-precision provincial standard thematic cartography detailing the arterial highway transportation infrastructure of Anhui Province.',
-        author: 'Standard Map'
+        author: 'Official Survey'
       }
     },
     artwork_f41f9c9a: {
       en: {
         title: 'Fuyuan County Standard Map',
         categoryName: 'National & Regional Maps',
-        subCategory: 'Standard Map · China · Heilongjiang',
+        subCategory: 'Standard Base Map',
         description: 'County-level official cartographic survey of Fuyuan County, the easternmost territory of China, detailing frontier river systems and boundary demarcation.',
-        author: 'Standard Map'
+        author: 'Official Survey'
       }
     },
     '8_3c808d73': {
       en: {
         title: 'Heilongjiang Standard Map - Basic Elements',
         categoryName: 'National & Regional Maps',
-        subCategory: 'Standard Map · China · Heilongjiang',
+        subCategory: 'Standard Base Map',
         description: 'Standard provincial geographic base map (8-K folio edition) outlining Heilongjiang administrative boundaries, settlements, and natural hydrography.',
-        author: 'Standard Map'
+        author: 'Official Survey'
       }
     },
     shanghai: {
@@ -287,6 +287,8 @@
 
   const SUBCATEGORY_TRANSLATIONS = {
     'Verygoogmaps': { zh: 'Verygoogmaps', en: 'Verygoogmaps' },
+    '标准底图': { zh: '标准底图', en: 'Standard Base Map' },
+    '标准地图': { zh: '标准地图', en: 'Standard Map' },
     '标准地图 · Italy': { zh: '标准地图 · Italy', en: 'Standard Map · Italy' },
     '标准地图 · China · 安徽': { zh: '标准地图 · China · 安徽', en: 'Standard Map · China · Anhui' },
     '标准地图 · China · 黑龙江': { zh: '标准地图 · China · 黑龙江', en: 'Standard Map · China · Heilongjiang' }
@@ -299,6 +301,7 @@
       return SUBCATEGORY_TRANSLATIONS[sub][currentLang];
     }
     return String(sub)
+      .replace(/标准底图/g, 'Standard Base Map')
       .replace(/标准地图/g, 'Standard Map')
       .replace(/安徽/g, 'Anhui')
       .replace(/黑龙江/g, 'Heilongjiang');
