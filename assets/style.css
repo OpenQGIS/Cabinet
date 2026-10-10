@@ -24,7 +24,7 @@
 :root,
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --header-height: 56px;
+  --header-height: 46px;
   --bg-main: #0b0d10;
   --bg-surface: #13171e;
   --bg-surface-elevated: #1a1f29;
@@ -66,7 +66,7 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --header-height: 56px;
+  --header-height: 46px;
   --bg-main: #f8f9fb;
   --bg-surface: #ffffff;
   --bg-surface-elevated: #f0f2f5;
@@ -177,33 +177,34 @@ html, body {
 .header-inner {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 13px 28px;
+  padding: 8px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
 }
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 .brand-badge {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: var(--accent);
-  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.6);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.6);
   border-radius: 2px;
 }
 .brand-title {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--text-primary);
   transition: color 0.25s ease;
+  line-height: 1.2;
 }
 .brand-subtitle {
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   color: var(--text-muted);
   letter-spacing: 0.04em;
   display: block;
@@ -212,7 +213,18 @@ html, body {
 .header-meta {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+.site-header .icon-btn {
+  width: 30px;
+  height: 30px;
+}
+.site-header .divider {
+  height: 14px;
+}
+.site-header .nav-switch-link {
+  padding: 4px 10px;
+  font-size: 0.76rem;
 }
 .stat-pill {
   display: inline-flex;
@@ -261,21 +273,21 @@ html, body {
 .gallery-subbar {
   position: -webkit-sticky;
   position: sticky;
-  top: calc(var(--header-height, 56px) + 10px);
+  top: calc(var(--header-height, 46px) + 8px);
   z-index: 90;
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
   max-width: min(1200px, calc(100% - 32px));
-  margin: 10px auto 16px auto;
+  margin: 6px auto 12px auto;
   background: rgba(15, 23, 42, 0.45); /* 浮动胶囊半透明磨砂质感 */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: 9999px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  padding: 4px 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
   transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -301,7 +313,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 4px;
+  padding: 0 2px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -313,14 +325,15 @@ html, body {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 6px;
+  gap: 4px;
 }
 
 .filter-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 500;
   color: var(--text-muted);
-  margin-right: 4px;
+  margin-right: 2px;
+  margin-left: 6px;
   white-space: nowrap;
   user-select: none;
 }
@@ -329,14 +342,14 @@ html, body {
   background: transparent;
   border: 1px solid transparent;
   color: var(--text-secondary);
-  font-size: 0.76rem;
+  font-size: 0.73rem;
   font-weight: 500;
-  padding: 4px 12px;
+  padding: 3px 9px;
   border-radius: 9999px;
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .filter-chip:hover {
@@ -360,9 +373,9 @@ html, body {
 
 .filter-divider {
   width: 1px;
-  height: 14px;
+  height: 12px;
   background: var(--border-subtle);
-  margin: 0 4px;
+  margin: 0 3px;
   flex-shrink: 0;
 }
 .subbar-meta {
@@ -1596,7 +1609,7 @@ body[data-page="portal"] {
 .gallery-main {
   max-width: 1800px;
   margin: 0 auto;
-  padding: 24px 28px;
+  padding: 16px 24px;
 }
 
 .dual-gallery-layout {
@@ -1746,13 +1759,13 @@ body[data-page="portal"] {
 
 @media (max-width: 768px) {
   .site-header .header-inner {
-    padding: 10px 16px;
+    padding: 6px 14px;
   }
   .gallery-subbar {
-    max-width: calc(100% - 20px);
-    margin: 8px auto 14px auto;
-    top: calc(var(--header-height, 50px) + 8px);
-    padding: 3px 6px;
+    max-width: calc(100% - 16px);
+    margin: 5px auto 10px auto;
+    top: calc(var(--header-height, 42px) + 6px);
+    padding: 2px 4px;
   }
 }
 
