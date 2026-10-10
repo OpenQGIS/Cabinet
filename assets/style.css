@@ -23,6 +23,7 @@
 
 :root,
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg-main: #0b0d10;
   --bg-surface: #13171e;
   --bg-surface-elevated: #1a1f29;
@@ -52,6 +53,10 @@
   
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", Menlo, Monaco, Consolas, monospace;
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.16);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.28);
   
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -59,6 +64,7 @@
 }
 
 :root[data-theme="light"] {
+  color-scheme: light;
   --bg-main: #f8f9fb;
   --bg-surface: #ffffff;
   --bg-surface-elevated: #f0f2f5;
@@ -81,9 +87,51 @@
   --accent-rgb: 106, 168, 32;
   --accent-subtle: rgba(106, 168, 32, 0.12);
   --accent-hover: #7bc225;
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.32);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* =====================================================================
+   Custom Sleek Scrollbar (极简精致滚动条)
+   ==================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
 
 html {
   scroll-behavior: smooth;
@@ -111,35 +159,20 @@ html, body {
   height: 12px;
 }
 
-/* Unified Sticky Top Header Container (图1风格：导航与分类过滤整体固定置顶) */
-.app-header-sticky {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 50;
-  background: var(--header-bg, rgba(11, 13, 16, 0.92));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: var(--theme-transition);
-}
-
-:root[data-theme="light"] .app-header-sticky {
-  background: rgba(255, 255, 255, 0.94);
-}
-
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--border-subtle);
-  background: transparent;
-  width: 100%;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  transition: var(--theme-transition);
 }
 .header-inner {
-  max-width: 1800px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 14px 28px;
+  padding: 16px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -163,11 +196,13 @@ html, body {
   letter-spacing: 0.12em;
   color: var(--text-primary);
   transition: color 0.25s ease;
-  line-height: 1;
-  margin: 0;
 }
 .brand-subtitle {
-  display: none;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  display: block;
+  text-transform: uppercase;
 }
 .header-meta {
   display: flex;
@@ -219,13 +254,19 @@ html, body {
 
 /* Subbar */
 .gallery-subbar {
-  background: transparent;
-  width: 100%;
+  position: sticky;
+  top: 56px;
+  z-index: 30;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-subbar, rgba(16, 20, 27, 0.85));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: var(--theme-transition);
 }
 .subbar-inner {
   max-width: 1800px;
   margin: 0 auto;
-  padding: 8px 28px;
+  padding: 10px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1932,12 +1973,13 @@ body[data-page="portal"] {
   z-index: 50;
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
+  gap: 12px;
+  padding: 8px 16px 8px 10px;
   background: rgba(15, 18, 24, 0.72);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius-sm, 8px);
+  border-radius: 12px;
   box-shadow: 
     0 8px 24px rgba(0, 0, 0, 0.35),
     0 2px 6px rgba(0, 0, 0, 0.2);
@@ -1956,20 +1998,59 @@ body[data-page="portal"] {
     0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
+.viewer-artwork-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  display: block;
+}
+
+.viewer-artwork-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+}
+
 .viewer-artwork-title {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #f8fafc;
   letter-spacing: 0.02em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 380px;
-  line-height: 1.35;
+  max-width: 320px;
+  line-height: 1.25;
+}
+
+.viewer-artwork-qmapflow {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
+}
+
+.viewer-artwork-qmapflow:hover {
+  transform: translateY(-0.8px) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+
+.viewer-artwork-qmapflow svg,
+.viewer-qmapflow-img {
+  height: 22px;
+  width: auto;
+  display: block;
 }
 
 :root[data-theme="light"] .viewer-artwork-badge {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 
     0 8px 24px rgba(0, 0, 0, 0.10),
@@ -1977,7 +2058,7 @@ body[data-page="portal"] {
 }
 
 :root[data-theme="light"] .viewer-artwork-badge:hover {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(255, 255, 255, 0.96);
   border-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -1989,16 +2070,28 @@ body[data-page="portal"] {
   .viewer-artwork-badge {
     top: 14px;
     left: 14px;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 6px 12px 6px 8px;
+    gap: 10px;
+    border-radius: 10px;
     max-width: calc(100vw - 28px);
   }
+  .viewer-artwork-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+  }
   .viewer-artwork-title {
-    font-size: 0.85rem;
-    max-width: 220px;
+    font-size: 0.86rem;
+    max-width: 180px;
+  }
+  .viewer-artwork-qmapflow {
+    height: 18px;
+  }
+  .viewer-artwork-qmapflow svg,
+  .viewer-qmapflow-img {
+    height: 18px;
   }
 }
-
 
 .viewer-topbar,
 .viewer-header {
@@ -2102,20 +2195,6 @@ body[data-page="portal"] {
   color: var(--accent);
   border-color: rgba(var(--accent-rgb), 0.4);
   background: var(--accent-subtle);
-}
-
-.lang-toggle-btn {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  user-select: none;
-}
-
-.lang-code-text {
-  display: inline-block;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
 .divider {
