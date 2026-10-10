@@ -17,49 +17,46 @@
   <script src="vendor/morph-bundle.js?v=20261002_v1"></script>
 </head>
 <body data-page="gallery">
-  <!-- Fixed Top Header & Subbar Wrapper (整体粘性固定于视口顶部) -->
-  <div class="app-header-sticky">
-    <!-- Top Navigation Header -->
-    <header class="site-header">
-      <div class="header-inner">
-        <div class="brand">
-          <div class="brand-badge"></div>
-          <div class="brand-text">
-            <h1 class="brand-title" data-i18n="cabinetBrandTitle">CABINET</h1>
-          </div>
-        </div>
-
-        <div class="header-meta">
-          <!-- External link to Personal Gallery -->
-          <a href="https://github.com/OpenQGIS/gallery" target="_blank" rel="noopener noreferrer" class="nav-switch-link" title="访问创作者原创个人画廊 (Gallery)" data-i18n-title="navGalleryTitle">
-            <span data-i18n="navAuthorGallery">创作者个人画廊 (Gallery)</span>
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-          </a>
-          <div class="divider"></div>
-          <button class="icon-btn theme-toggle-btn" id="btnToggleTheme" title="切换暗色 / 浅色模式" aria-label="切换主题" data-i18n-title="navThemeToggle">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          </button>
-          <button class="icon-btn lang-toggle-btn" id="btnHeaderLang" title="切换语言 / Switch Language" aria-label="切换语言" data-i18n-title="navLangTitle">
-            <span class="lang-code-text" id="headerLangText">EN</span>
-          </button>
+  <!-- Top Navigation Header (粘性固定于视口顶部) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-badge"></div>
+        <div class="brand-text">
+          <h1 class="brand-title" data-i18n="cabinetBrandTitle">CABINET</h1>
         </div>
       </div>
-    </header>
 
-    <!-- Subbar: Sticky Sub Tag Filter & Dimension Filter -->
-    <nav class="gallery-subbar" aria-label="分类筛选">
-      <div class="subbar-inner">
-        <div class="filter-group" id="filterGroup">
-          <span class="filter-label" data-i18n="filterTopicLabel">分类专题:</span>
-          <button class="filter-chip active" data-filter="all"><span data-i18n="filterAllLabel">全部</span> (<span id="countAll">8</span>)</button>
-          <!-- Dynamic Subcategory Tags injected by app.js -->
-          <span class="filter-divider"></span>
-          <button class="filter-chip" data-filter="wide" data-i18n="filterWide">横版</button>
-          <button class="filter-chip" data-filter="tall" data-i18n="filterTall">竖版</button>
-        </div>
+      <div class="header-meta">
+        <!-- External link to Personal Gallery -->
+        <a href="https://github.com/OpenQGIS/gallery" target="_blank" rel="noopener noreferrer" class="nav-switch-link" title="访问创作者原创个人画廊 (Gallery)" data-i18n-title="navGalleryTitle">
+          <span data-i18n="navAuthorGallery">创作者个人画廊 (Gallery)</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <div class="divider"></div>
+        <button class="icon-btn theme-toggle-btn" id="btnToggleTheme" title="切换暗色 / 浅色模式" aria-label="切换主题" data-i18n-title="navThemeToggle">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="icon-btn lang-toggle-btn" id="btnHeaderLang" title="切换语言 / Switch Language" aria-label="切换语言" data-i18n-title="navLangTitle">
+          <span class="lang-code-text" id="headerLangText">EN</span>
+        </button>
       </div>
-    </nav>
-  </div>
+    </div>
+  </header>
+
+  <!-- Sticky Floating Filter Toolbar · 类似 MapS 胶囊型悬浮置顶工具栏 -->
+  <nav class="gallery-subbar" id="gallerySubbar" aria-label="分类筛选">
+    <div class="subbar-inner">
+      <div class="filter-group" id="filterGroup">
+        <span class="filter-label" data-i18n="filterTopicLabel">分类专题:</span>
+        <button class="filter-chip active" data-filter="all"><span data-i18n="filterAllLabel">全部</span> (<span id="countAll">8</span>)</button>
+        <!-- Dynamic Subcategory Tags injected by app.js -->
+        <span class="filter-divider"></span>
+        <button class="filter-chip" data-filter="wide" data-i18n="filterWide">横版</button>
+        <button class="filter-chip" data-filter="tall" data-i18n="filterTall">竖版</button>
+      </div>
+    </div>
+  </nav>
 
   <!-- Main Waterfall Gallery Grid -->
   <main class="gallery-main" id="mainContainer">

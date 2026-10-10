@@ -24,6 +24,7 @@
 :root,
 :root[data-theme="dark"] {
   color-scheme: dark;
+  --header-height: 56px;
   --bg-main: #0b0d10;
   --bg-surface: #13171e;
   --bg-surface-elevated: #1a1f29;
@@ -65,6 +66,7 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
+  --header-height: 56px;
   --bg-main: #f8f9fb;
   --bg-surface: #ffffff;
   --bg-surface-elevated: #f0f2f5;
@@ -159,16 +161,13 @@ html, body {
   height: 12px;
 }
 
-/* Fixed/Sticky Combined Navigation Header & Subbar Wrapper */
-.app-header-sticky {
+/* Top Navigation Header (Sticky at top 0) */
+.site-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
-}
-
-/* Header */
-.site-header {
   border-bottom: 1px solid var(--border-subtle);
   background: var(--header-bg);
   backdrop-filter: blur(16px);
@@ -178,7 +177,7 @@ html, body {
 .header-inner {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 16px 28px;
+  padding: 13px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -258,60 +257,113 @@ html, body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Subbar */
+/* Sticky Floating Control Toolbar (Single-Row Capsule Pill · MapS Style) */
 .gallery-subbar {
-  border-bottom: 1px solid var(--border-subtle);
-  background: var(--bg-subbar, rgba(16, 20, 27, 0.85));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: var(--theme-transition);
-}
-.subbar-inner {
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 10px 28px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(var(--header-height, 56px) + 10px);
+  z-index: 90;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: center;
+  width: fit-content;
+  max-width: min(1200px, calc(100% - 32px));
+  margin: 10px auto 16px auto;
+  background: rgba(15, 23, 42, 0.45); /* 浮动胶囊半透明磨砂质感 */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 4px 10px;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
+
+.gallery-subbar.is-scrolled {
+  background: rgba(15, 23, 42, 0.75); /* 滚动时略微加深防止底层卡片文字干扰 */
+  border-color: var(--border-medium);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="light"] .gallery-subbar {
+  background: rgba(255, 255, 255, 0.65); /* 浅色模式浮动胶囊 */
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="light"] .gallery-subbar.is-scrolled {
+  background: rgba(255, 255, 255, 0.88); /* 浅色模式滚动时高质感磨砂白 */
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.subbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.subbar-inner::-webkit-scrollbar {
+  display: none;
+}
+
 .filter-group {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: nowrap;
+  gap: 6px;
 }
+
 .filter-label {
   font-size: 0.75rem;
+  font-weight: 500;
   color: var(--text-muted);
   margin-right: 4px;
+  white-space: nowrap;
+  user-select: none;
 }
+
 .filter-chip {
   background: transparent;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid transparent;
   color: var(--text-secondary);
   font-size: 0.76rem;
-  padding: 5px 12px;
-  border-radius: 100px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  line-height: 1.4;
 }
+
 .filter-chip:hover {
-  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-subtle);
   color: var(--text-primary);
 }
+
+:root[data-theme="light"] .filter-chip:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+
 .filter-chip.active {
   background: var(--accent-subtle);
   border-color: rgba(var(--accent-rgb), 0.4);
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(var(--accent-rgb), 0.15);
 }
+
 .filter-divider {
   width: 1px;
-  height: 16px;
+  height: 14px;
   background: var(--border-subtle);
   margin: 0 4px;
+  flex-shrink: 0;
 }
 .subbar-meta {
   display: flex;
@@ -1690,6 +1742,18 @@ body[data-page="portal"] {
   }
   .masonry-grid { --target-row-height: 260px; gap: 0 !important; }
   .masonry-grid.comfort { --target-row-height: 340px; gap: 0 !important; }
+}
+
+@media (max-width: 768px) {
+  .site-header .header-inner {
+    padding: 10px 16px;
+  }
+  .gallery-subbar {
+    max-width: calc(100% - 20px);
+    margin: 8px auto 14px auto;
+    top: calc(var(--header-height, 50px) + 8px);
+    padding: 3px 6px;
+  }
 }
 
 @media (max-width: 540px) {

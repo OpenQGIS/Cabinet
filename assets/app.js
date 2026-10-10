@@ -740,6 +740,18 @@
       });
     }
 
+    // Floating toolbar scroll shadow & opacity enhancement (matching MapS)
+    const subbar = document.getElementById('gallerySubbar') || document.querySelector('.gallery-subbar');
+    if (subbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 15) {
+          subbar.classList.add('is-scrolled');
+        } else {
+          subbar.classList.remove('is-scrolled');
+        }
+      }, { passive: true });
+    }
+
     window.addEventListener('languageChanged', () => {
       let categoryItems = galleryItems;
       if (pageMode === 'gis') categoryItems = galleryItems.filter(i => i.category === 'gis');
