@@ -1,231 +1,195 @@
 [
   {
-    "id": "heqacogw8ae_dtn_463ef9b0",
-    "title": "极地冰川与荒漠肌理",
-    "filename": "HEqAcOgW8AE_Dtn.jfif",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "Verygoogmaps",
-    "region": "全球极端地理",
-    "source": "Verygoogmaps",
-    "scale": "亚米级多光谱反演",
-    "reviewNumber": "",
-    "description": "来自 Verygoogmaps 的全球高精卫星遥感影像制图，呈现极端地形与地表纹理的空间色彩分布。",
-    "author": "Verygoogmaps",
-    "status": "done",
+    "id": "equal_earth_world",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "Equal Earth 物理世界图",
+    "description": "",
+    "author": "ICA 国际制图学会",
+    "year": "2019",
+    "scale": "1:30,000,000",
     "tags": [
-      "Verygoogmaps",
-      "遥感影像",
-      "极地肌理"
+      "世界保积",
+      "官方标准"
     ],
-    "width": 2200,
-    "height": 1540,
-    "aspectRatio": 1.4286,
-    "thumb": "thumbs/heqacogw8ae_dtn_463ef9b0.webp",
-    "tileUrl": "tiles/heqacogw8ae_dtn_463ef9b0_files/",
-    "maxLevel": 12,
+    "width": 19249,
+    "height": 10238,
+    "aspectRatio": 1.8802,
+    "aspectClass": "wide",
+    "tileSource": "tiles/equal_earth_world.dzi",
+    "thumb": "thumbs/equal_earth_world.webp",
+    "maxLevel": 15,
     "tileSize": 256,
-    "overlap": 0,
+    "overlap": 1,
     "format": "webp",
-    "download": {
-      "url": "downloads/HEqAcOgW8AE_Dtn.webp",
-      "size": "808.4 KB",
-      "filename": "HEqAcOgW8AE_Dtn.webp"
-    },
+    "tileUrl": "tiles/equal_earth_world_files/",
+    "tileSourceUrl": "tiles/equal_earth_world.dzi",
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/heqacogw8ae_dtn_463ef9b0_files/",
+        "Url": "tiles/equal_earth_world_files/",
         "Format": "webp",
-        "Overlap": "0",
+        "Overlap": "1",
         "TileSize": "256",
         "Size": {
-          "Width": 2200,
-          "Height": 1540
+          "Width": 19249,
+          "Height": 10238
         }
       }
-    }
-  },
-  {
-    "id": "hicarxgwmaas7yp_8d90d60e",
-    "title": "高原峡谷水系侵蚀形态",
-    "filename": "HICarXgWMAAS7yP.jfif",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "Verygoogmaps",
-    "region": "全球自然地理",
-    "source": "Verygoogmaps",
-    "scale": "",
-    "reviewNumber": "",
-    "description": "高精度多光谱卫星遥感影像，展示复杂断裂水系与高原侵蚀地貌的交织肌理。",
-    "author": "Verygoogmaps",
-    "status": "done",
-    "tags": [
-      "Verygoogmaps",
-      "峡谷水系",
-      "地貌侵蚀"
-    ],
-    "width": 1571,
-    "height": 2200,
-    "aspectRatio": 0.7141,
-    "thumb": "thumbs/hicarxgwmaas7yp_8d90d60e.webp",
-    "tileUrl": "tiles/hicarxgwmaas7yp_8d90d60e_files/",
-    "maxLevel": 12,
-    "tileSize": 256,
-    "overlap": 0,
-    "format": "webp",
-    "download": {
-      "url": "downloads/HICarXgWMAAS7yP.webp",
-      "size": "597.9 KB",
-      "filename": "HICarXgWMAAS7yP.webp"
     },
-    "dzi": {
-      "Image": {
-        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/hicarxgwmaas7yp_8d90d60e_files/",
-        "Format": "webp",
-        "Overlap": "0",
-        "TileSize": "256",
-        "Size": {
-          "Width": 1571,
-          "Height": 2200
-        }
-      }
-    }
+    "sourceUrl": "https://www.shadedrelief.com/"
   },
   {
-    "id": "hoayr9uwwaa_m2u_6e0d336d",
-    "title": "山川水文与陆表地貌",
-    "filename": "HOaYr9uWwAA-m2u.jfif",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "Verygoogmaps",
-    "region": "全球自然地理",
-    "source": "Verygoogmaps",
-    "scale": "",
-    "reviewNumber": "",
-    "description": "多光谱色彩重构的全球高精遥感制图，展现自然物理世界山体水网的宏观几何韵律。",
-    "author": "Verygoogmaps",
-    "status": "done",
+    "id": "europe_traffic_2024",
+    "category": "curated",
+    "subCategory": "数据可视化",
+    "title": "欧洲干线交通网络图",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "1:5,000,000",
     "tags": [
-      "Verygoogmaps",
-      "山川水文",
-      "地表色彩"
+      "欧洲交通",
+      "路网骨架"
     ],
-    "width": 1667,
+    "width": 2500,
     "height": 2500,
-    "aspectRatio": 0.6668,
-    "thumb": "thumbs/hoayr9uwwaa_m2u_6e0d336d.webp",
-    "tileUrl": "tiles/hoayr9uwwaa_m2u_6e0d336d_files/",
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/europe_traffic_2024.dzi",
+    "thumb": "thumbs/europe_traffic_2024.webp",
     "maxLevel": 12,
     "tileSize": 256,
-    "overlap": 0,
+    "overlap": 1,
     "format": "webp",
-    "download": {
-      "url": "downloads/HOaYr9uWwAA-m2u.webp",
-      "size": "942.8 KB",
-      "filename": "HOaYr9uWwAA-m2u.webp"
-    },
+    "tileUrl": "tiles/europe_traffic_2024_files/",
+    "tileSourceUrl": "tiles/europe_traffic_2024.dzi",
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/hoayr9uwwaa_m2u_6e0d336d_files/",
+        "Url": "tiles/europe_traffic_2024_files/",
         "Format": "webp",
-        "Overlap": "0",
+        "Overlap": "1",
         "TileSize": "256",
         "Size": {
-          "Width": 1667,
+          "Width": 2500,
           "Height": 2500
         }
       }
-    }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
   },
   {
-    "id": "hrofrs9bmaap6ht_d83bc88b",
-    "title": "荒漠沉积与风蚀地貌",
-    "filename": "HRoFRS9bMAAp6ht.jfif",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "Verygoogmaps",
-    "region": "全球干旱地貌",
-    "source": "Verygoogmaps",
-    "scale": "",
-    "reviewNumber": "",
-    "description": "高分辨率极端干旱区沉积纹理与风成沙丘地表色彩分布。",
-    "author": "Verygoogmaps",
-    "status": "done",
+    "id": "europe_physiographic",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "欧洲大陆自然地貌图",
+    "description": "",
+    "author": "Perrin Remonte / IGN",
+    "year": "2023",
+    "scale": "1:3,500,000",
     "tags": [
-      "Verygoogmaps",
-      "荒漠沉积",
-      "风蚀微观"
+      "欧洲地貌",
+      "自然地理"
     ],
-    "width": 1875,
-    "height": 1250,
-    "aspectRatio": 1.5,
-    "thumb": "thumbs/hrofrs9bmaap6ht_d83bc88b.webp",
-    "tileUrl": "tiles/hrofrs9bmaap6ht_d83bc88b_files/",
-    "maxLevel": 11,
+    "width": 2500,
+    "height": 1463,
+    "aspectRatio": 1.7088,
+    "aspectClass": "wide",
+    "tileSource": "tiles/europe_physiographic.dzi",
+    "thumb": "thumbs/europe_physiographic.webp",
+    "maxLevel": 12,
     "tileSize": 256,
-    "overlap": 0,
+    "overlap": 1,
     "format": "webp",
-    "download": {
-      "url": "downloads/HRoFRS9bMAAp6ht.webp",
-      "size": "544.1 KB",
-      "filename": "HRoFRS9bMAAp6ht.webp"
-    },
+    "tileUrl": "tiles/europe_physiographic_files/",
+    "tileSourceUrl": "tiles/europe_physiographic.dzi",
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/hrofrs9bmaap6ht_d83bc88b_files/",
+        "Url": "tiles/europe_physiographic_files/",
         "Format": "webp",
-        "Overlap": "0",
+        "Overlap": "1",
         "TileSize": "256",
         "Size": {
-          "Width": 1875,
-          "Height": 1250
+          "Width": 2500,
+          "Height": 1463
         }
       }
-    }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "vancouver_clark_topo",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "温哥华克拉克地形图",
+    "description": "",
+    "author": "加拿大国家地形测量局",
+    "year": "2021",
+    "scale": "1:50,000",
+    "tags": [
+      "加拿大",
+      "等高线"
+    ],
+    "width": 1440,
+    "height": 810,
+    "aspectRatio": 1.7778,
+    "aspectClass": "wide",
+    "tileSource": "tiles/vancouver_clark_topo.dzi",
+    "thumb": "thumbs/vancouver_clark_topo.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/vancouver_clark_topo_files/",
+    "tileSourceUrl": "tiles/vancouver_clark_topo.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/vancouver_clark_topo_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1440,
+          "Height": 810
+        }
+      }
+    },
+    "sourceUrl": "https://www.evanapplegate.com/"
   },
   {
     "id": "094_095_b18da34a",
-    "title": "094-095 意大利",
-    "filename": "094-095 意大利.jpg",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "标准底图",
-    "region": "欧洲·意大利半岛",
-    "source": "寰宇经典图志",
-    "scale": "经典开本双联张",
-    "reviewNumber": "",
-    "description": "欧洲地中海地形水系与亚平宁半岛行政区划经典制图，呈现波河平原与周边山脉构架。",
-    "author": "寰宇经典图志",
-    "status": "done",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "意大利历史地形要素图",
+    "description": "",
+    "author": "意大利军事地理学会",
+    "year": "1954",
+    "scale": "1:100,000",
     "tags": [
-      "标准底图",
-      "Italy",
-      "地中海地形"
+      "意大利",
+      "历史测绘"
     ],
     "width": 3600,
     "height": 5050,
     "aspectRatio": 0.7129,
+    "aspectClass": "tall",
+    "tileSource": "tiles/094_095_b18da34a.dzi",
     "thumb": "thumbs/094_095_b18da34a.webp",
-    "tileUrl": "tiles/094_095_b18da34a_files/",
     "maxLevel": 13,
     "tileSize": 256,
-    "overlap": 0,
+    "overlap": 1,
     "format": "webp",
-    "download": {
-      "url": "downloads/094-095 意大利.webp",
-      "size": "4.0 MB",
-      "filename": "094-095 意大利.webp"
-    },
+    "tileUrl": "tiles/094_095_b18da34a_files/",
+    "tileSourceUrl": "tiles/094_095_b18da34a.dzi",
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
         "Url": "tiles/094_095_b18da34a_files/",
         "Format": "webp",
-        "Overlap": "0",
+        "Overlap": "1",
         "TileSize": "256",
         "Size": {
           "Width": 3600,
@@ -235,147 +199,1897 @@
     }
   },
   {
-    "id": "artwork_d699417c",
-    "title": "安徽省-公路交通要素图",
-    "filename": "安徽省-公路交通要素图.tif",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "标准底图",
-    "region": "中国·安徽",
-    "source": "安徽省测绘地理信息局",
-    "scale": "1:1,000,000",
-    "reviewNumber": "皖S(2023)045号",
-    "description": "全省高精公路交通骨干要素网络，呈现国道、省道与高速公路干线分布及主要枢纽节点。",
-    "author": "安徽省测绘地理信息局",
-    "status": "done",
+    "id": "std_fa2c0a95",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "伊比利亚半岛卫星地形图",
+    "description": "",
+    "author": "权威测绘机构",
+    "year": "2023",
+    "scale": "标准比例",
     "tags": [
-      "标准底图",
-      "China",
-      "安徽",
-      "交通要素"
+      "官方测绘",
+      "要素底图"
     ],
-    "width": 4301,
-    "height": 6285,
-    "aspectRatio": 0.6843,
-    "thumb": "thumbs/artwork_d699417c.webp",
-    "tileUrl": "tiles/artwork_d699417c_files/",
-    "maxLevel": 13,
-    "tileSize": 256,
-    "overlap": 0,
-    "format": "webp",
-    "download": {
-      "url": "downloads/安徽省-公路交通要素图.webp",
-      "size": "3.2 MB",
-      "filename": "安徽省-公路交通要素图.webp"
-    },
-    "dzi": {
-      "Image": {
-        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/artwork_d699417c_files/",
-        "Format": "webp",
-        "Overlap": "0",
-        "TileSize": "256",
-        "Size": {
-          "Width": 4301,
-          "Height": 6285
-        }
-      }
-    }
-  },
-  {
-    "id": "artwork_f41f9c9a",
-    "title": "黑龙江抚远县地图",
-    "filename": "黑龙江抚远县地图.jpg",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "标准底图",
-    "region": "中国·黑龙江·抚远",
-    "source": "测绘实测数据",
-    "scale": "县级实测比例尺",
-    "reviewNumber": "",
-    "description": "中国东极抚远水系界线与边界地形实测详图，呈现黑龙江与乌苏里江交汇处地理脉络。",
-    "author": "测绘实测数据",
-    "status": "done",
-    "tags": [
-      "标准底图",
-      "China",
-      "黑龙江",
-      "抚远"
-    ],
-    "width": 4086,
-    "height": 2932,
-    "aspectRatio": 1.3936,
-    "thumb": "thumbs/artwork_f41f9c9a.webp",
-    "tileUrl": "tiles/artwork_f41f9c9a_files/",
+    "width": 2500,
+    "height": 1639,
+    "aspectRatio": 1.5253,
+    "aspectClass": "wide",
+    "tileSource": "tiles/std_fa2c0a95.dzi",
+    "thumb": "thumbs/std_fa2c0a95.webp",
     "maxLevel": 12,
     "tileSize": 256,
-    "overlap": 0,
+    "overlap": 1,
     "format": "webp",
-    "download": {
-      "url": "downloads/黑龙江抚远县地图.webp",
-      "size": "2.5 MB",
-      "filename": "黑龙江抚远县地图.webp"
-    },
+    "tileUrl": "tiles/std_fa2c0a95_files/",
+    "tileSourceUrl": "tiles/std_fa2c0a95.dzi",
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/artwork_f41f9c9a_files/",
+        "Url": "tiles/std_fa2c0a95_files/",
         "Format": "webp",
-        "Overlap": "0",
+        "Overlap": "1",
         "TileSize": "256",
         "Size": {
-          "Width": 4086,
-          "Height": 2932
+          "Width": 2500,
+          "Height": 1639
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "std_0e9c5f4c",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "温哥华岛与克拉克地区地形详图",
+    "description": "",
+    "author": "权威测绘机构",
+    "year": "2023",
+    "scale": "标准比例",
+    "tags": [
+      "加拿大测",
+      "50K标"
+    ],
+    "width": 1440,
+    "height": 810,
+    "aspectRatio": 1.7778,
+    "aspectClass": "wide",
+    "tileSource": "tiles/std_0e9c5f4c.dzi",
+    "thumb": "thumbs/std_0e9c5f4c.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/std_0e9c5f4c_files/",
+    "tileSourceUrl": "tiles/std_0e9c5f4c.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/std_0e9c5f4c_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1440,
+          "Height": 810
+        }
+      }
+    },
+    "sourceUrl": "https://www.maps.com/cartography-of-coastal-cascadia-vancouver-island/"
+  },
+  {
+    "id": "std_9cc890cd",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "欧洲航空与海运交通流量图（英文版）",
+    "description": "",
+    "author": "权威测绘机构",
+    "year": "2023",
+    "scale": "标准比例",
+    "tags": [
+      "欧洲全境",
+      "高铁网络"
+    ],
+    "width": 2500,
+    "height": 2500,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/std_9cc890cd.dzi",
+    "thumb": "thumbs/std_9cc890cd.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/std_9cc890cd_files/",
+    "tileSourceUrl": "tiles/std_9cc890cd.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/std_9cc890cd_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 2500
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "std_65683652",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "西杜阿尔斯地图·2024",
+    "description": "",
+    "author": "权威测绘机构",
+    "year": "2023",
+    "scale": "标准比例",
+    "tags": [
+      "官方测绘",
+      "要素底图"
+    ],
+    "width": 2481,
+    "height": 3189,
+    "aspectRatio": 0.778,
+    "aspectClass": "tall",
+    "tileSource": "tiles/std_65683652.dzi",
+    "thumb": "thumbs/std_65683652.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/std_65683652_files/",
+    "tileSourceUrl": "tiles/std_65683652.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/std_65683652_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2481,
+          "Height": 3189
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "std_5fdcf13d",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "欧洲自然地理与地貌全图（法文版）",
+    "description": "",
+    "author": "权威测绘机构",
+    "year": "2023",
+    "scale": "标准比例",
+    "tags": [
+      "官方测绘",
+      "要素底图"
+    ],
+    "width": 2500,
+    "height": 1463,
+    "aspectRatio": 1.7088,
+    "aspectClass": "wide",
+    "tileSource": "tiles/std_5fdcf13d.dzi",
+    "thumb": "thumbs/std_5fdcf13d.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/std_5fdcf13d_files/",
+    "tileSourceUrl": "tiles/std_5fdcf13d.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/std_5fdcf13d_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 1463
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hicarxgwmaas7yp_8d90d60e",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "泰国全境地貌渲染图",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "1:1,000,000",
+    "tags": [
+      "泰国地貌",
+      "Verygoogmaps"
+    ],
+    "width": 457,
+    "height": 640,
+    "aspectRatio": 0.7141,
+    "aspectClass": "tall",
+    "tileSource": "tiles/hicarxgwmaas7yp_8d90d60e.dzi",
+    "thumb": "thumbs/hicarxgwmaas7yp_8d90d60e.webp",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hicarxgwmaas7yp_8d90d60e_files/",
+    "tileSourceUrl": "tiles/hicarxgwmaas7yp_8d90d60e.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hicarxgwmaas7yp_8d90d60e_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 457,
+          "Height": 640
         }
       }
     }
   },
   {
-    "id": "8_3c808d73",
-    "title": "黑龙江省标准地图-基础要素版8开",
-    "filename": "黑龙江省标准地图-基础要素版8开.jpg",
-    "category": "gis",
-    "categoryName": "网上GIS图片分享",
-    "subCategory": "标准底图",
-    "region": "中国·黑龙江",
-    "source": "黑龙江省自然资源厅 / 测绘地理信息局",
-    "scale": "8开标准图幅",
-    "reviewNumber": "黑S(2023)标准版",
-    "description": "黑龙江省标准地图基础要素版，涵盖水系脉络、行政界线与骨干地貌空间要素分布。",
-    "author": "黑龙江省自然资源厅 / 测绘地理信息局",
-    "status": "done",
+    "id": "heqacogw8ae_dtn_463ef9b0",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "北美大陆宏观地形色彩图",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "1:5,000,000",
     "tags": [
-      "标准底图",
-      "China",
-      "黑龙江",
-      "基础要素"
+      "北美全景",
+      "立体地势"
     ],
-    "width": 3504,
-    "height": 4958,
-    "aspectRatio": 0.7067,
-    "thumb": "thumbs/8_3c808d73.webp",
-    "tileUrl": "tiles/8_3c808d73_files/",
-    "maxLevel": 13,
+    "width": 640,
+    "height": 448,
+    "aspectRatio": 1.4286,
+    "aspectClass": "wide",
+    "tileSource": "tiles/heqacogw8ae_dtn_463ef9b0.dzi",
+    "thumb": "thumbs/heqacogw8ae_dtn_463ef9b0.webp",
+    "maxLevel": 10,
     "tileSize": 256,
-    "overlap": 0,
+    "overlap": 1,
     "format": "webp",
-    "download": {
-      "url": "downloads/黑龙江省标准地图-基础要素版8开.webp",
-      "size": "1.8 MB",
-      "filename": "黑龙江省标准地图-基础要素版8开.webp"
-    },
+    "tileUrl": "tiles/heqacogw8ae_dtn_463ef9b0_files/",
+    "tileSourceUrl": "tiles/heqacogw8ae_dtn_463ef9b0.dzi",
     "dzi": {
       "Image": {
         "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
-        "Url": "tiles/8_3c808d73_files/",
+        "Url": "tiles/heqacogw8ae_dtn_463ef9b0_files/",
         "Format": "webp",
-        "Overlap": "0",
+        "Overlap": "1",
         "TileSize": "256",
         "Size": {
-          "Width": 3504,
-          "Height": 4958
+          "Width": 640,
+          "Height": 448
         }
       }
     }
+  },
+  {
+    "id": "hoayr9uwwaa_m2u_6e0d336d",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "喀斯喀特山脉与西北地形图",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "1:4,000,000",
+    "tags": [
+      "雷尼尔火",
+      "西北地势"
+    ],
+    "width": 427,
+    "height": 640,
+    "aspectRatio": 0.6672,
+    "aspectClass": "tall",
+    "tileSource": "tiles/hoayr9uwwaa_m2u_6e0d336d.dzi",
+    "thumb": "thumbs/hoayr9uwwaa_m2u_6e0d336d.webp",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hoayr9uwwaa_m2u_6e0d336d_files/",
+    "tileSourceUrl": "tiles/hoayr9uwwaa_m2u_6e0d336d.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hoayr9uwwaa_m2u_6e0d336d_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 427,
+          "Height": 640
+        }
+      }
+    }
+  },
+  {
+    "id": "hrofrs9bmaap6ht_d83bc88b",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "美国国家公园地形总览",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "1:2,500,000",
+    "tags": [
+      "国家公园",
+      "Verygoogmaps"
+    ],
+    "width": 640,
+    "height": 427,
+    "aspectRatio": 1.4988,
+    "aspectClass": "wide",
+    "tileSource": "tiles/hrofrs9bmaap6ht_d83bc88b.dzi",
+    "thumb": "thumbs/hrofrs9bmaap6ht_d83bc88b.webp",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hrofrs9bmaap6ht_d83bc88b_files/",
+    "tileSourceUrl": "tiles/hrofrs9bmaap6ht_d83bc88b.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hrofrs9bmaap6ht_d83bc88b_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 640,
+          "Height": 427
+        }
+      }
+    }
+  },
+  {
+    "id": "crater_lake_c7cc2ac8",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "火山口湖 DEM 坡向渲染图",
+    "description": "",
+    "author": "GIS 实验室",
+    "year": "2024",
+    "scale": "1:50,000",
+    "tags": [
+      "火山口湖",
+      "DEM坡向"
+    ],
+    "width": 1200,
+    "height": 1600,
+    "aspectRatio": 0.75,
+    "aspectClass": "tall",
+    "tileSource": "tiles/crater_lake_c7cc2ac8.dzi",
+    "thumb": "thumbs/crater_lake_c7cc2ac8.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/crater_lake_c7cc2ac8_files/",
+    "tileSourceUrl": "tiles/crater_lake_c7cc2ac8.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/crater_lake_c7cc2ac8_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1200,
+          "Height": 1600
+        }
+      }
+    }
+  },
+  {
+    "id": "ter_c3aa8506",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "北美国家公园分布图",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "自然高程",
+    "tags": [
+      "国家公园",
+      "Verygoogmaps"
+    ],
+    "width": 1080,
+    "height": 1350,
+    "aspectRatio": 0.8,
+    "aspectClass": "tall",
+    "tileSource": "tiles/ter_c3aa8506.dzi",
+    "thumb": "thumbs/ter_c3aa8506.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/ter_c3aa8506_files/",
+    "tileSourceUrl": "tiles/ter_c3aa8506.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/ter_c3aa8506_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1080,
+          "Height": 1350
+        }
+      }
+    },
+    "sourceUrl": "https://twitter.com/"
+  },
+  {
+    "id": "ter_8853dd69",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "喀斯喀特山脉与美国西北地形图",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "自然高程",
+    "tags": [
+      "雷尼尔火",
+      "西北地势"
+    ],
+    "width": 1080,
+    "height": 1080,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/ter_8853dd69.dzi",
+    "thumb": "thumbs/ter_8853dd69.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/ter_8853dd69_files/",
+    "tileSourceUrl": "tiles/ter_8853dd69.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/ter_8853dd69_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1080,
+          "Height": 1080
+        }
+      }
+    },
+    "sourceUrl": "https://twitter.com/"
+  },
+  {
+    "id": "ter_d48b953e",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "旧金山湾区晕渲图",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "自然高程",
+    "tags": [
+      "圣安德烈",
+      "暗色光影"
+    ],
+    "width": 564,
+    "height": 801,
+    "aspectRatio": 0.7041,
+    "aspectClass": "tall",
+    "tileSource": "tiles/ter_d48b953e.dzi",
+    "thumb": "thumbs/ter_d48b953e.webp",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/ter_d48b953e_files/",
+    "tileSourceUrl": "tiles/ter_d48b953e.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/ter_d48b953e_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 564,
+          "Height": 801
+        }
+      }
+    }
+  },
+  {
+    "id": "ter_557ad750",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "美国中西部地形图·步道系列2",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "自然高程",
+    "tags": [
+      "Very",
+      "DEM高"
+    ],
+    "width": 1440,
+    "height": 1080,
+    "aspectRatio": 1.3333,
+    "aspectClass": "wide",
+    "tileSource": "tiles/ter_557ad750.dzi",
+    "thumb": "thumbs/ter_557ad750.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/ter_557ad750_files/",
+    "tileSourceUrl": "tiles/ter_557ad750.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/ter_557ad750_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1440,
+          "Height": 1080
+        }
+      }
+    },
+    "sourceUrl": "https://twitter.com/"
+  },
+  {
+    "id": "ter_ef14c218",
+    "category": "curated",
+    "subCategory": "地形与地貌",
+    "title": "冰岛立体地形图",
+    "description": "",
+    "author": "Verygoogmaps",
+    "year": "2024",
+    "scale": "自然高程",
+    "tags": [
+      "冰岛火山",
+      "冰川地貌"
+    ],
+    "width": 14300,
+    "height": 10215,
+    "aspectRatio": 1.3999,
+    "aspectClass": "wide",
+    "tileSource": "tiles/ter_ef14c218.dzi",
+    "thumb": "thumbs/ter_ef14c218.webp",
+    "maxLevel": 14,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/ter_ef14c218_files/",
+    "tileSourceUrl": "tiles/ter_ef14c218.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/ter_ef14c218_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 14300,
+          "Height": 10215
+        }
+      }
+    }
+  },
+  {
+    "id": "asia_marine_tides",
+    "category": "curated",
+    "subCategory": "数据可视化",
+    "title": "亚洲海洋潮汐洋流图",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "1:8,000,000",
+    "tags": [
+      "潮汐动力",
+      "深海洋流"
+    ],
+    "width": 2500,
+    "height": 3527,
+    "aspectRatio": 0.7088,
+    "aspectClass": "tall",
+    "tileSource": "tiles/asia_marine_tides.dzi",
+    "thumb": "thumbs/asia_marine_tides.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/asia_marine_tides_files/",
+    "tileSourceUrl": "tiles/asia_marine_tides.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/asia_marine_tides_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 3527
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hyd_ca1126c1",
+    "title": "密西西比河流域水系图",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 1000,
+    "height": 916,
+    "aspectRatio": 1.0917,
+    "thumb": "thumbs/hyd_ca1126c1.webp",
+    "tileSourceUrl": "tiles/hyd_ca1126c1.dzi",
+    "author": "Grasshopper Geography",
+    "region": "北美洲 · 密西西比河流域",
+    "scale": "流域全景",
+    "tags": [
+      "流域水系",
+      "Strahler分级",
+      "水文制图"
+    ],
+    "description": "北美密西西比河全流域水系网络专题制图，采用 Strahler 河网分级符号化呈现干流与各级支流的空间脉络与汇水结构。",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_ca1126c1_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_ca1126c1_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1000,
+          "Height": 916
+        }
+      }
+    },
+    "sourceUrl": "https://www.grasshoppergeography.com/"
+  },
+  {
+    "id": "hyd_7933c9ba",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "克罗泽群岛3",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "弧形群岛",
+      "潮间带珊"
+    ],
+    "width": 1350,
+    "height": 1080,
+    "aspectRatio": 1.25,
+    "aspectClass": "wide",
+    "tileSource": "tiles/hyd_7933c9ba.dzi",
+    "thumb": "thumbs/hyd_7933c9ba.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_7933c9ba_files/",
+    "tileSourceUrl": "tiles/hyd_7933c9ba.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_7933c9ba_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1350,
+          "Height": 1080
+        }
+      }
+    },
+    "sourceUrl": "https://x.com/verygoodmaps"
+  },
+  {
+    "id": "hyd_c7af1ace",
+    "category": "curated",
+    "subCategory": "水系与海洋",
+    "title": "喀喇昆仑内陆水系黑底卫星图",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "高亚洲冰",
+      "内陆水系"
+    ],
+    "width": 2500,
+    "height": 1768,
+    "aspectRatio": 1.414,
+    "aspectClass": "wide",
+    "tileSource": "tiles/hyd_c7af1ace.dzi",
+    "thumb": "thumbs/hyd_c7af1ace.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_c7af1ace_files/",
+    "tileSourceUrl": "tiles/hyd_c7af1ace.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_c7af1ace_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 1768
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hyd_509cb01d",
+    "category": "curated",
+    "subCategory": "水系与海洋",
+    "title": "米迪运河长卷地图",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "米迪运河",
+      "世界遗产"
+    ],
+    "width": 2500,
+    "height": 752,
+    "aspectRatio": 3.3245,
+    "aspectClass": "wide",
+    "tileSource": "tiles/hyd_509cb01d.dzi",
+    "thumb": "thumbs/hyd_509cb01d.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_509cb01d_files/",
+    "tileSourceUrl": "tiles/hyd_509cb01d.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_509cb01d_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 752
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hyd_07fb8b8d",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "安达曼-尼科巴群岛地图",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "弧形群岛",
+      "潮间带珊"
+    ],
+    "width": 2279,
+    "height": 3072,
+    "aspectRatio": 0.7419,
+    "aspectClass": "tall",
+    "tileSource": "tiles/hyd_07fb8b8d.dzi",
+    "thumb": "thumbs/hyd_07fb8b8d.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_07fb8b8d_files/",
+    "tileSourceUrl": "tiles/hyd_07fb8b8d.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_07fb8b8d_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2279,
+          "Height": 3072
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hyd_829207a5",
+    "category": "curated",
+    "subCategory": "水系与海洋",
+    "title": "勒拿河流域水系图",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "水系脉络",
+      "海洋要素"
+    ],
+    "width": 1200,
+    "height": 1210,
+    "aspectRatio": 0.9917,
+    "aspectClass": "square",
+    "tileSource": "tiles/hyd_829207a5.dzi",
+    "thumb": "thumbs/hyd_829207a5.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_829207a5_files/",
+    "tileSourceUrl": "tiles/hyd_829207a5.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_829207a5_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1200,
+          "Height": 1210
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hyd_4d3d10f8",
+    "category": "curated",
+    "subCategory": "数据可视化",
+    "title": "亚洲海域潮汐振幅与洋流图（英文版）",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "数据可视",
+      "空间网络"
+    ],
+    "width": 2500,
+    "height": 3527,
+    "aspectRatio": 0.7088,
+    "aspectClass": "tall",
+    "tileSource": "tiles/hyd_4d3d10f8.dzi",
+    "thumb": "thumbs/hyd_4d3d10f8.webp",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_4d3d10f8_files/",
+    "tileSourceUrl": "tiles/hyd_4d3d10f8.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_4d3d10f8_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 3527
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hyd_920df931",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "克罗泽群岛5",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "弧形群岛",
+      "潮间带珊"
+    ],
+    "width": 1350,
+    "height": 1080,
+    "aspectRatio": 1.25,
+    "aspectClass": "wide",
+    "tileSource": "tiles/hyd_920df931.dzi",
+    "thumb": "thumbs/hyd_920df931.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_920df931_files/",
+    "tileSourceUrl": "tiles/hyd_920df931.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_920df931_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1350,
+          "Height": 1080
+        }
+      }
+    },
+    "sourceUrl": "https://x.com/verygoodmaps"
+  },
+  {
+    "id": "hyd_2611d3f1",
+    "category": "curated",
+    "subCategory": "标准地图",
+    "title": "克罗泽群岛6",
+    "description": "",
+    "author": "Perrin Remonte",
+    "year": "2024",
+    "scale": "水文全景",
+    "tags": [
+      "弧形群岛",
+      "潮间带珊"
+    ],
+    "width": 1350,
+    "height": 1080,
+    "aspectRatio": 1.25,
+    "aspectClass": "wide",
+    "tileSource": "tiles/hyd_2611d3f1.dzi",
+    "thumb": "thumbs/hyd_2611d3f1.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_2611d3f1_files/",
+    "tileSourceUrl": "tiles/hyd_2611d3f1.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_2611d3f1_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1350,
+          "Height": 1080
+        }
+      }
+    },
+    "sourceUrl": "https://x.com/verygoodmaps"
+  },
+  {
+    "id": "art_map_6a7d129a",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "复古水彩地理插画",
+    "description": "",
+    "author": "空间插画师",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "水彩手绘",
+      "空间美学"
+    ],
+    "width": 640,
+    "height": 480,
+    "aspectRatio": 1.3333,
+    "aspectClass": "wide",
+    "tileSource": "tiles/art_map_6a7d129a.dzi",
+    "thumb": "thumbs/art_map_6a7d129a.webp",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_map_6a7d129a_files/",
+    "tileSourceUrl": "tiles/art_map_6a7d129a.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_map_6a7d129a_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 640,
+          "Height": 480
+        }
+      }
+    }
+  },
+  {
+    "id": "art_d3fb293e",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "狼形世界地图·MappaAnimalia图例版",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "Mapp",
+      "狼图腾"
+    ],
+    "width": 1600,
+    "height": 1600,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_d3fb293e.dzi",
+    "thumb": "thumbs/art_d3fb293e.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_d3fb293e_files/",
+    "tileSourceUrl": "tiles/art_d3fb293e.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_d3fb293e_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1600,
+          "Height": 1600
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "art_6573d377",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "水獭形世界地图·MappaAnimalia",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "Mapp",
+      "水生动物"
+    ],
+    "width": 1600,
+    "height": 1600,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_6573d377.dzi",
+    "thumb": "thumbs/art_6573d377.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_6573d377_files/",
+    "tileSourceUrl": "tiles/art_6573d377.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_6573d377_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1600,
+          "Height": 1600
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "art_94195058",
+    "category": "curated",
+    "subCategory": "数据可视化",
+    "title": "北美野生动物迁徙密度动态图",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "数据可视",
+      "空间网络"
+    ],
+    "width": 1087,
+    "height": 660,
+    "aspectRatio": 1.647,
+    "aspectClass": "wide",
+    "tileSource": "tiles/art_94195058.dzi",
+    "thumb": "thumbs/art_94195058.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_94195058_files/",
+    "tileSourceUrl": "tiles/art_94195058.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_94195058_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1087,
+          "Height": 660
+        }
+      }
+    },
+    "isAnimated": true,
+    "animatedUrl": "thumbs/art_94195058_full.webp"
+  },
+  {
+    "id": "art_0d68ab78",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "蜂鸟形世界地图·MappaAnimalia",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "Mapp",
+      "蜂鸟羽翼"
+    ],
+    "width": 1600,
+    "height": 1600,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_0d68ab78.dzi",
+    "thumb": "thumbs/art_0d68ab78.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_0d68ab78_files/",
+    "tileSourceUrl": "tiles/art_0d68ab78.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_0d68ab78_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1600,
+          "Height": 1600
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "art_6af505dc",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "动物形态世界地图·MappaAnimalia·PNG版2",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "手绘艺术",
+      "地理插画"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_6af505dc.dzi",
+    "thumb": "thumbs/art_6af505dc.webp",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_6af505dc_files/",
+    "tileSourceUrl": "tiles/art_6af505dc.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_6af505dc_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1024,
+          "Height": 1024
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "art_451d2f80",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "海鹦形世界地图·MappaAnimalia",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "Mapp",
+      "北极海鸟"
+    ],
+    "width": 1600,
+    "height": 1600,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_451d2f80.dzi",
+    "thumb": "thumbs/art_451d2f80.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_451d2f80_files/",
+    "tileSourceUrl": "tiles/art_451d2f80.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_451d2f80_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1600,
+          "Height": 1600
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "art_78f9c360",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "虎形世界地图·MappaAnimalia",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "Mapp",
+      "丛林斑纹"
+    ],
+    "width": 1600,
+    "height": 1600,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_78f9c360.dzi",
+    "thumb": "thumbs/art_78f9c360.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_78f9c360_files/",
+    "tileSourceUrl": "tiles/art_78f9c360.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_78f9c360_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1600,
+          "Height": 1600
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "art_f21703cc",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "鹿科图例细节图·MappaAnimalia",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "Mapp",
+      "鹿角分支"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_f21703cc.dzi",
+    "thumb": "thumbs/art_f21703cc.webp",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_f21703cc_files/",
+    "tileSourceUrl": "tiles/art_f21703cc.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_f21703cc_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1024,
+          "Height": 1024
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "art_3d3cb633",
+    "category": "curated",
+    "subCategory": "艺术与插画",
+    "title": "大象形世界地图·MappaAnimalia",
+    "description": "",
+    "author": "MappaAnimalia",
+    "year": "2023",
+    "scale": "艺术定制",
+    "tags": [
+      "Mapp",
+      "大象轮廓"
+    ],
+    "width": 1600,
+    "height": 1600,
+    "aspectRatio": 1.0,
+    "aspectClass": "square",
+    "tileSource": "tiles/art_3d3cb633.dzi",
+    "thumb": "thumbs/art_3d3cb633.webp",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/art_3d3cb633_files/",
+    "tileSourceUrl": "tiles/art_3d3cb633.dzi",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/art_3d3cb633_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1600,
+          "Height": 1600
+        }
+      }
+    },
+    "sourceUrl": "https://www.antonthomasart.com/"
+  },
+  {
+    "id": "hyd_30edb0ea",
+    "title": "马更些河流域水系图·加拿大",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 1200,
+    "height": 1331,
+    "aspectRatio": 0.9016,
+    "thumb": "thumbs/hyd_30edb0ea.webp",
+    "tileSourceUrl": "tiles/hyd_30edb0ea.dzi",
+    "author": "GIS 水文专题精选",
+    "region": "加拿大 · 马更些河流域",
+    "scale": "流域全景",
+    "tags": [
+      "高纬水系",
+      "流域水文",
+      "加拿大"
+    ],
+    "description": "加拿大最大水系马更些河（Mackenzie River）流域图，展现大奴湖、大熊湖与极地入海三角洲交织的寒区高纬水文网络。",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_30edb0ea_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_30edb0ea_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1200,
+          "Height": 1331
+        }
+      }
+    }
+  },
+  {
+    "id": "hyd_857e7809",
+    "title": "贝加尔湖亚洲分水岭水系图",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 1000,
+    "height": 1687,
+    "aspectRatio": 0.5928,
+    "thumb": "thumbs/hyd_857e7809.webp",
+    "tileSourceUrl": "tiles/hyd_857e7809.dzi",
+    "author": "GIS 水文专题精选",
+    "region": "北亚 · 贝加尔湖流域",
+    "scale": "区域水文",
+    "tags": [
+      "分水岭",
+      "贝加尔湖",
+      "水系网络"
+    ],
+    "description": "聚焦贝加尔湖汇水盆地与北亚大陆分水岭走势，清晰刻画色楞格河、安加拉河及周边叶尼塞河、勒拿河水系的分界关系。",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_857e7809_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_857e7809_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1000,
+          "Height": 1687
+        }
+      }
+    }
+  },
+  {
+    "id": "hyd_f6712ef9",
+    "title": "加州主要河流水系图",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 1200,
+    "height": 1447,
+    "aspectRatio": 0.8293,
+    "thumb": "thumbs/hyd_f6712ef9.webp",
+    "tileSourceUrl": "tiles/hyd_f6712ef9.dzi",
+    "author": "GIS 水文专题精选",
+    "region": "美国 · 加利福尼亚州",
+    "scale": "州域水系",
+    "tags": [
+      "萨克拉门托河",
+      "流域分布",
+      "水文网络"
+    ],
+    "description": "加利福尼亚州主要河流与汇水盆地空间分布图，突出中央谷地萨克拉门托河—圣华金河水系及海岸山脉短小入海河流形态。",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_f6712ef9_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_f6712ef9_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1200,
+          "Height": 1447
+        }
+      }
+    }
+  },
+  {
+    "id": "hyd_42b7b57d",
+    "title": "法国流域分区图",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 1440,
+    "height": 2042,
+    "aspectRatio": 0.7052,
+    "thumb": "thumbs/hyd_42b7b57d.webp",
+    "tileSourceUrl": "tiles/hyd_42b7b57d.dzi",
+    "author": "Perrin Remonte",
+    "region": "欧洲 · 法国",
+    "scale": "国家水系",
+    "tags": [
+      "流域分区",
+      "水系网络",
+      "法文制图"
+    ],
+    "description": "法国本土主要水系与六大流域管理分区专题地图，以色彩区分卢瓦尔河、塞纳河、罗讷河、加龙河及莱茵河等汇水单元。",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_42b7b57d_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_42b7b57d_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1440,
+          "Height": 2042
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "hyd_3e367786",
+    "title": "印度次大陆分水岭与水系图",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 2500,
+    "height": 2465,
+    "aspectRatio": 1.0142,
+    "thumb": "thumbs/hyd_3e367786.webp",
+    "tileSourceUrl": "tiles/hyd_3e367786.dzi",
+    "author": "Perrin Remonte",
+    "region": "南亚 · 印度次大陆",
+    "scale": "次大陆尺度",
+    "tags": [
+      "大陆分水岭",
+      "阿拉伯海",
+      "孟加拉湾"
+    ],
+    "description": "印度次大陆两大海洋汇水方向（阿拉伯海流域与孟加拉湾流域）主分水岭及内流区水系结构专题图。",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_3e367786_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_3e367786_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 2465
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "viz_57b09266",
+    "title": "世界经济重心移动轨迹图·极视图",
+    "subCategory": "数据可视化",
+    "categoryName": "数据可视化",
+    "width": 2500,
+    "height": 2432,
+    "aspectRatio": 1.028,
+    "thumb": "thumbs/viz_57b09266.webp",
+    "tileSourceUrl": "tiles/viz_57b09266.dzi",
+    "author": "Perrin Remonte",
+    "region": "全球 · 北极投影",
+    "scale": "全球宏观",
+    "tags": [
+      "经济重心",
+      "时空轨迹",
+      "极地投影"
+    ],
+    "description": "基于北极方位投影绘制的公元元年以来全球经济重心跨世纪迁移轨迹，直观呈现代际地缘经济格局的空间演化。",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/viz_57b09266_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/viz_57b09266_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 2432
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "viz_80395040",
+    "title": "全球城市化与超大都市群分布图",
+    "subCategory": "数据可视化",
+    "categoryName": "数据可视化",
+    "width": 2310,
+    "height": 1456,
+    "aspectRatio": 1.5865,
+    "thumb": "thumbs/viz_80395040.webp",
+    "tileSourceUrl": "tiles/viz_80395040.dzi",
+    "author": "Perrin Remonte",
+    "region": "全球",
+    "scale": "全球宏观",
+    "tags": [
+      "城市化率",
+      "都市圈",
+      "人口统计"
+    ],
+    "description": "全球各国城市化率分级设色与百万级以上大都市圈空间耦合可视化，揭示全球人口集聚的海岸带与流域偏好。",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/viz_80395040_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/viz_80395040_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2310,
+          "Height": 1456
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "viz_2ede21b4",
+    "title": "欧洲城市与郊区人口结构统计图",
+    "subCategory": "数据可视化",
+    "categoryName": "数据可视化",
+    "width": 2328,
+    "height": 1486,
+    "aspectRatio": 1.5666,
+    "thumb": "thumbs/viz_2ede21b4.webp",
+    "tileSourceUrl": "tiles/viz_2ede21b4.dzi",
+    "author": "Perrin Remonte",
+    "region": "欧洲",
+    "scale": "洲际专题",
+    "tags": [
+      "城市空间",
+      "人口密度",
+      "多维统计"
+    ],
+    "description": "欧洲主要都市区核心城区与外围通勤郊区的人口规模及空间扩张比例对比可视化。",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/viz_2ede21b4_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/viz_2ede21b4_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2328,
+          "Height": 1486
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "viz_a5e4fe20",
+    "title": "印度河三角洲季风洪涝灾害信息图",
+    "subCategory": "数据可视化",
+    "categoryName": "数据可视化",
+    "width": 2500,
+    "height": 3544,
+    "aspectRatio": 0.7054,
+    "thumb": "thumbs/viz_a5e4fe20.webp",
+    "tileSourceUrl": "tiles/viz_a5e4fe20.dzi",
+    "author": "Perrin Remonte",
+    "region": "南亚 · 印度河流域",
+    "scale": "流域专题",
+    "tags": [
+      "季风洪涝",
+      "灾害遥感",
+      "信息设计"
+    ],
+    "description": "结合遥感淹没范围与气象统计数据的印度河中下游及三角洲极端季风洪涝灾害多维信息图表。",
+    "maxLevel": 12,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/viz_a5e4fe20_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/viz_a5e4fe20_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 2500,
+          "Height": 3544
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
+  },
+  {
+    "id": "viz_c5f64239",
+    "title": "海湾城市交通轨迹图",
+    "subCategory": "数据可视化",
+    "categoryName": "数据可视化",
+    "width": 1000,
+    "height": 1500,
+    "aspectRatio": 0.6667,
+    "thumb": "thumbs/viz_c5f64239.webp",
+    "tileSourceUrl": "tiles/viz_c5f64239.dzi",
+    "author": "GIS 数据可视化精选",
+    "region": "都市海湾区",
+    "scale": "都市圈尺度",
+    "tags": [
+      "交通流线",
+      "轨迹热力",
+      "空间OD"
+    ],
+    "description": "基于高密度出行轨迹数据渲染的海湾都市圈跨海通道与地面路网流量发光流线图。",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/viz_c5f64239_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/viz_c5f64239_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1000,
+          "Height": 1500
+        }
+      }
+    }
+  },
+  {
+    "id": "viz_81e97b10",
+    "title": "纽约共享单车骑行轨迹图",
+    "subCategory": "数据可视化",
+    "categoryName": "数据可视化",
+    "width": 1199,
+    "height": 1696,
+    "aspectRatio": 0.707,
+    "thumb": "thumbs/viz_81e97b10.webp",
+    "tileSourceUrl": "tiles/viz_81e97b10.dzi",
+    "author": "GIS 数据可视化精选",
+    "region": "美国 · 纽约",
+    "scale": "城区街道级",
+    "tags": [
+      "骑行轨迹",
+      "慢行交通",
+      "纽约曼哈顿"
+    ],
+    "description": "纽约曼哈顿及周边街区共享单车高频骑行路径叠加可视化，清晰勾勒城市肌理与通勤走廊。",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/viz_81e97b10_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/viz_81e97b10_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1199,
+          "Height": 1696
+        }
+      }
+    }
+  },
+  {
+    "id": "hyd_crozet_01",
+    "title": "克罗泽群岛水系与地形晕渲图",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 1800,
+    "height": 1273,
+    "aspectRatio": 1.414,
+    "thumb": "thumbs/hyd_crozet_01.webp",
+    "tileSourceUrl": "tiles/hyd_crozet_01.dzi",
+    "author": "Verygoodmaps",
+    "region": "南印度洋 · 克罗泽群岛",
+    "scale": "水文全景",
+    "tags": [
+      "火山群岛",
+      "放射状水系",
+      "南印度洋"
+    ],
+    "description": "南印度洋亚南极克罗泽群岛（Îles Crozet）高精度三维地形与放射状入海溪流水系网络渲染图。",
+    "maxLevel": 11,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_crozet_01_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_crozet_01_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1800,
+          "Height": 1273
+        }
+      }
+    },
+    "sourceUrl": "https://x.com/verygoodmaps"
+  },
+  {
+    "id": "hyd_rance_tide",
+    "title": "法国朗斯河河口潮汐水道航海图",
+    "subCategory": "水系与海洋",
+    "categoryName": "水系与海洋",
+    "width": 1000,
+    "height": 996,
+    "aspectRatio": 1.004,
+    "thumb": "thumbs/hyd_rance_tide.webp",
+    "tileSourceUrl": "tiles/hyd_rance_tide.dzi",
+    "author": "Perrin Remonte / Portulan",
+    "region": "法国 · 布列塔尼圣马洛湾",
+    "scale": "河口海图",
+    "tags": [
+      "潮汐河口",
+      "等深线",
+      "航海制图"
+    ],
+    "description": "法国布列塔尼朗斯河（Rance）河口湾高潮差水道、浅滩等深线与航标导航专题海图。",
+    "maxLevel": 10,
+    "tileSize": 256,
+    "overlap": 1,
+    "format": "webp",
+    "tileUrl": "tiles/hyd_rance_tide_files/",
+    "dzi": {
+      "Image": {
+        "xmlns": "http://schemas.microsoft.com/deepzoom/2008",
+        "Url": "tiles/hyd_rance_tide_files/",
+        "Format": "webp",
+        "Overlap": "1",
+        "TileSize": "256",
+        "Size": {
+          "Width": 1000,
+          "Height": 996
+        }
+      }
+    },
+    "sourceUrl": "https://www.perrinremonte.com/portulan"
   }
 ]

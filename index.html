@@ -3,79 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CABINET · 珍奇柜 · 空间制图与测绘藏录</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Yellowtail&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <script src="data/themes.js"></script>
-  <script src="data/manifest.js"></script>
-  <script src="assets/config.js"></script>
-  <script src="assets/theme.js"></script>
-  <script src="assets/i18n.js"></script>
-  <script src="vendor/openseadragon.min.js"></script>
-  <script src="vendor/morph-bundle.js?v=20261002_v1"></script>
+  <title>CABINET · 珍奇柜 - 空间制图与寰宇图志</title>
+  <meta name="description" content="OpenQGIS 空间制图与寰宇图志珍奇展柜，收录高精度遥感影像、权威编制标准地图与地理艺术作品。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2368D391'><rect width='24' height='24' rx='6'/></svg>">
+  <link rel="stylesheet" href="assets/style.css?v=20261030_dz_v9">
 </head>
-<body data-page="gallery">
-  <!-- Top Navigation Header (粘性固定于视口顶部) -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <div class="brand-badge"></div>
-        <div class="brand-text">
-          <h1 class="brand-title" data-i18n="cabinetBrandTitle">CABINET</h1>
+<body data-page="matrix">
+
+  <!-- 视图 1：首页一整页 5 扇大卡片 (全屏免滚动 100vh) -->
+  <main class="matrix-viewport" id="matrixView">
+    <button class="icon-btn theme-toggle-btn matrix-floating-theme" id="btnToggleTheme" title="切换深色 / 浅色模式" aria-label="切换主题">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <div class="matrix-grid" id="matrixGrid">
+      
+      <!-- Card 1: 标准地图 -->
+      <article class="matrix-card" data-sub="standard" tabindex="0">
+        <div class="matrix-card-bg">
+          <img src="thumbs/equal_earth_world.webp" alt="标准地图" class="matrix-bg-img" />
+          <div class="matrix-scrim"></div>
         </div>
+        <div class="matrix-content">
+          <div class="matrix-tag-row">
+            <span class="matrix-pill">权威标准测绘</span>
+            <span class="matrix-count">13 幅馆藏</span>
+          </div>
+          <div class="matrix-main-info">
+            <h2 class="matrix-title">标准地图</h2>
+            <p class="matrix-desc">Equal Earth 世界投影 · 欧洲全境交通网络 · 加拿大与意大利国家测绘</p>
+          </div>
+          <div class="matrix-action-row">
+            <div class="matrix-enter-pill">
+              <span>探索展区 →</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: 地形与地貌 (含 Verygoogmaps 系列) -->
+      <article class="matrix-card" data-sub="terrain" tabindex="0">
+        <div class="matrix-card-bg">
+          <img src="thumbs/hicarxgwmaas7yp_8d90d60e.webp" alt="地形与地貌" class="matrix-bg-img" />
+          <div class="matrix-scrim"></div>
+        </div>
+        <div class="matrix-content">
+          <div class="matrix-tag-row">
+            <span class="matrix-pill">高程渲染 · 遥感</span>
+            <span class="matrix-count">10 幅馆藏</span>
+          </div>
+          <div class="matrix-main-info">
+            <h2 class="matrix-title">地形与地貌</h2>
+            <p class="matrix-desc">Verygoogmaps 遥感地表 · 阿尔卑斯山脊阴影 · 火山口湖 DEM 坡向</p>
+          </div>
+          <div class="matrix-action-row">
+            <div class="matrix-enter-pill">
+              <span>探索展区 →</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: 数据可视化 (全新独立门类) -->
+      <article class="matrix-card" data-sub="dataviz" tabindex="0">
+        <div class="matrix-card-bg">
+          <img src="thumbs/europe_traffic_2024.webp" alt="数据可视化" class="matrix-bg-img" />
+          <div class="matrix-scrim"></div>
+        </div>
+        <div class="matrix-content">
+          <div class="matrix-tag-row">
+            <span class="matrix-pill">空间网络 · 密度流线</span>
+            <span class="matrix-count">10 幅馆藏</span>
+          </div>
+          <div class="matrix-main-info">
+            <h2 class="matrix-title">数据可视化</h2>
+            <p class="matrix-desc">全欧交通骨架 · 全球经济重心轨迹 · 城市化与流线网络</p>
+          </div>
+          <div class="matrix-action-row">
+            <div class="matrix-enter-pill">
+              <span>探索展区 →</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: 水系与海洋 -->
+      <article class="matrix-card" data-sub="hydrology" tabindex="0">
+        <div class="matrix-card-bg">
+          <img src="thumbs/hyd_c7af1ace.webp" alt="水系与海洋" class="matrix-bg-img" />
+          <div class="matrix-scrim"></div>
+        </div>
+        <div class="matrix-content">
+          <div class="matrix-tag-row">
+            <span class="matrix-pill">大洲江河 · 流域脉络</span>
+            <span class="matrix-count">11 幅馆藏</span>
+          </div>
+          <div class="matrix-main-info">
+            <h2 class="matrix-title">水系与海洋</h2>
+            <p class="matrix-desc">密西西比与勒拿河流域 · 贝加尔湖分水岭 · 潮汐水道航海图</p>
+          </div>
+          <div class="matrix-action-row">
+            <div class="matrix-enter-pill">
+              <span>探索展区 →</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5: 艺术与插画 -->
+      <article class="matrix-card" data-sub="art" tabindex="0">
+        <div class="matrix-card-bg">
+          <img src="thumbs/art_d3fb293e.webp" alt="艺术与插画" class="matrix-bg-img" />
+          <div class="matrix-scrim"></div>
+        </div>
+        <div class="matrix-content">
+          <div class="matrix-tag-row">
+            <span class="matrix-pill">空间美学 · 手绘</span>
+            <span class="matrix-count">9 幅馆藏</span>
+          </div>
+          <div class="matrix-main-info">
+            <h2 class="matrix-title">艺术与插画</h2>
+            <p class="matrix-desc">复古水彩肌理插画 · 人文地理叙事 · 地理绘本与空间设计美学</p>
+          </div>
+          <div class="matrix-action-row">
+            <div class="matrix-enter-pill">
+              <span>探索展区 →</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- 视图 2：点击跳转的对应 Sub 分类专属页面 (Sub Gallery View) -->
+  <main class="sub-gallery-viewport" id="galleryView" style="display: none;">
+    <div class="gallery-subbar">
+      <button class="btn-back-matrix" id="btnBackMatrix" title="返回全部展区">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>返回展区大厅</span>
+      </button>
+
+      <div class="gallery-subbar-title">
+        <h2 id="gallerySubTitle">专题展区</h2>
+        <span class="gallery-subbar-count" id="gallerySubCount">0 幅馆藏</span>
       </div>
 
-      <div class="header-meta">
-        <!-- External link to Personal Gallery -->
-        <a href="https://github.com/OpenQGIS/gallery" target="_blank" rel="noopener noreferrer" class="nav-switch-link" title="访问创作者原创个人画廊 (Gallery)" data-i18n-title="navGalleryTitle">
-          <span class="nav-gallery-label-full" data-i18n="navAuthorGallery">创作者个人画廊 (Gallery)</span>
-          <span class="nav-gallery-label-short">Gallery</span>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-        <div class="divider"></div>
-        <button class="icon-btn theme-toggle-btn" id="btnToggleTheme" title="切换暗色 / 浅色模式" aria-label="切换主题" data-i18n-title="navThemeToggle">
+      <div class="gallery-subbar-right">
+        <div class="dim-chips" id="galleryDimChips">
+          <button class="dim-chip active" data-dim="all">全部</button>
+          <button class="dim-chip" data-dim="wide">横幅</button>
+          <button class="dim-chip" data-dim="tall">竖幅</button>
+        </div>
+        <button class="icon-btn theme-toggle-btn" id="btnSubbarToggleTheme" title="切换深色 / 浅色模式" aria-label="切换主题">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <button class="icon-btn lang-toggle-btn" id="btnHeaderLang" title="切换语言 / Switch Language" aria-label="切换语言" data-i18n-title="navLangTitle">
-          <span class="lang-code-text" id="headerLangText">EN</span>
-        </button>
       </div>
     </div>
-  </header>
 
-  <!-- Sticky Floating Filter Toolbar · 类似 MapS 胶囊型悬浮置顶工具栏 -->
-  <nav class="gallery-subbar" id="gallerySubbar" aria-label="分类筛选">
-    <div class="subbar-inner">
-      <div class="filter-group" id="filterGroup">
-        <span class="filter-label" data-i18n="filterTopicLabel">分类专题:</span>
-        <button class="filter-chip active" data-filter="all"><span data-i18n="filterAllLabel">全部</span> (<span id="countAll">8</span>)</button>
-        <!-- Dynamic Subcategory Tags injected by app.js -->
-        <span class="filter-divider"></span>
-        <button class="filter-chip" data-filter="wide" data-i18n="filterWide">横版</button>
-        <button class="filter-chip" data-filter="tall" data-i18n="filterTall">竖版</button>
+    <!-- 对应分类的大卡片瀑布流 -->
+    <div class="gallery-waterfall-container">
+      <div class="waterfall-grid" id="galleryWaterfallGrid">
+        <!-- 由 app.js 在该分类下动态渲染 -->
       </div>
-    </div>
-  </nav>
-
-  <!-- Main Waterfall Gallery Grid -->
-  <main class="gallery-main" id="mainContainer">
-    <div class="masonry-grid" id="galleryGrid">
-      <!-- Dynamically populated by app.js -->
     </div>
   </main>
 
   <!-- Fullscreen Deep Zoom Viewer Modal (原生 OpenSeadragon 视口) -->
-  <div class="viewer-modal" id="viewerModal" aria-hidden="true" role="dialog" aria-label="Deep Zoom 展品阅览">
+  <div class="viewer-modal" id="viewerModal" aria-hidden="true" role="dialog" aria-label="Deep Zoom 展品视口">
     <div class="viewer-backdrop" id="viewerBackdrop"></div>
     <div class="viewer-container">
-      <!-- Top-Left Floating Artwork Title Badge · 地图左上角展品名称浮标 -->
-      <div class="viewer-artwork-badge" id="viewerArtworkBadge">
-        <span class="viewer-artwork-title" id="viewerTitle">作品名称</span>
-      </div>
+      <header class="viewer-header">
+        <div class="viewer-header-left">
+          <button class="icon-btn close-btn" id="btnCloseViewer" title="退出阅览 (Esc)" aria-label="关闭">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          <div class="viewer-title-group">
+            <h2 class="viewer-title" id="viewerTitle">加载中...</h2>
+            <div class="viewer-tags" id="viewerTags"></div>
+          </div>
+        </div>
 
-      <!-- Left & Right Edge Navigation Paddles (左右视口边缘切换) -->
+        <div class="viewer-header-right">
+          <button class="icon-btn" id="btnDownloadArtwork" title="下载高清原图 (D)" aria-label="下载原图">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </button>
+          <button class="icon-btn" id="btnFullscreen" title="全屏视口 (F)" aria-label="全屏">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+          </button>
+          <button class="icon-btn" id="btnToggleDrawer" title="图纸档案信息 (I)" aria-label="图纸档案信息">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="butt" stroke-linejoin="round">
+              <path d="M12 2C17.5228 2 22 6.4771 22 12C22 17.5228 17.5228 22 12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2Z"/>
+              <path d="M12 11L12 17"/>
+              <path d="M13 8C13 8.5523 12.5523 9 12 9C11.4477 9 11 8.5523 11 8C11 7.4477 11.4477 7 12 7C12.5523 7 13 7.4477 13 8Z" fill="currentColor" stroke="none"/>
+            </svg>
+          </button>
+          <button class="icon-btn theme-toggle-btn" id="btnViewerToggleTheme" title="切换深色 / 浅色模式" aria-label="切换主题">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- 左右边缘快捷切换按钮 -->
       <button class="viewer-edge-nav edge-prev" id="btnEdgePrev" title="上一幅 (←)" aria-label="上一幅">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
@@ -84,160 +212,81 @@
       </button>
 
       <div class="viewer-body">
-        <div class="osd-stage" id="osdStage">
-          <!-- OpenSeadragon Canvas injects here -->
-        </div>
+        <div id="openseadragon-view" class="osd-stage"></div>
+        <div class="viewer-loader" id="viewerLoader"><div class="spinner"></div></div>
 
-        <!-- 鹰眼图展开状态容器 (左下角吸附，纯净无常驻冗余文字，全靠悬停弹窗) -->
-        <div class="navigator-wrapper is-collapsed" id="navWrapper">
-          <!-- 鼠标悬停时浮现的提示弹窗 -->
-          <div class="nav-hover-tooltip" id="navHoverTooltip">
-            <div class="nav-tip-title">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-              <span data-i18n="navOverviewTitle">鹰眼图</span>
-              <kbd class="kbd-badge">O</kbd>
-            </div>
-            <div class="nav-tip-divider"></div>
-            <div class="nav-tip-action" data-i18n="navTipDragZoom">
-              按住 <strong>拖拽画框</strong> 缩放 · <strong>单击</strong> 平移
-            </div>
-          </div>
-
-          <div class="navigator-stage" id="navStageContainer">
-            <!-- 悬停右上角轻量关闭按钮 -->
-            <button class="nav-floating-close" id="btnCloseNav" title="收起鹰眼图 (快捷键: O)" aria-label="收起鹰眼图">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <!-- OpenSeadragon 鹰眼挂载点 -->
-            <div id="osdNavigator"></div>
-            <!-- 鼠标画框交互透明蒙层 -->
-            <div class="nav-draw-overlay" id="navDrawOverlay">
-              <!-- 临时虚线反色绘制框 -->
-              <div class="nav-draw-box" id="navDrawBox"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 关闭鹰眼图后的液态玻璃胶囊唤起浮标 -->
-        <div class="nav-launcher-wrapper" id="navLauncher">
-          <div class="launcher-tooltip" id="launcherTooltip">
-            <span data-i18n="navTipKeyOpenPrefix">按</span>
-            <kbd class="kbd-badge">O</kbd>
-            <span data-i18n="navTipKeyOpenSuffix">键再次打开鹰眼图</span>
-          </div>
-          <button class="nav-launcher-btn" id="btnOpenNav" title="点击或按 O 键打开鹰眼图" aria-label="打开鹰眼图">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-            <span data-i18n="navOverviewTitle">鹰眼图</span>
-            <kbd class="kbd-badge">O</kbd>
-          </button>
-        </div>
-
-        <!-- Floating Viewer Toolbar -->
+        <!-- 底部悬浮缩放控制栏 -->
         <div class="viewer-floating-toolbar">
           <div class="tool-zoom-badge" id="toolZoomBadge" title="当前视野相对原始物理像素缩放比">100%</div>
-          <button class="tool-btn tool-btn-text" id="toolActualSize" title="1:1 原始物理像素点对点显示 (快捷键 1)">1:1</button>
+          <button class="tool-btn tool-btn-text" id="toolActualSize" title="1:1 原始物理像素点对点显示">1:1</button>
           <div class="tool-divider"></div>
-          <button class="tool-btn" id="toolReset" aria-label="全图展开全貌" data-i18n-title="toolFitScreen">
-            <span class="tb-icon-layer">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path id="pathResetMorph" d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3M8 8h8v8H8z"/>
-              </svg>
-            </span>
-          </button>
-          <button class="tool-btn" id="toolRotate" aria-label="顺时针旋转" data-i18n-title="actionRotate" data-custom-tip="顺时针旋转 (R)">
-            <span class="tb-icon-layer">
-              <svg id="toolRotateSvg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path id="pathRotateMorph" d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8M21 3v5h-5"/>
-              </svg>
-            </span>
-          </button>
-          <button class="tool-btn" id="toolFullscreen" aria-label="视口全屏" data-i18n-title="actionFullscreen" data-custom-tip="视口全屏 (F)">
-            <span class="tb-icon-layer">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path id="pathFullscreenMorph" d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/>
-              </svg>
-            </span>
-          </button>
-          <div class="tool-divider"></div>
-          <button class="tool-btn info-btn" id="btnToggleInfo" aria-label="作品详情" data-i18n-title="actionToggleInfo">
-            <span class="tb-icon-layer">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path id="pathInfoMorph" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 16v-4M12 8h.01"/>
-              </svg>
-            </span>
-          </button>
-          <button class="tool-btn" id="toolToggleLang" title="切换语言 / Switch Language" aria-label="切换语言">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-          </button>
-          <button class="tool-btn theme-toggle-btn" id="toolToggleTheme" title="切换主题模式" aria-label="切换主题模式">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-          <div class="tool-divider"></div>
-          <button class="tool-btn" id="btnCloseViewer" title="退出阅览 (Esc)">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
+          <button class="tool-btn" id="toolZoomIn" title="放大 (+)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></button>
+          <button class="tool-btn" id="toolZoomOut" title="缩小 (-)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></button>
+          <button class="tool-btn" id="toolReset" title="适应屏幕 (Home)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button>
+          <button class="tool-btn" id="toolRotate" title="顺时针旋转 90°"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg></button>
+          <button class="tool-btn" id="toolDownload" title="下载高清原图 (D)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+          <button class="tool-btn" id="toolFullscreen" title="全屏视界 (F)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
         </div>
-      </div>
 
-      <aside class="viewer-drawer" id="viewerDrawer">
-        <div class="drawer-header">
-          <h3 data-i18n="metaDrawerTitle">展品档案与详情</h3>
-          <button class="drawer-close-btn" id="btnDrawerClose" title="关闭面板" data-i18n-title="actionClose">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
-        </div>
-        <div class="drawer-content">
-          <div class="meta-item">
-            <label data-i18n="metaArtworkTitle">作品名称</label>
-            <div class="value strong" id="metaTitle">-</div>
+        <aside class="viewer-drawer" id="viewerDrawer" aria-hidden="true">
+          <div class="drawer-header">
+            <h3>图籍档案与详情</h3>
+            <button class="drawer-close-btn" id="btnCloseDrawer" title="收起档案" aria-label="收起档案">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
           </div>
-          <div class="meta-item">
-            <label data-i18n="metaCategory">分类归属</label>
-            <div class="value" id="metaCategory">-</div>
-          </div>
-          <div class="meta-item" id="metaAuthorBox">
-            <label data-i18n="metaAuthor">作者 / 出处</label>
-            <div class="value highlight" id="metaAuthor">-</div>
-          </div>
-          <div class="meta-item" id="metaDateBox">
-            <label data-i18n="metaDate">创作日期</label>
-            <div class="value font-mono" id="metaDate">-</div>
-          </div>
-          <div class="meta-item" id="metaColorPaletteBox">
-            <label data-i18n="metaPaletteTitle">主色板 · 提取色系 (点击复制 HEX)</label>
-            <div class="meta-swatches" id="metaColorSwatches">
-              <!-- Dynamically populated by app.js -->
+          <div class="drawer-content">
+            <div class="meta-item">
+              <label>作品名称</label>
+              <div class="value strong" id="metaTitle">-</div>
+            </div>
+            <div class="meta-item">
+              <label>专题归属 · 地理区域</label>
+              <div class="value" id="metaCategory">-</div>
+            </div>
+            <div class="meta-item">
+              <label>制图机构 / 创作者</label>
+              <div class="value highlight" id="metaAuthor">-</div>
+            </div>
+            <div class="meta-item" id="metaSourceUrlBox" style="display: none;">
+              <label>原始来源网址</label>
+              <div class="value">
+                <a id="metaSourceLink" class="meta-source-link" href="#" target="_blank" rel="noopener noreferrer">
+                  <span id="metaSourceLinkText">访问原始网站</span>
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+              </div>
+            </div>
+            <div class="meta-item" id="metaTagsBox">
+              <label>特征标签</label>
+              <div class="waterfall-tags-row" id="metaDrawerTags"></div>
+            </div>
+            <div class="meta-item">
+              <label>比例尺 / 制图尺度</label>
+              <div class="value" id="metaScale">-</div>
+            </div>
+            <div class="meta-item">
+              <label>原始分辨率</label>
+              <div class="value font-mono" id="metaResolution">-</div>
+            </div>
+            <div class="meta-item">
+              <label>构图纵横比</label>
+              <div class="value font-mono" id="metaAspect">-</div>
+            </div>
+            <div class="meta-item">
+              <label>超高清层级</label>
+              <div class="value font-mono" id="metaLevels">-</div>
             </div>
           </div>
-          <div class="meta-item" id="metaDescBox">
-            <label data-i18n="metaNotesTitle">作品说明</label>
-            <div class="value meta-desc-text" id="metaDescription">-</div>
-          </div>
-          <div class="meta-item">
-            <label data-i18n="metaSourceFile">源文件</label>
-            <div class="value font-mono" id="metaFilename">-</div>
-          </div>
-          <div class="meta-item">
-            <label data-i18n="metaResolution">原始分辨率</label>
-            <div class="value font-mono" id="metaResolution">-</div>
-          </div>
-          <div class="meta-item">
-            <label data-i18n="metaRatio">构图纵横比</label>
-            <div class="value" id="metaAspect">-</div>
-          </div>
-          <div class="meta-item">
-            <label data-i18n="metaPyramidLevels">超高清层级</label>
-            <div class="value font-mono" id="metaLevels">-</div>
-          </div>
-        </div>
-      </aside>
+        </aside>
+      </div>
     </div>
   </div>
 
-  <script src="assets/app.js"></script>
+  <script src="assets/config.js?v=20261030_dz_v7"></script>
+  <script src="data/manifest.js?v=20261030_dz_v7"></script>
+  <script src="vendor/openseadragon.min.js?v=20261030_v3"></script>
+  <script src="assets/viewer.js?v=20261030_dz_v7"></script>
+  <script src="assets/app.js?v=20261030_dz_v7"></script>
 </body>
 </html>
