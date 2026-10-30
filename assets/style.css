@@ -3081,3 +3081,248 @@ body[data-page="gallery"] .site-header {
   padding: 0 16px !important;
   box-sizing: border-box !important;
 }
+
+
+/* ==========================================================================
+   Responsive & Mobile Adaptation (平板 <=1100px / 手机 <=768px / 窄屏 <=480px)
+   ========================================================================== */
+
+/* 1. 平板端与小屏笔记本 (<= 1100px)：首屏 5 扇卡片转为 2+2+1 网格并允许纵向滚动 */
+@media (max-width: 1100px) {
+  .matrix-viewport {
+    height: auto !important;
+    min-height: calc(100vh - 56px) !important;
+    overflow-y: auto !important;
+    padding: 18px !important;
+  }
+
+  .matrix-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    height: auto !important;
+  }
+
+  .matrix-card {
+    min-height: 250px !important;
+    padding: 24px 22px !important;
+  }
+
+  .matrix-card:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* 2. 手机端与窄屏 (<= 768px)：三态顶栏 14px 穿透对齐 + 单列卡片流 + 移动端抽屉 */
+@media (max-width: 768px) {
+  /* 顶栏统一 56px 高度与 14px 左右边距，保持手机端按钮穿透对齐 */
+  .site-header .header-inner,
+  .gallery-subbar,
+  .viewer-header {
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    padding: 0 14px !important;
+    gap: 8px !important;
+  }
+
+  /* 首屏顶栏精简：隐藏外链胶囊，紧凑排版品牌名与馆藏数 */
+  .creator-link-pill {
+    display: none !important;
+  }
+
+  .brand {
+    gap: 10px !important;
+    min-width: 0;
+  }
+
+  .brand-title {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.06em !important;
+    white-space: nowrap;
+  }
+
+  .brand-subtitle {
+    font-size: 0.64rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-meta {
+    gap: 8px !important;
+    flex-shrink: 0;
+  }
+
+  .stat-pill {
+    padding: 4px 9px !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap;
+  }
+
+  /* 首屏 5 扇展区卡片改为单列纵向卡片流 */
+  .matrix-viewport {
+    padding: 12px 14px 28px 14px !important;
+  }
+
+  .matrix-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .matrix-card,
+  .matrix-card:last-child {
+    grid-column: span 1 !important;
+    min-height: 196px !important;
+    padding: 20px 18px !important;
+    border-radius: 12px !important;
+  }
+
+  .matrix-content {
+    gap: 10px !important;
+  }
+
+  .matrix-title {
+    font-size: 1.35rem !important;
+  }
+
+  .matrix-desc {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .matrix-enter-pill {
+    font-size: 0.75rem !important;
+    padding: 5px 12px !important;
+  }
+
+  /* 二级瀑布流顶栏与列表适配 */
+  .btn-back-matrix {
+    padding: 0 12px !important;
+    font-size: 0.78rem !important;
+    gap: 4px !important;
+    flex-shrink: 0;
+  }
+
+  .gallery-subbar-title {
+    gap: 6px !important;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .gallery-subbar-title h2 {
+    font-size: 1.05rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .gallery-subbar-count {
+    display: none !important;
+  }
+
+  .gallery-subbar-right {
+    gap: 6px !important;
+    flex-shrink: 0;
+  }
+
+  .dim-chips {
+    padding: 2px !important;
+    gap: 2px !important;
+  }
+
+  .dim-chip {
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
+  }
+
+  .gallery-waterfall-container {
+    padding: 14px 14px 48px 14px !important;
+  }
+
+  .waterfall-card {
+    margin: 0 0 14px 0 !important;
+    border-radius: 10px !important;
+  }
+
+  /* 三级大图检视器手机端适配 */
+  .viewer-title-group {
+    min-width: 0;
+    flex: 1;
+    gap: 6px !important;
+  }
+
+  .viewer-title {
+    font-size: 0.88rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .viewer-controls {
+    gap: 4px !important;
+    flex-shrink: 0;
+  }
+
+  /* 元数据抽屉在手机端转为底部半屏上拉面板（保留顶部画作可视） */
+  .viewer-drawer {
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    max-height: 68vh !important;
+    border-left: none !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    border-radius: 16px 16px 0 0 !important;
+    transform: translateY(100%) !important;
+  }
+
+  .viewer-drawer.open {
+    transform: translateY(0) !important;
+  }
+
+  /* 底部缩放工具栏与左下角鹰眼图防遮挡适配 */
+  .viewer-float-toolbar,
+  .viewer-floating-toolbar {
+    bottom: 14px !important;
+    padding: 4px !important;
+    gap: 2px !important;
+    max-width: calc(100vw - 24px);
+  }
+
+  .tool-btn {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .tool-zoom-badge {
+    font-size: 0.7rem !important;
+    min-width: 40px !important;
+    padding: 3px 6px !important;
+  }
+
+  .navigator {
+    width: 96px !important;
+    height: 68px !important;
+    bottom: 66px !important;
+    left: 12px !important;
+  }
+}
+
+/* 3. 超窄手机屏 (<= 480px) 极致紧凑防挤压 */
+@media (max-width: 480px) {
+  .brand-subtitle {
+    display: none !important;
+  }
+
+  .btn-back-matrix span {
+    display: none !important;
+  }
+
+  .btn-back-matrix::after {
+    content: "返回";
+    font-size: 0.76rem;
+  }
+}
