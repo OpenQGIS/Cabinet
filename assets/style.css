@@ -3019,28 +3019,32 @@ body[data-page="gallery"] {
 
 /* ==========================================================================
    Single-Row Top Bar & Full-Height Matrix Viewport
+   - 首屏 (data-page="matrix"): 显示 .site-header (56px)，展示品牌名与馆藏统计
+   - 二级页 (data-page="gallery"): 隐藏 .site-header，仅保留 .gallery-subbar 单行顶栏 (56px)
    ========================================================================== */
+body[data-page="gallery"] .site-header {
+  display: none !important;
+}
+
+.site-header {
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  box-sizing: border-box !important;
+}
+
+.site-header .header-inner {
+  max-width: none !important;
+  width: 100% !important;
+  height: 56px !important;
+  padding: 0 24px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
 .matrix-viewport {
-  height: 100vh !important;
+  height: calc(100vh - 56px) !important;
   position: relative;
-}
-
-.matrix-floating-theme {
-  position: fixed;
-  top: 16px;
-  right: 20px;
-  z-index: 50;
-  background: rgba(19, 23, 30, 0.72) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  border-radius: 50% !important;
-}
-
-:root[data-theme="light"] .matrix-floating-theme {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(0, 0, 0, 0.12) !important;
-  color: #0f141c !important;
 }
 
 .sub-gallery-viewport {
@@ -3070,15 +3074,6 @@ body[data-page="gallery"] {
   max-height: 56px !important;
   padding: 0 24px !important;
   box-sizing: border-box !important;
-}
-
-.matrix-floating-theme {
-  position: fixed !important;
-  top: 10px !important;
-  right: 24px !important;
-  width: 36px !important;
-  height: 36px !important;
-  z-index: 50 !important;
 }
 
 .btn-back-matrix {

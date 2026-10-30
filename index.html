@@ -6,15 +6,41 @@
   <title>CABINET · 珍奇柜 - 空间制图与寰宇图志</title>
   <meta name="description" content="OpenQGIS 空间制图与寰宇图志珍奇展柜，收录高精度遥感影像、权威编制标准地图与地理艺术作品。">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2368D391'><rect width='24' height='24' rx='6'/></svg>">
-  <link rel="stylesheet" href="assets/style.css?v=20261030_dz_v9">
+  <link rel="stylesheet" href="assets/style.css?v=20261030_dz_v10">
 </head>
 <body data-page="matrix">
 
+  <!-- 首屏专属顶栏（进入二级分类页时自动隐藏，保持二级页单行顶栏） -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <div class="brand" id="brandHomeLink" title="CABINET · 珍奇柜">
+        <span class="brand-badge"></span>
+        <div>
+          <h1 class="brand-title">CABINET · 珍奇柜</h1>
+          <span class="brand-subtitle">空间制图 · 卫星遥感 · 寰宇图志</span>
+        </div>
+      </div>
+
+      <div class="header-meta">
+        <a href="https://github.com/OpenQGIS/gallery" target="_blank" rel="noopener noreferrer" class="stat-pill creator-link-pill" title="前往创作者个人画廊 (GitHub)">
+          <span>创作者个人画廊 (Gallery)</span>
+          <svg class="icon mini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+
+        <div class="stat-pill" title="已收录高分辨率地图与影像">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span><strong id="collectionCount">53</strong> 幅策展馆藏</span>
+        </div>
+
+        <button class="icon-btn theme-toggle-btn" id="btnToggleTheme" title="切换深色 / 浅色模式" aria-label="切换主题">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <!-- 视图 1：首页一整页 5 扇大卡片 (全屏免滚动 100vh) -->
   <main class="matrix-viewport" id="matrixView">
-    <button class="icon-btn theme-toggle-btn matrix-floating-theme" id="btnToggleTheme" title="切换深色 / 浅色模式" aria-label="切换主题">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
     <div class="matrix-grid" id="matrixGrid">
       
       <!-- Card 1: 标准地图 -->
